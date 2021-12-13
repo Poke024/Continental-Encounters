@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Continental Encounters (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Continental Encounters (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
