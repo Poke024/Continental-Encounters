@@ -7,8 +7,35 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:ConnectionId='2' x:Name="myButton"                       >Click Me</Button>
-    </StackPanel>
+    <Grid x:ConnectionId='2' x:Name="GridMain" Background="Black">
+        <Grid.Resources>
+            <DataTemplate x:Key="ZoneListViewTemplate"                        >
+                <TextBlock x:ConnectionId='4'                                   Margin="0,5,0,5"></TextBlock>
+            </DataTemplate>
+        </Grid.Resources>
+        <RelativePanel>
+            <MenuBar x:ConnectionId='5' x:Name="Menu" HorizontalAlignment="Left" VerticalContentAlignment="Top" Height="Auto" Width="{Binding ElementName=GridMain,Path=ActualWidth}" Background="Gray">
+                <MenuBar.Items>
+                    <MenuBarItem Title="File" Foreground="Black"></MenuBarItem>
+                    <MenuBarItem Title="Edit" Foreground="Black"></MenuBarItem>
+                    <MenuBarItem Title="View" Foreground="Black"></MenuBarItem>
+                    <MenuBarItem Title="Help" Foreground="Black"></MenuBarItem>
+                </MenuBar.Items>
+            </MenuBar>
+
+            <Border BorderThickness='2' BorderBrush='White' RelativePanel.Below="Menu">
+                <StackPanel x:ConnectionId='6' x:Name="Zones" Orientation="Vertical" Margin="15, 10, 0, 40" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBlock x:ConnectionId='7' x:Name="ZoneText" Margin="5, 5, 5, 0"  VerticalAlignment="Center">Zones</TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.Below="ZoneText">
+                        <TextBox x:ConnectionId='9' x:Name="ZoneName" VerticalContentAlignment="Center" Height="{Binding ElementName=remZone, Path=ActualHeight}"></TextBox>
+                        <Button x:ConnectionId='10' x:Name="newZone" HorizontalAlignment="Right" Margin="5, 5, 2, 5"                       Width="{Binding ElementName=remZone, Path=ActualWidth}">Add</Button>
+                        <Button x:ConnectionId='11' x:Name="remZone" HorizontalAlignment="Right" Margin="2, 5, 0, 5"                       Width="100">Remove</Button>
+                    </StackPanel>
+                    <ListView x:ConnectionId='8' x:Name="ZoneList" ItemTemplate="{StaticResource ZoneListViewTemplate}" BorderThickness="1" Width="{Binding ElementName=ZoneText,Path=Width}" SelectionMode="Single" Background="Green"/>
+                </StackPanel>
+            </Border>
+
+        </RelativePanel>
+    </Grid>
 </Window>
 
