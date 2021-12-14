@@ -28,9 +28,24 @@ namespace Continental_Encounters
             this.InitializeComponent();
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private void newZone_Click(object sender, RoutedEventArgs e)
         {
-            myButton.Content = "Clicked";
+            if (ZoneName.Text != "")
+            {
+                Zone newZone = new Zone(ZoneName.Text);
+                ZoneList.Items.Add(newZone);
+            }
+            ZoneName.Text = "";
+
+        }
+
+        private void remZone_Click(object sender, RoutedEventArgs e)
+        {
+            if (ZoneList.Items.IndexOf(ZoneList.SelectedItem) < ZoneList.Items.Count && ZoneList.Items.IndexOf(ZoneList.SelectedItem) >= 0)
+            {
+                ZoneList.Items.RemoveAt(ZoneList.Items.IndexOf(ZoneList.SelectedItem));
+            }
+            ZoneList.SelectedItem = null;
         }
     }
 }
