@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="GridMain" Background="Black">
+    <Grid x:Name="GridMain" Background="Black" HorizontalAlignment="Stretch">
         <Grid.Resources>
             <DataTemplate x:Key="ZoneListViewTemplate" x:DataType="local:Zone">
                 <TextBlock Text="{x:Bind _Name}" x:Phase="1" Margin="0,5,0,5"></TextBlock>
@@ -16,22 +16,70 @@
         <RelativePanel>
             <MenuBar x:Name="Menu" HorizontalAlignment="Left" VerticalContentAlignment="Top" Height="Auto" Width="{Binding ElementName=GridMain,Path=ActualWidth}" Background="Gray">
                 <MenuBar.Items>
-                    <MenuBarItem Title="File" Foreground="Black"></MenuBarItem>
-                    <MenuBarItem Title="Edit" Foreground="Black"></MenuBarItem>
-                    <MenuBarItem Title="View" Foreground="Black"></MenuBarItem>
-                    <MenuBarItem Title="Help" Foreground="Black"></MenuBarItem>
+                    <MenuBarItem Title="File"></MenuBarItem>
+                    <MenuBarItem Title="Edit"></MenuBarItem>
+                    <MenuBarItem Title="View"></MenuBarItem>
+                    <MenuBarItem Title="Help"></MenuBarItem>
                 </MenuBar.Items>
             </MenuBar>
 
-            <Border BorderThickness='1' BorderBrush='Gray' RelativePanel.Below="Menu">
-                <StackPanel x:Name="Zones" Orientation="Vertical" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Border x:Name="Zones" BorderThickness='1,1,0.5,1' BorderBrush='Gray' RelativePanel.Below="Menu">
+                <StackPanel Orientation="Vertical" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <TextBlock x:Name="ZoneText" Margin="5, 5, 5, 0"  VerticalAlignment="Center">Zones</TextBlock>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.Below="ZoneText">
-                        <TextBox x:Name="ZoneName" VerticalContentAlignment="Center" Height="{Binding ElementName=remZone, Path=ActualHeight}"></TextBox>
-                        <Button x:Name="newZone" HorizontalAlignment="Right" Margin="5, 5, 2, 5" Click="newZone_Click" Width="{Binding ElementName=remZone, Path=ActualWidth}">Add</Button>
-                        <Button x:Name="remZone" HorizontalAlignment="Right" Margin="2, 5, 0, 5" Click="remZone_Click" Width="100">Remove</Button>
+                        <TextBox x:Name="ZoneName" VerticalContentAlignment="Center" MinWidth="150" Height="{Binding ElementName=remZone, Path=ActualHeight}"></TextBox>
+                        <Button x:Name="AddZone" HorizontalAlignment="Right" Margin="5, 5, 2, 5" Click="AddZone_Click" Width="100">Add</Button>
+                        <Button x:Name="RemZone" HorizontalAlignment="Right" Margin="2, 5, 0, 5" Click="RemZone_Click" Width="100">Remove</Button>
                     </StackPanel>
-                    <ListView x:Name="ZoneList" ItemTemplate="{StaticResource ZoneListViewTemplate}" BorderThickness="1" Width="{Binding ElementName=ZoneText,Path=Width}" SelectionMode="Single" Background="Green"/>
+                    <ListView x:Name="ZoneList" SelectionChanged="Zone_Selected" ItemTemplate="{StaticResource ZoneListViewTemplate}" BorderThickness="1" Width="{Binding ElementName=ZoneText,Path=Width}" SelectionMode="Single" Background="Green"/>
+                </StackPanel>
+            </Border>
+
+            <Border x:Name="Encounters" BorderThickness='0.5,1,0.5,1' BorderBrush='Gray' RelativePanel.Below="Menu"  RelativePanel.RightOf="Zones">
+                <StackPanel Orientation="Vertical" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBlock x:Name="EncText" Margin="5, 5, 5, 0"  VerticalAlignment="Center">Encounters</TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.Below="EncText">
+                        <TextBox x:Name="EncName" VerticalContentAlignment="Center"  MinWidth="150" Height="{Binding ElementName=remEnc, Path=ActualHeight}"></TextBox>
+                        <Button x:Name="AddEnc" HorizontalAlignment="Right" Margin="5, 5, 2, 5" Click="AddEnc_Click" Width="100">Add</Button>
+                        <Button x:Name="RemEnc" HorizontalAlignment="Right" Margin="2, 5, 0, 5" Click="RemEnc_Click" Width="100">Remove</Button>
+                    </StackPanel>
+                    <ListView x:Name="EncList" BorderThickness="1" Width="{Binding ElementName=EncText,Path=Width}" SelectionMode="Single" Background="Green"/>
+                </StackPanel>
+            </Border>
+
+            <Border x:Name="Roamers" BorderThickness='0.5,1,0.5,1' BorderBrush='Gray' RelativePanel.Below="Menu"  RelativePanel.RightOf="Encounters">
+                <StackPanel Orientation="Vertical" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBlock x:Name="RoamText" Margin="5, 5, 5, 0"  VerticalAlignment="Center">Roaming Encounters</TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.Below="RoamText">
+                        <TextBox x:Name="RoamName" VerticalContentAlignment="Center"  MinWidth="150" Height="{Binding ElementName=remRoam, Path=ActualHeight}"></TextBox>
+                        <Button x:Name="AddRoam" HorizontalAlignment="Right" Margin="5, 5, 2, 5" Click="AddRoam_Click" Width="100">Add</Button>
+                        <Button x:Name="RemRoam" HorizontalAlignment="Right" Margin="2, 5, 0, 5" Click="RemRoam_Click" Width="100">Remove</Button>
+                    </StackPanel>
+                    <ListView x:Name="RoamList" BorderThickness="1" Width="{Binding ElementName=RoamText,Path=Width}" SelectionMode="Single" Background="Green"/>
+                </StackPanel>
+            </Border>
+
+            <Border x:Name="EnvFeats" BorderThickness='0.5,1,0.5,1' BorderBrush='Gray' RelativePanel.Below="Menu"  RelativePanel.RightOf="Roamers">
+                <StackPanel Orientation="Vertical" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBlock x:Name="EnvText" Margin="5, 5, 5, 0"  VerticalAlignment="Center">Environment Features</TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.Below="EnvText">
+                        <TextBox x:Name="EnvName" VerticalContentAlignment="Center"  MinWidth="150" Height="{Binding ElementName=remEnv, Path=ActualHeight}"></TextBox>
+                        <Button x:Name="AddEnv" HorizontalAlignment="Right" Margin="5, 5, 2, 5" Click="AddEnv_Click" Width="100">Add</Button>
+                        <Button x:Name="RemEnv" HorizontalAlignment="Right" Margin="2, 5, 0, 5" Click="RemEnv_Click" Width="100">Remove</Button>
+                    </StackPanel>
+                    <ListView x:Name="EnvList" BorderThickness="1" Width="{Binding ElementName=EnvText,Path=Width}" SelectionMode="Single" Background="Green"/>
+                </StackPanel>
+            </Border>
+
+            <Border x:Name="Neighbors" BorderThickness='0.5,1,0.5,1' BorderBrush='Gray' RelativePanel.Below="Menu"  RelativePanel.RightOf="EnvFeats">
+                <StackPanel Orientation="Vertical" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBlock x:Name="NhbrText" Margin="5, 5, 5, 0"  VerticalAlignment="Center">Neighboring Zones</TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.Below="NhbrText">
+                        <TextBox x:Name="NhbrName" VerticalContentAlignment="Center"  MinWidth="150" Height="{Binding ElementName=remNhbr, Path=ActualHeight}"></TextBox>
+                        <Button x:Name="AddNhbr" HorizontalAlignment="Right" Margin="5, 5, 2, 5" Click="AddNhbr_Click" Width="100">Add</Button>
+                        <Button x:Name="RemNhbr" HorizontalAlignment="Right" Margin="2, 5, 0, 5" Click="RemNhbr_Click" Width="100">Remove</Button>
+                    </StackPanel>
+                    <ListView x:Name="NhbrList" ItemTemplate="{StaticResource ZoneListViewTemplate}" BorderThickness="1" Width="{Binding ElementName=NhbrText,Path=Width}" SelectionMode="Single" Background="Green"/>
                 </StackPanel>
             </Border>
 
