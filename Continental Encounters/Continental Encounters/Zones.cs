@@ -82,7 +82,7 @@ namespace Continental_Encounters
             else { return false; }
         }
 
-        public bool EmptyNeigh()
+        public bool EmptyNhbr()
         {
             if (_neighbors.Count == 0) { return true; }
             else { return false; }
@@ -166,54 +166,100 @@ namespace Continental_Encounters
 
 
 
-        public string GenerateEncounter()
+        public string GenerateEncounter(int choice, int envFeats)
         {
             bool encGenerated = false;
+            bool generationPossible = false;
+            int Min = 1;
+            int Max = 11;
 
-            do
+            if (choice == 1)
             {
-                int type = rnd.Next(1, 11);
-                if (type < 7)
-                {
-                    if (!EmptyEnc())
-                    {
-                        int selection = rnd.Next(CountEncounters());
-                        encGenerated = true;
-                        return GetEncounter(selection);
-                    }
-                }
-                else if (type == 7 || type == 8)
-                {
-                    if (!EmptyNeigh())
-                    {
-                        int roamZone = rnd.Next(CountNeighbors());
-                        if (!GetNeighbor(roamZone).EmptyRoam())
-                        {
-                            int selection = rnd.Next(GetNeighbor(roamZone).CountRoamers());
-                            encGenerated = true;
-                            return GetNeighbor(roamZone).GetRoamer(selection);
-                        }
-                    }
-                }
-                else
-                {
-                    if (!EmptyEnc() && !EmptyNeigh())
-                    {
-                        int choiceOne = rnd.Next(CountEncounters());
-                        string enc1 = GetEncounter(choiceOne);
+                Min = 1;
+                Max = 7;
+            }
+            else if (choice == 2)
+            {
+                Min = 7;
+                Max = 9;
+            }
+            else if (choice == 3)
+            {
+                Min = 9;
+                Max = 10;
+            }
+            else if (choice == 4)
+            {
+                Min = 1;
+                Max = 11;
+            }
 
-                        int roamZone = rnd.Next(CountNeighbors());
-                        if (!GetNeighbor(roamZone).EmptyRoam())
-                        {
-                            int choiceTwo = rnd.Next(GetNeighbor(roamZone).CountRoamers());
-                            string enc2 = GetNeighbor(roamZone).GetRoamer(choiceTwo);
-                            encGenerated = true;
-                            return $"{enc1} and {enc2}";
-                        }
+            if(!EmptyEnc())
+            {
+                generationPossible = true;
+            }
+            else
+            {
+                foreach (Zone zone in GetAllNeighbors())
+                {
+                    if (!zone.EmptyRoam())
+                    {
+                        generationPossible = true;
                     }
                 }
-            } while (!encGenerated) ;
-            return String.Empty;
+            }
+
+            if (generationPossible)
+            {
+                do
+                {
+                    int type = rnd.Next(Min, Max);
+                    if (type < 7)
+                    {
+                        if (!EmptyEnc())
+                        {
+                            int selection = rnd.Next(CountEncounters());
+                            encGenerated = true;
+                            return GetEncounter(selection);
+                        }
+                    }
+                    else if (type == 7 || type == 8)
+                    {
+                        if (!EmptyNhbr())
+                        {
+                            int roamZone = rnd.Next(CountNeighbors());
+                            if (!GetNeighbor(roamZone).EmptyRoam())
+                            {
+                                int selection = rnd.Next(GetNeighbor(roamZone).CountRoamers());
+                                encGenerated = true;
+                                return GetNeighbor(roamZone).GetRoamer(selection);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (!EmptyEnc() && !EmptyNhbr())
+                        {
+                            int choiceOne = rnd.Next(CountEncounters());
+                            string enc1 = GetEncounter(choiceOne);
+
+                            int roamZone = rnd.Next(CountNeighbors());
+                            if (!GetNeighbor(roamZone).EmptyRoam())
+                            {
+                                int choiceTwo = rnd.Next(GetNeighbor(roamZone).CountRoamers());
+                                string enc2 = GetNeighbor(roamZone).GetRoamer(choiceTwo);
+                                encGenerated = true;
+                                return $"{enc1} and {enc2}";
+                            }
+                        }
+                    }
+                } while (!encGenerated);
+            }
+            else
+            {
+                return "Unable to generate Encounter";
+            }
+            return "Unable to generate Encounter"; // To erase error message
         }
     }
 }

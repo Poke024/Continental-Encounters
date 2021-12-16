@@ -62,22 +62,10 @@ namespace Continental_Encounters
 
         private void Zone_Selected(object sender, RoutedEventArgs e)
         {
-            if(EncList.Items.Count != 0)
-            {
-                EncList.Items.Clear();
-            }
-            if (RoamList.Items.Count != 0)
-            {
-                RoamList.Items.Clear();
-            }
-            if (EnvList.Items.Count != 0)
-            {
-                EnvList.Items.Clear();
-            }
-            if (NhbrList.Items.Count != 0)
-            {
-                NhbrList.Items.Clear();
-            }
+            if(EncList.Items.Count != 0) { EncList.Items.Clear(); }
+            if (RoamList.Items.Count != 0) { RoamList.Items.Clear(); }
+            if (EnvList.Items.Count != 0) { EnvList.Items.Clear(); }
+            if (NhbrList.Items.Count != 0) { NhbrList.Items.Clear(); }
 
             if (ZoneList.SelectedItem != null)
             {
@@ -87,14 +75,28 @@ namespace Continental_Encounters
                     {
                         EncList.Items.Add(encounter);
                     }
+                }
+
+                if (!((Zone)ZoneList.SelectedItem).EmptyRoam())
+                {
                     foreach (var roamer in ((Zone)ZoneList.SelectedItem).GetAllRoamers())
                     {
                         RoamList.Items.Add(roamer);
                     }
+                }
+
+                if (!((Zone)ZoneList.SelectedItem).EmptyEnv())
+                {
                     foreach (var envFeat in ((Zone)ZoneList.SelectedItem).GetAllEnvFeats())
                     {
                         EnvList.Items.Add(envFeat);
                     }
+                    EnvSlider.Maximum = ((Zone)ZoneList.SelectedItem).CountEnvFeats();
+                }
+                else { EnvSlider.Maximum = 0; }
+
+                if (!((Zone)ZoneList.SelectedItem).EmptyNhbr())
+                {
                     foreach (var neighbor in ((Zone)ZoneList.SelectedItem).GetAllNeighbors())
                     {
                         NhbrList.Items.Add(neighbor);
@@ -191,6 +193,7 @@ namespace Continental_Encounters
                     if (!nhbrAdded)
                     {
                         Zone newZone = new Zone(NhbrName.Text);
+                        ((Zone)ZoneList.SelectedItem).AddNeighbor(newZone);
                         ZoneList.Items.Add(newZone);
                         NhbrList.Items.Add(newZone);
                     }
@@ -207,6 +210,25 @@ namespace Continental_Encounters
                 NhbrList.Items.RemoveAt(NhbrList.Items.IndexOf(NhbrList.SelectedItem));
             }
             EnvList.SelectedItem = null;
+        }
+
+        private void Generate_Click(object sender, RoutedEventArgs e)
+        {
+
+            if(ZoneList.SelectedItem != null)
+            {
+                int choice = 0;
+
+                if (GenType.SelectedItem != null)
+                {
+                    if ((RadioButton)GenType.SelectedItem == LocalRad) { choice = 1; }
+                    else if ((RadioButton)GenType.SelectedItem == RoamRad) { choice = 2; }
+                    else if ((RadioButton)GenType.SelectedItem == CombineRad) { choice = 3; }
+                    else if ((RadioButton)GenType.SelectedItem == AnyRad) { choice = 4; }
+                }
+
+                string encounter = ((Zone)ZoneList.SelectedItem).GenerateEncounter(choice, (int)EnvSlider.Value);
+            }
         }
     }
 }
