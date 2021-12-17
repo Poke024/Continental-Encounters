@@ -224,7 +224,7 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[13];
+            _typeNameTable = new string[17];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -236,10 +236,14 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
             _typeNameTable[8] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase>";
             _typeNameTable[9] = "Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase";
             _typeNameTable[10] = "String";
-            _typeNameTable[11] = "Continental_Encounters.MainWindow";
-            _typeNameTable[12] = "Microsoft.UI.Xaml.Window";
+            _typeNameTable[11] = "Microsoft.UI.Xaml.Controls.RadioButtons";
+            _typeNameTable[12] = "System.Collections.Generic.IList`1<Object>";
+            _typeNameTable[13] = "Microsoft.UI.Xaml.DataTemplate";
+            _typeNameTable[14] = "Int32";
+            _typeNameTable[15] = "Continental_Encounters.MainWindow";
+            _typeNameTable[16] = "Microsoft.UI.Xaml.Window";
 
-            _typeTable = new global::System.Type[13];
+            _typeTable = new global::System.Type[17];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -251,8 +255,12 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
             _typeTable[8] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase>);
             _typeTable[9] = typeof(global::Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase);
             _typeTable[10] = typeof(global::System.String);
-            _typeTable[11] = typeof(global::Continental_Encounters.MainWindow);
-            _typeTable[12] = typeof(global::Microsoft.UI.Xaml.Window);
+            _typeTable[11] = typeof(global::Microsoft.UI.Xaml.Controls.RadioButtons);
+            _typeTable[12] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
+            _typeTable[13] = typeof(global::Microsoft.UI.Xaml.DataTemplate);
+            _typeTable[14] = typeof(global::System.Int32);
+            _typeTable[15] = typeof(global::Continental_Encounters.MainWindow);
+            _typeTable[16] = typeof(global::Microsoft.UI.Xaml.Window);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -290,7 +298,8 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
         private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
         private object Activate_4_MenuBar() { return new global::Microsoft.UI.Xaml.Controls.MenuBar(); }
         private object Activate_7_MenuBarItem() { return new global::Microsoft.UI.Xaml.Controls.MenuBarItem(); }
-        private object Activate_11_MainWindow() { return new global::Continental_Encounters.MainWindow(); }
+        private object Activate_11_RadioButtons() { return new global::Microsoft.UI.Xaml.Controls.RadioButtons(); }
+        private object Activate_15_MainWindow() { return new global::Continental_Encounters.MainWindow(); }
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -308,6 +317,12 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_12_IList(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
+            var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
 
@@ -384,14 +399,44 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
                 xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 11:   //  Continental_Encounters.MainWindow
+            case 11:   //  Microsoft.UI.Xaml.Controls.RadioButtons
+                userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
+                userType.Activator = Activate_11_RadioButtons;
+                userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.RadioButtons.Items");
+                userType.AddMemberName("Items");
+                userType.AddMemberName("Header");
+                userType.AddMemberName("HeaderTemplate");
+                userType.AddMemberName("ItemTemplate");
+                userType.AddMemberName("ItemsSource");
+                userType.AddMemberName("MaxColumns");
+                userType.AddMemberName("SelectedIndex");
+                userType.AddMemberName("SelectedItem");
+                xamlType = userType;
+                break;
+
+            case 12:   //  System.Collections.Generic.IList`1<Object>
+                userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.CollectionAdd = VectorAdd_12_IList;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 13:   //  Microsoft.UI.Xaml.DataTemplate
+                xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 14:   //  Int32
+                xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 15:   //  Continental_Encounters.MainWindow
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
-                userType.Activator = Activate_11_MainWindow;
+                userType.Activator = Activate_15_MainWindow;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  Microsoft.UI.Xaml.Window
+            case 16:   //  Microsoft.UI.Xaml.Window
                 xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -483,6 +528,81 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.MenuBarItem)instance;
             that.Title = (global::System.String)Value;
         }
+        private object get_4_RadioButtons_Items(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            return that.Items;
+        }
+        private object get_5_RadioButtons_Header(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            return that.Header;
+        }
+        private void set_5_RadioButtons_Header(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            that.Header = (global::System.Object)Value;
+        }
+        private object get_6_RadioButtons_HeaderTemplate(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            return that.HeaderTemplate;
+        }
+        private void set_6_RadioButtons_HeaderTemplate(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_7_RadioButtons_ItemTemplate(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            return that.ItemTemplate;
+        }
+        private void set_7_RadioButtons_ItemTemplate(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            that.ItemTemplate = (global::System.Object)Value;
+        }
+        private object get_8_RadioButtons_ItemsSource(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            return that.ItemsSource;
+        }
+        private void set_8_RadioButtons_ItemsSource(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            that.ItemsSource = (global::System.Object)Value;
+        }
+        private object get_9_RadioButtons_MaxColumns(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            return that.MaxColumns;
+        }
+        private void set_9_RadioButtons_MaxColumns(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            that.MaxColumns = (global::System.Int32)Value;
+        }
+        private object get_10_RadioButtons_SelectedIndex(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            return that.SelectedIndex;
+        }
+        private void set_10_RadioButtons_SelectedIndex(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            that.SelectedIndex = (global::System.Int32)Value;
+        }
+        private object get_11_RadioButtons_SelectedItem(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            return that.SelectedItem;
+        }
+        private void set_11_RadioButtons_SelectedItem(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
+            that.SelectedItem = (global::System.Object)Value;
+        }
 
         private global::Microsoft.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -518,6 +638,62 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_3_MenuBarItem_Title;
                 xamlMember.Setter = set_3_MenuBarItem_Title;
+                break;
+            case "Microsoft.UI.Xaml.Controls.RadioButtons.Items":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "Items", "System.Collections.Generic.IList`1<Object>");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_4_RadioButtons_Items;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.UI.Xaml.Controls.RadioButtons.Header":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "Header", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_5_RadioButtons_Header;
+                xamlMember.Setter = set_5_RadioButtons_Header;
+                break;
+            case "Microsoft.UI.Xaml.Controls.RadioButtons.HeaderTemplate":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_6_RadioButtons_HeaderTemplate;
+                xamlMember.Setter = set_6_RadioButtons_HeaderTemplate;
+                break;
+            case "Microsoft.UI.Xaml.Controls.RadioButtons.ItemTemplate":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "ItemTemplate", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_7_RadioButtons_ItemTemplate;
+                xamlMember.Setter = set_7_RadioButtons_ItemTemplate;
+                break;
+            case "Microsoft.UI.Xaml.Controls.RadioButtons.ItemsSource":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "ItemsSource", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_8_RadioButtons_ItemsSource;
+                xamlMember.Setter = set_8_RadioButtons_ItemsSource;
+                break;
+            case "Microsoft.UI.Xaml.Controls.RadioButtons.MaxColumns":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "MaxColumns", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_9_RadioButtons_MaxColumns;
+                xamlMember.Setter = set_9_RadioButtons_MaxColumns;
+                break;
+            case "Microsoft.UI.Xaml.Controls.RadioButtons.SelectedIndex":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "SelectedIndex", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_10_RadioButtons_SelectedIndex;
+                xamlMember.Setter = set_10_RadioButtons_SelectedIndex;
+                break;
+            case "Microsoft.UI.Xaml.Controls.RadioButtons.SelectedItem":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "SelectedItem", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_11_RadioButtons_SelectedItem;
+                xamlMember.Setter = set_11_RadioButtons_SelectedItem;
                 break;
             }
             return xamlMember;

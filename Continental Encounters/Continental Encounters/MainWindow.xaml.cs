@@ -28,7 +28,9 @@ namespace Continental_Encounters
             this.InitializeComponent();
         }
 
-        private void newZone_Click(object sender, RoutedEventArgs e)
+
+
+        private void AddZone_Click(object sender, RoutedEventArgs e)
         {
             if (ZoneName.Text != "")
             {
@@ -39,13 +41,249 @@ namespace Continental_Encounters
 
         }
 
-        private void remZone_Click(object sender, RoutedEventArgs e)
+        private void RemZone_Click(object sender, RoutedEventArgs e)
         {
             if (ZoneList.Items.IndexOf(ZoneList.SelectedItem) < ZoneList.Items.Count && ZoneList.Items.IndexOf(ZoneList.SelectedItem) >= 0)
             {
+                foreach (Zone zone in ZoneList.Items)
+                {
+                    for(int i = 0; i < zone.CountNeighbors(); i++)
+                    {
+                        if (((Zone)ZoneList.SelectedItem) == zone.GetNeighbor(i))
+                        {
+                            zone.RemNeighbor(i);
+                        }
+                    }
+                }
                 ZoneList.Items.RemoveAt(ZoneList.Items.IndexOf(ZoneList.SelectedItem));
             }
             ZoneList.SelectedItem = null;
+        }
+
+        private void Zone_Selected(object sender, RoutedEventArgs e)
+        {
+            if(EncList.Items.Count != 0) { EncList.Items.Clear(); }
+            if (RoamList.Items.Count != 0) { RoamList.Items.Clear(); }
+            if (EnvList.Items.Count != 0) { EnvList.Items.Clear(); }
+            if (NhbrList.Items.Count != 0) { NhbrList.Items.Clear(); }
+
+            if (ZoneList.SelectedItem != null)
+            {
+                if (!((Zone)ZoneList.SelectedItem).EmptyEnc())
+                {
+                    foreach (var encounter in ((Zone)ZoneList.SelectedItem).GetAllEncounters())
+                    {
+                        EncList.Items.Add(encounter);
+                    }
+                }
+
+                if (!((Zone)ZoneList.SelectedItem).EmptyRoam())
+                {
+                    foreach (var roamer in ((Zone)ZoneList.SelectedItem).GetAllRoamers())
+                    {
+                        RoamList.Items.Add(roamer);
+                    }
+                }
+
+                if (!((Zone)ZoneList.SelectedItem).EmptyEnv())
+                {
+                    foreach (var envFeat in ((Zone)ZoneList.SelectedItem).GetAllEnvFeats())
+                    {
+                        EnvList.Items.Add(envFeat);
+                    }
+                    EnvSlider.Maximum = ((Zone)ZoneList.SelectedItem).CountEnvFeats();
+                }
+                else { EnvSlider.Maximum = 0; }
+
+                if (!((Zone)ZoneList.SelectedItem).EmptyNhbr())
+                {
+                    foreach (var neighbor in ((Zone)ZoneList.SelectedItem).GetAllNeighbors())
+                    {
+                        NhbrList.Items.Add(neighbor);
+                    }
+                }
+            }
+        }
+
+
+
+        private void AddEnc_Click(object sender, RoutedEventArgs e)
+        {
+            if (EncName.Text != "" && ZoneList.SelectedItem != null)
+            {
+                ((Zone)ZoneList.SelectedItem).AddEncounter(EncName.Text);
+                EncList.Items.Add(EncName.Text);
+                EncName.Text = "";
+            }
+
+        }
+
+        private void RemEnc_Click(object sender, RoutedEventArgs e)
+        {
+            if (0 <= EncList.Items.IndexOf(EncList.SelectedItem) && EncList.Items.IndexOf(EncList.SelectedItem) < EncList.Items.Count)
+            {
+                ((Zone)ZoneList.SelectedItem).RemRoamer(EncList.Items.IndexOf(EncList.SelectedItem));
+                EncList.Items.RemoveAt(EncList.Items.IndexOf(EncList.SelectedItem));
+            }
+            EncList.SelectedItem = null;
+        }
+
+
+
+        private void AddRoam_Click(object sender, RoutedEventArgs e)
+        {
+            if (RoamName.Text != "" && ZoneList.SelectedItem != null)
+            {
+                ((Zone)ZoneList.SelectedItem).AddRoamer(RoamName.Text);
+                RoamList.Items.Add(RoamName.Text);
+                RoamName.Text = "";
+            }
+        }
+
+        private void RemRoam_Click(object sender, RoutedEventArgs e)
+        {
+            if (0 <= RoamList.Items.IndexOf(RoamList.SelectedItem) && RoamList.Items.IndexOf(RoamList.SelectedItem) < RoamList.Items.Count)
+            {
+                ((Zone)ZoneList.SelectedItem).RemRoamer(RoamList.Items.IndexOf(RoamList.SelectedItem));
+                RoamList.Items.RemoveAt(RoamList.Items.IndexOf(RoamList.SelectedItem));
+            }
+            RoamList.SelectedItem = null;
+        }
+
+
+
+        private void AddEnv_Click(object sender, RoutedEventArgs e)
+        {
+            if (EnvName.Text != "" && ZoneList.SelectedItem != null)
+            {
+                ((Zone)ZoneList.SelectedItem).AddEnvFeat(EnvName.Text);
+                EnvList.Items.Add(EnvName.Text);
+                EnvName.Text = "";
+                EnvSlider.Maximum++;
+            }
+        }
+
+        private void RemEnv_Click(object sender, RoutedEventArgs e)
+        {
+            if (0 <= EnvList.Items.IndexOf(EnvList.SelectedItem) && EnvList.Items.IndexOf(EnvList.SelectedItem) < EnvList.Items.Count)
+            {
+                ((Zone)ZoneList.SelectedItem).RemEnvFeat(EnvList.Items.IndexOf(EnvList.SelectedItem));
+                EnvList.Items.RemoveAt(EnvList.Items.IndexOf(EnvList.SelectedItem));
+            }
+            EnvList.SelectedItem = null;
+        }
+
+
+
+        private void AddNhbr_Click(object sender, RoutedEventArgs e)
+        {
+            if (NhbrName.Text != "" && ZoneList.SelectedItem != null)
+            {
+                Zone newZone = new Zone(NhbrName.Text);
+                if (newZone != ((Zone)ZoneList.SelectedItem) && !((Zone)ZoneList.SelectedItem).GetAllNeighbors().Contains(newZone))
+                {
+                    GeneratedEnc.Text = "I got this far, newZone !=";
+                    if(ZoneList.Items.Any(item => ((Zone)item) == newZone))
+                    {
+                        GeneratedEnc.Text = "I got this far, contains(newZone)";
+                        int index = -1;
+                        for (int i = 0; i < ZoneList.Items.Count; i++)
+                        {
+                            if (newZone == (Zone)ZoneList.Items[i])
+                            {
+                                index = i;
+                                break;
+                            }
+                        }
+                        ((Zone)ZoneList.Items[index]).AddNeighbor(((Zone)ZoneList.SelectedItem));
+                        ((Zone)ZoneList.SelectedItem).AddNeighbor(((Zone)ZoneList.Items[index]));
+                        NhbrList.Items.Add(((Zone)ZoneList.Items[index]));
+                    }
+                    else
+                    {
+                        newZone.AddNeighbor(((Zone)ZoneList.SelectedItem));
+                        ((Zone)ZoneList.SelectedItem).AddNeighbor(newZone);
+                        NhbrList.Items.Add(newZone);
+                        ZoneList.Items.Add(newZone);
+                    }
+                }
+                NhbrName.Text = "";
+            }
+        }
+
+        private async void RemNhbr_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog dialog = new ContentDialog()
+            {
+                Title = "Remove current zone from deletion target's neighbors?",
+                PrimaryButtonText = "Yes",
+                SecondaryButtonText = "No",
+                DefaultButton = ContentDialogButton.Primary
+            };
+            dialog.XamlRoot = m_Window.Content.XamlRoot;
+            ContentDialogResult result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                foreach (Zone zone in ZoneList.Items)
+                {
+                    if (zone == ((Zone)NhbrList.SelectedItem))
+                    {
+                        for (int i = 0; i < zone.CountNeighbors(); i++)
+                        {
+                            if (zone.GetNeighbor(i) == ((Zone)ZoneList.SelectedItem))
+                            {
+                                zone.RemNeighbor(i);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+
+            if (0 <= NhbrList.Items.IndexOf(NhbrList.SelectedItem) && NhbrList.Items.IndexOf(NhbrList.SelectedItem) < NhbrList.Items.Count)
+            {
+                ((Zone)ZoneList.SelectedItem).RemNeighbor(NhbrList.Items.IndexOf(NhbrList.SelectedItem));
+                NhbrList.Items.RemoveAt(NhbrList.Items.IndexOf(NhbrList.SelectedItem));
+            }
+            EnvList.SelectedItem = null;
+        }
+
+        
+
+        private void Generate_Click(object sender, RoutedEventArgs e)
+        {
+
+            if(ZoneList.SelectedItem != null)
+            {
+                int choice = 1;
+                EncFeats.Items.Clear();
+
+                if (GenType.SelectedItem != null)
+                {
+                    if ((RadioButton)GenType.SelectedItem == LocalRad) { choice = 1; }
+                    else if ((RadioButton)GenType.SelectedItem == RoamRad) { choice = 2; }
+                    else if ((RadioButton)GenType.SelectedItem == CombineRad) { choice = 3; }
+                    else if ((RadioButton)GenType.SelectedItem == AnyRad) { choice = 4; }
+                }
+
+                string encounter = ((Zone)ZoneList.SelectedItem).GenerateEncounter(choice);
+                GeneratedEnc.Text = encounter;
+
+                if ((int)EnvSlider.Value > 0)
+                {
+                    List<string> featList = ((Zone)ZoneList.SelectedItem).GenerateFeatures((int)EnvSlider.Value);
+                    foreach (string feat in featList)
+                    {
+                        EncFeats.Items.Add(feat);
+                    }
+                }
+            }
+            else
+            {
+                GeneratedEnc.Text = "Please select a zone before generating.";
+            }
         }
     }
 }
