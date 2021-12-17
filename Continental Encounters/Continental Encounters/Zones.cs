@@ -166,100 +166,99 @@ namespace Continental_Encounters
 
 
 
-        public string GenerateEncounter(int choice, int envFeats)
+        public string GenerateEncounter(int choice)
         {
-            bool encGenerated = false;
-            bool generationPossible = false;
-            int Min = 1;
-            int Max = 11;
-
-            if (choice == 1)
+            var rnd = new Random();
+            bool encounterGenerated = false;
+            do
             {
-                Min = 1;
-                Max = 7;
-            }
-            else if (choice == 2)
-            {
-                Min = 7;
-                Max = 9;
-            }
-            else if (choice == 3)
-            {
-                Min = 9;
-                Max = 10;
-            }
-            else if (choice == 4)
-            {
-                Min = 1;
-                Max = 11;
-            }
-
-            if(!EmptyEnc())
-            {
-                generationPossible = true;
-            }
-            else
-            {
-                foreach (Zone zone in GetAllNeighbors())
+                switch (choice)
                 {
-                    if (!zone.EmptyRoam())
-                    {
-                        generationPossible = true;
-                    }
-                }
-            }
-
-            if (generationPossible)
-            {
-                do
-                {
-                    int type = rnd.Next(Min, Max);
-                    if (type < 7)
-                    {
+                    case 1:
                         if (!EmptyEnc())
                         {
-                            int selection = rnd.Next(CountEncounters());
-                            encGenerated = true;
-                            return GetEncounter(selection);
+                            int encIndex = rnd.Next(CountEncounters());
+                            return GetEncounter(encIndex);
                         }
-                    }
-                    else if (type == 7 || type == 8)
-                    {
+                        else { return "Unable to generate encounter with current selections."; }
+
+                    case 2:
                         if (!EmptyNhbr())
                         {
-                            int roamZone = rnd.Next(CountNeighbors());
-                            if (!GetNeighbor(roamZone).EmptyRoam())
+                            bool encFound = false;
+                            foreach (Zone nhbr in _neighbors)
                             {
-                                int selection = rnd.Next(GetNeighbor(roamZone).CountRoamers());
-                                encGenerated = true;
-                                return GetNeighbor(roamZone).GetRoamer(selection);
+                                if (!nhbr.EmptyRoam())
+                                {
+                                    encFound = true;
+                                    break;
+                                }
                             }
+                            if (encFound)
+                            {
+                                int nhbrIndex = rnd.Next(CountNeighbors());
+                                Zone nhbr = GetNeighbor(nhbrIndex);
+                                int roamIndex = rnd.Next(nhbr.CountRoamers());
+                                return nhbr.GetRoamer(roamIndex);
+                            }
+                            else { return "Unable to generate Encounter with current selections."; }
                         }
-                    }
-                    else
-                    {
+                        else { return "Unable to generate Encounter with current selections."; }
+
+                    case 3:
                         if (!EmptyEnc() && !EmptyNhbr())
                         {
-                            int choiceOne = rnd.Next(CountEncounters());
-                            string enc1 = GetEncounter(choiceOne);
-
-                            int roamZone = rnd.Next(CountNeighbors());
-                            if (!GetNeighbor(roamZone).EmptyRoam())
+                            bool roamFound = false;
+                            foreach (Zone nhbr in _neighbors)
                             {
-                                int choiceTwo = rnd.Next(GetNeighbor(roamZone).CountRoamers());
-                                string enc2 = GetNeighbor(roamZone).GetRoamer(choiceTwo);
-                                encGenerated = true;
-                                return $"{enc1} and {enc2}";
+                                if (!nhbr.EmptyRoam())
+                                {
+                                    roamFound = true;
+                                    break;
+                                }
                             }
+                            if (roamFound)
+                            {
+                                int nhbrIndex = rnd.Next(CountNeighbors());
+                                Zone nhbr = GetNeighbor(nhbrIndex);
+                                int roamIndex = rnd.Next(nhbr.CountRoamers());
+                                int encIndex = rnd.Next(CountEncounters());
+                                return $"{GetEncounter(encIndex)} and {nhbr.GetRoamer(roamIndex)}";
+                            }
+                            else { return "Unable to generate Encounter with current selections."; }
                         }
-                    }
-                } while (!encGenerated);
+                        else { return "Unable to generate Encounter with current selections."; }
+
+                    case 4:
+                        choice = rnd.Next(1, 4);
+                        break;
+
+                    default:
+                        return "Encounter generation error: Choice out of range.";
+                }
+            } while (!encounterGenerated);
+            return "Encounter generation error: No generation occurred.";
+        }
+
+        public List<string> GenerateFeatures(int encFeats)
+        {
+            List<string> generation = new List<string>();
+
+            if (!EmptyEnv())
+            {
+                for (int i = 0; i < encFeats; i++)
+                {
+                    int envIndex = rnd.Next(CountEnvFeats());
+                    string feat = GetEnvFeat(envIndex);
+                    generation.Add(feat);
+                }
+
+                return generation;
             }
             else
             {
-                return "Unable to generate Encounter";
+                throw new Exception();
             }
-            return "Unable to generate Encounter"; // To erase error message
         }
     }
 }
