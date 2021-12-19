@@ -85,19 +85,7 @@
                     <StackPanel Orientation="Horizontal" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" RelativePanel.Below="NhbrText">
                         <TextBox x:ConnectionId='25' x:Name="NhbrName" VerticalContentAlignment="Center"  MinWidth="150" Height="{Binding ElementName=remNhbr, Path=ActualHeight}"/>
                         <Button x:ConnectionId='26' x:Name="AddNhbr" HorizontalAlignment="Right" Margin="5, 5, 2, 5"                       Width="75">Add</Button>
-                        <Button x:ConnectionId='27' x:Name="RemNhbr" HorizontalAlignment="Right" Margin="2, 5, 0, 5"                       Width="75">Remove
-                            <!--<Button.Flyout>
-                                <Flyout>
-                                    <RelativePanel>
-                                        <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Remove current zone from deletion target's neighbors?"/>
-                                        <StackPanel>
-                                            <Button x:Name="NhbrKeep">Yes</Button>
-                                            <Button x:Name="NhbrDel">No</Button>
-                                        </StackPanel>
-                                    </RelativePanel>
-                                </Flyout>
-                            </Button.Flyout>-->
-                        </Button>
+                        <Button x:ConnectionId='27' x:Name="RemNhbr" HorizontalAlignment="Right" Margin="2, 5, 0, 5"                       Width="75">Remove</Button>
                     </StackPanel>
                     <ListView x:ConnectionId='24' x:Name="NhbrList" Margin="0,5,0,0" ItemTemplate="{StaticResource ZoneListViewTemplate}" BorderThickness="1" Width="{Binding ElementName=NhbrText,Path=Width}" SelectionMode="Single" Background="Green"/>
                 </StackPanel>
