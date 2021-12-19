@@ -182,10 +182,8 @@ namespace Continental_Encounters
                 Zone newZone = new Zone(NhbrName.Text);
                 if (newZone != ((Zone)ZoneList.SelectedItem) && !((Zone)ZoneList.SelectedItem).GetAllNeighbors().Contains(newZone))
                 {
-                    GeneratedEnc.Text = "I got this far, newZone !=";
                     if(ZoneList.Items.Any(item => ((Zone)item) == newZone))
                     {
-                        GeneratedEnc.Text = "I got this far, contains(newZone)";
                         int index = -1;
                         for (int i = 0; i < ZoneList.Items.Count; i++)
                         {
@@ -201,9 +199,9 @@ namespace Continental_Encounters
                     }
                     else
                     {
-                        newZone.AddNeighbor(((Zone)ZoneList.SelectedItem));
-                        ((Zone)ZoneList.SelectedItem).AddNeighbor(newZone);
                         NhbrList.Items.Add(newZone);
+                        ((Zone)ZoneList.SelectedItem).AddNeighbor(newZone);
+                        newZone.AddNeighbor(((Zone)ZoneList.SelectedItem));
                         ZoneList.Items.Add(newZone);
                     }
                 }
@@ -213,31 +211,44 @@ namespace Continental_Encounters
 
         private async void RemNhbr_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialog dialog = new ContentDialog()
+            int nhbrIndex = -1;
+            for(int i = 0; i < ZoneList.Items.Count(); i++)
             {
-                Title = "Remove current zone from deletion target's neighbors?",
-                PrimaryButtonText = "Yes",
-                SecondaryButtonText = "No",
-                DefaultButton = ContentDialogButton.Primary
-            };
-            dialog.XamlRoot = m_Window.Content.XamlRoot;
-            ContentDialogResult result = await dialog.ShowAsync();
-
-            if (result == ContentDialogResult.Primary)
-            {
-                foreach (Zone zone in ZoneList.Items)
+                Zone curZone = (Zone)ZoneList.Items[i];
+                if (curZone == ((Zone)NhbrList.SelectedItem))
                 {
-                    if (zone == ((Zone)NhbrList.SelectedItem))
+                    nhbrIndex = i;
+                }
+            }
+
+            if (((Zone)ZoneList.Items[nhbrIndex]).GetAllNeighbors().Contains((Zone)ZoneList.SelectedItem))
+            {
+                ContentDialog dialog = new ContentDialog()
+                {
+                    Title = "Remove current zone from deletion target's neighbors?",
+                    PrimaryButtonText = "Yes",
+                    SecondaryButtonText = "No",
+                    DefaultButton = ContentDialogButton.Primary
+                };
+                dialog.XamlRoot = m_Window.Content.XamlRoot;
+                ContentDialogResult result = await dialog.ShowAsync();
+
+                if (result == ContentDialogResult.Primary)
+                {
+                    foreach (Zone zone in ZoneList.Items)
                     {
-                        for (int i = 0; i < zone.CountNeighbors(); i++)
+                        if (zone == ((Zone)NhbrList.SelectedItem))
                         {
-                            if (zone.GetNeighbor(i) == ((Zone)ZoneList.SelectedItem))
+                            for (int i = 0; i < zone.CountNeighbors(); i++)
                             {
-                                zone.RemNeighbor(i);
-                                break;
+                                if (zone.GetNeighbor(i) == ((Zone)ZoneList.SelectedItem))
+                                {
+                                    zone.RemNeighbor(i);
+                                    break;
+                                }
                             }
+                            break;
                         }
-                        break;
                     }
                 }
             }

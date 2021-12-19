@@ -156,7 +156,7 @@ namespace Continental_Encounters
         public Zone GetNeighbor(int index)
         {
             if (index < _neighbors.Count) { return _neighbors[index]; }
-            else { throw new ArgumentOutOfRangeException("index"); }
+            else { throw new IndexOutOfRangeException(); }
         }
 
         public void RemNeighbor(int index)
