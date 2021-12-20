@@ -17,7 +17,11 @@
             </RelativePanel.Resources>
             <MenuBar x:Name="Menu" Margin="0,0,0,5" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Top" Height="26">
                 <MenuBar.Items>
-                    <MenuBarItem Height="26" Margin="0" VerticalContentAlignment="Top" Title="File"></MenuBarItem>
+                    <MenuBarItem Height="26" Margin="0" VerticalContentAlignment="Top" Title="File">
+                        <MenuFlyoutItem x:Name="OpenContinent" Text="Open Continent" Click="OpenContinent_Click"/>
+                            <MenuFlyoutSeparator/>
+                        <MenuFlyoutItem x:Name="SaveContinent" Text="Save Continent" Click="SaveContinent_Click"/>
+                    </MenuBarItem>
                     <MenuBarItem Height="26" Margin="0" VerticalContentAlignment="Top" Title="Edit"></MenuBarItem>
                     <MenuBarItem Height="26" Margin="0" VerticalContentAlignment="Top" Title="View"></MenuBarItem>
                     <MenuBarItem Height="26" Margin="0" VerticalContentAlignment="Top" Title="Help"></MenuBarItem>

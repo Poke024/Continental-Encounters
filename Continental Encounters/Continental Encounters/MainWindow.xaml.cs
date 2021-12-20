@@ -12,6 +12,9 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage.Pickers;
+using Windows.Storage;
+using WinRT.Interop;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -28,7 +31,134 @@ namespace Continental_Encounters
             this.InitializeComponent();
         }
 
+        private async void OpenContinent_Click(object sender, RoutedEventArgs e)
+        {
+            var hwnd = WindowNative.GetWindowHandle(this);
+            var picker = new FileOpenPicker();
+            picker.ViewMode = PickerViewMode.List;
+            picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            picker.FileTypeFilter.Add(".ctnt");
+            InitializeWithWindow.Initialize(picker, hwnd);
 
+            StorageFile openFile = await picker.PickSingleFileAsync();
+            if (openFile != null)
+            {
+                string[] lines = System.IO.File.ReadAllLines(openFile.Path);
+                int zoneCount = Convert.ToInt32(lines[0].Trim());
+                for (int i = 0; i < zoneCount; i++)
+                {
+                    string zoneName = lines[1 + (5 * i)].Trim();
+                }
+                for (int i = 0; i < zoneCount; i++)
+                {
+                    string[] encLine = lines[2 + (5 * i)].Split(',');
+                    string[] roamLine = lines[3 + (5 * i)].Split(',');
+                    string[] envLine = lines[4 + (5 * i)].Split(',');
+                    string[] nhbrLIne = lines[5 + (5 * i)].Split(',');
+                }
+
+            }
+            else
+            {
+                ContentDialog dialog = new ContentDialog()
+                {
+                    Title = "File could not be opened.",
+                    PrimaryButtonText = "Okay",
+                    DefaultButton = ContentDialogButton.Primary
+                };
+                dialog.XamlRoot = m_Window.Content.XamlRoot;
+                ContentDialogResult result = await dialog.ShowAsync();
+            }
+        }
+
+        private async void SaveContinent_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog dialog = new ContentDialog()
+            {
+                Title = "",
+                PrimaryButtonText = "Okay",
+                DefaultButton = ContentDialogButton.Primary
+            };
+            dialog.XamlRoot = m_Window.Content.XamlRoot;
+
+            var hwnd = WindowNative.GetWindowHandle(this);
+            var savePicker = new FileSavePicker();
+            savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            savePicker.FileTypeChoices.Add("Continent", new List<string>() { ".ctnt" });
+            savePicker.SuggestedFileName = "New Continent";
+            InitializeWithWindow.Initialize(savePicker, hwnd);
+
+            StorageFile saveFile = await savePicker.PickSaveFileAsync();
+            if (saveFile != null)
+            {
+                CachedFileManager.DeferUpdates(saveFile);
+
+                var stream = await saveFile.OpenAsync(FileAccessMode.ReadWrite);
+
+                using (var outputStream = stream.GetOutputStreamAt(0))
+                {
+                    using (var dataWriter = new Windows.Storage.Streams.DataWriter(outputStream))
+                    {
+                        dataWriter.WriteString($"{ZoneList.Items.Count}\n");
+                        foreach (Zone curZone in ZoneList.Items)
+                        {
+                            dataWriter.WriteString($"{curZone._Name}\n");
+
+                            dataWriter.WriteString($"{curZone.CountEncounters()}");
+                            for (int i = 0; i < curZone.CountEncounters(); i++)
+                            {
+                                dataWriter.WriteString($", {curZone.GetEncounter(i)}");
+                            }
+                            dataWriter.WriteString("\n");
+
+                            dataWriter.WriteString($"{curZone.CountRoamers()}");
+                            for (int i = 0; i < curZone.CountRoamers(); i++)
+                            {
+                                dataWriter.WriteString($", {curZone.GetRoamer(i)}");
+                            }
+                            dataWriter.WriteString("\n");
+
+                            dataWriter.WriteString($"{curZone.CountEnvFeats()}");
+                            for (int i = 0; i < curZone.CountEnvFeats(); i++)
+                            {
+                                dataWriter.WriteString($", {curZone.GetEnvFeat(i)}");
+                            }
+                            dataWriter.WriteString("\n");
+
+                            dataWriter.WriteString($"{curZone.CountNeighbors()}");
+                            for (int i = 0; i < curZone.CountNeighbors(); i++)
+                            {
+                                dataWriter.WriteString($", {curZone.GetNeighbor(i)._Name}");
+                            }
+                            dataWriter.WriteString("\n");
+                        }
+                        await dataWriter.StoreAsync();
+                        await outputStream.FlushAsync();
+                    }
+                }
+                stream.Dispose();
+
+                Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(saveFile);
+                if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
+                {
+                    dialog.Title = "File '" + saveFile.Name + "' was saved.";
+                }
+                else if (status == Windows.Storage.Provider.FileUpdateStatus.CompleteAndRenamed)
+                {
+                    dialog.Title = "File '" + saveFile.Name + "' was renamed and saved.";
+                }
+                else
+                {
+                    dialog.Title = "File '" + saveFile.Name + "' couldn't be saved.";
+                }
+            }
+            else
+            {
+                dialog.Title = "Operation cancelled.";
+            }
+
+            ContentDialogResult result = await dialog.ShowAsync();
+        }
 
         private void AddZone_Click(object sender, RoutedEventArgs e)
         {
@@ -122,7 +252,7 @@ namespace Continental_Encounters
         {
             if (0 <= EncList.Items.IndexOf(EncList.SelectedItem) && EncList.Items.IndexOf(EncList.SelectedItem) < EncList.Items.Count)
             {
-                ((Zone)ZoneList.SelectedItem).RemRoamer(EncList.Items.IndexOf(EncList.SelectedItem));
+                ((Zone)ZoneList.SelectedItem).RemEncounter(EncList.Items.IndexOf(EncList.SelectedItem));
                 EncList.Items.RemoveAt(EncList.Items.IndexOf(EncList.SelectedItem));
             }
             EncList.SelectedItem = null;
