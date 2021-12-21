@@ -29,13 +29,13 @@
     <AppXManifest Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-12-20T05:19:40.861</Modified>
+      <Modified>2021-12-20T23:59:15.282</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-12-20T05:19:40.579</Modified>
+      <Modified>2021-12-20T23:53:07.145</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Continental Encounters.runtimeconfig.json">
       <PackagePath>Continental Encounters.runtimeconfig.json</PackagePath>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Continental Encounters.dll">
       <PackagePath>Continental Encounters.dll</PackagePath>
-      <Modified>2021-12-20T05:19:40.332</Modified>
+      <Modified>2021-12-20T23:59:15.039</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\apphost.exe">
       <PackagePath>Continental Encounters.exe</PackagePath>
-      <Modified>2021-12-20T05:19:40.353</Modified>
+      <Modified>2021-12-20T23:59:15.045</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Continental Encounters.deps.json">
       <PackagePath>Continental Encounters.deps.json</PackagePath>
