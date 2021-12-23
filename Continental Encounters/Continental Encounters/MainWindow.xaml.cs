@@ -26,10 +26,7 @@ namespace Continental_Encounters
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            this.InitializeComponent();
-        }
+        public MainWindow() { this.InitializeComponent(); }
 
         private void ClearLists()
         {
@@ -39,9 +36,12 @@ namespace Continental_Encounters
             if (NhbrList.Items.Count != 0) { NhbrList.Items.Clear(); }
         }
 
+
+
         private async void OpenContinent_Click(object sender, RoutedEventArgs e)
         {
             ClearLists();
+            if (ZoneList.Items.Count != 0) { ZoneList.Items.Clear(); }
 
             var hwnd = WindowNative.GetWindowHandle(this);
             var picker = new FileOpenPicker();
@@ -55,21 +55,53 @@ namespace Continental_Encounters
             {
                 string[] lines = System.IO.File.ReadAllLines(openFile.Path);
                 int zoneCount = Convert.ToInt32(lines[0].Trim());
+
+                bool validFile = false;
+                string[] zoneNames = new string[zoneCount];
                 for (int i = 0; i < zoneCount; i++)
                 {
-                    string zoneName = lines[1 + (5 * i)].Trim();
-                    Zone newZone = new Zone(zoneName);
+                    string nextZone = lines[1 + (5 * i)].Trim();
+                    if (zoneNames.Contains(nextZone))
+                    {
+                        validFile = false;
+                        break;
+                    }
+                    else
+                    {
+                        zoneNames[i] = nextZone;
+                    }
                 }
-                for (int i = 0; i < zoneCount; i++)
+                validFile = true;
+                
+                if (validFile)
                 {
-                    Zone newZone = new Zone(lines[1 + (5 * i)].Trim());
-                    string[] encLine = lines[2 + (5 * i)].Split(',');
-                    string[] roamLine = lines[3 + (5 * i)].Split(',');
-                    string[] envLine = lines[4 + (5 * i)].Split(',');
-                    string[] nhbrLIne = lines[5 + (5 * i)].Split(',');
+                    for (int i = 0; i < zoneCount; i++)
+                    {
+                        Zone newZone = new Zone(lines[1 + (5 * i)].Trim());
+                        List<string> encLine = lines[2 + (5 * i)].Trim().Split(", ").ToList();
+                        List<string> roamLine = lines[3 + (5 * i)].Trim().Split(", ").ToList();
+                        List<string> envLine = lines[4 + (5 * i)].Trim().Split(", ").ToList();
+                        List<string> nhbrLine = lines[5 + (5 * i)].Trim().Split(", ").ToList();
+
+                        if (encLine.Count() > 1) { newZone.SetEncounters(encLine.GetRange(1, encLine.Count() - 1)); }
+                        if (roamLine.Count() > 1) { newZone.SetRoamers(roamLine.GetRange(1, roamLine.Count() - 1)); }
+                        if (envLine.Count() > 1) { newZone.SetEnvFeats(envLine.GetRange(1, envLine.Count() - 1)); }
+                        if (nhbrLine.Count() > 1) { newZone.SetNeighbors(nhbrLine.GetRange(1, nhbrLine.Count() - 1)); }
+
+                        ZoneList.Items.Add(newZone);
+                    }
                 }
-
-
+                else
+                {
+                    ContentDialog dialog = new ContentDialog()
+                    {
+                        Title = "Invalid file, duplicate zone names are not allowed.",
+                        PrimaryButtonText = "Okay",
+                        DefaultButton = ContentDialogButton.Primary
+                    };
+                    dialog.XamlRoot = m_Window.Content.XamlRoot;
+                    ContentDialogResult result = await dialog.ShowAsync();
+                }
             }
             else
             {
@@ -118,34 +150,34 @@ namespace Continental_Encounters
                             dataWriter.WriteString($"{curZone._Name}\n");
 
                             dataWriter.WriteString($"{curZone.CountEncounters()}");
-                            for (int i = 0; i < curZone.CountEncounters(); i++)
+                            if (curZone.CountEncounters() > 0)
                             {
-                                dataWriter.WriteString($", {curZone.GetEncounter(i)}");
+                                string combined = string.Join(", ", curZone.GetAllEncounters().ToArray());
+                                dataWriter.WriteString(", " + combined);
                             }
-                            //if (curZone.CountEncounters() > 0)
-                            //{
-                            //    string combined = string.Join(", ", curZone.GetAllEncounters().ToArray());
-                            //}
                             dataWriter.WriteString("\n");
 
                             dataWriter.WriteString($"{curZone.CountRoamers()}");
-                            for (int i = 0; i < curZone.CountRoamers(); i++)
+                            if (curZone.CountRoamers() > 0)
                             {
-                                dataWriter.WriteString($", {curZone.GetRoamer(i)}");
+                                string combined = string.Join(", ", curZone.GetAllRoamers().ToArray());
+                                dataWriter.WriteString(", " + combined);
                             }
                             dataWriter.WriteString("\n");
 
                             dataWriter.WriteString($"{curZone.CountEnvFeats()}");
-                            for (int i = 0; i < curZone.CountEnvFeats(); i++)
+                            if (curZone.CountEnvFeats() > 0)
                             {
-                                dataWriter.WriteString($", {curZone.GetEnvFeat(i)}");
+                                string combined = string.Join(", ", curZone.GetAllEnvFeats().ToArray());
+                                dataWriter.WriteString(", " + combined);
                             }
                             dataWriter.WriteString("\n");
 
                             dataWriter.WriteString($"{curZone.CountNeighbors()}");
-                            for (int i = 0; i < curZone.CountNeighbors(); i++)
+                            if (curZone.CountNeighbors() > 0)
                             {
-                                dataWriter.WriteString($", {curZone.GetNeighbor(i)}");
+                                string combined = string.Join(", ", curZone.GetAllNeighbors().ToArray());
+                                dataWriter.WriteString(", " + combined);
                             }
                             dataWriter.WriteString("\n");
                         }
@@ -156,27 +188,20 @@ namespace Continental_Encounters
                 stream.Dispose();
 
                 Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(saveFile);
-                if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
-                {
-                    dialog.Title = "File '" + saveFile.Name + "' was saved.";
-                }
-                else if (status == Windows.Storage.Provider.FileUpdateStatus.CompleteAndRenamed)
-                {
-                    dialog.Title = "File '" + saveFile.Name + "' was renamed and saved.";
-                }
-                else
-                {
-                    dialog.Title = "File '" + saveFile.Name + "' couldn't be saved.";
-                }
+                if (status == Windows.Storage.Provider.FileUpdateStatus.Complete) { dialog.Title = "File '" + saveFile.Name + "' was saved."; }
+                else if (status == Windows.Storage.Provider.FileUpdateStatus.CompleteAndRenamed) { dialog.Title = "File '" + saveFile.Name + "' was renamed and saved."; }
+                else { dialog.Title = "File '" + saveFile.Name + "' couldn't be saved."; }
             }
-            else
-            {
-                dialog.Title = "Operation cancelled.";
-            }
+            else { dialog.Title = "Operation cancelled."; }
 
             ContentDialogResult result = await dialog.ShowAsync();
         }
 
+
+        private void AddZoneKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter) { AddZone_Click(sender, e); }
+        }
         private void AddZone_Click(object sender, RoutedEventArgs e)
         {
             if (ZoneName.Text != "")
@@ -215,42 +240,37 @@ namespace Continental_Encounters
             {
                 if (!((Zone)ZoneList.SelectedItem).EmptyEnc())
                 {
-                    foreach (var encounter in ((Zone)ZoneList.SelectedItem).GetAllEncounters())
-                    {
-                        EncList.Items.Add(encounter);
-                    }
+                    foreach (var encounter in ((Zone)ZoneList.SelectedItem).GetAllEncounters()) { EncList.Items.Add(encounter); }
                 }
 
                 if (!((Zone)ZoneList.SelectedItem).EmptyRoam())
                 {
-                    foreach (var roamer in ((Zone)ZoneList.SelectedItem).GetAllRoamers())
-                    {
-                        RoamList.Items.Add(roamer);
-                    }
+                    foreach (var roamer in ((Zone)ZoneList.SelectedItem).GetAllRoamers()) { RoamList.Items.Add(roamer); }
                 }
 
                 if (!((Zone)ZoneList.SelectedItem).EmptyEnv())
                 {
-                    foreach (var envFeat in ((Zone)ZoneList.SelectedItem).GetAllEnvFeats())
-                    {
-                        EnvList.Items.Add(envFeat);
-                    }
+                    foreach (var envFeat in ((Zone)ZoneList.SelectedItem).GetAllEnvFeats()) { EnvList.Items.Add(envFeat); }
                     EnvSlider.Maximum = ((Zone)ZoneList.SelectedItem).CountEnvFeats();
                 }
                 else { EnvSlider.Maximum = 0; }
 
                 if (!((Zone)ZoneList.SelectedItem).EmptyNhbr())
                 {
-                    foreach (var neighbor in ((Zone)ZoneList.SelectedItem).GetAllNeighbors())
-                    {
-                        NhbrList.Items.Add(neighbor);
-                    }
+                    foreach (var neighbor in ((Zone)ZoneList.SelectedItem).GetAllNeighbors()) { NhbrList.Items.Add(neighbor); }
                 }
             }
         }
 
 
 
+        private void AddEncKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                AddEnc_Click(sender, e);
+            }
+        }
         private void AddEnc_Click(object sender, RoutedEventArgs e)
         {
             if (EncName.Text != "" && ZoneList.SelectedItem != null)
@@ -274,6 +294,13 @@ namespace Continental_Encounters
 
 
 
+        private void AddRoamKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                AddRoam_Click(sender, e);
+            }
+        }
         private void AddRoam_Click(object sender, RoutedEventArgs e)
         {
             if (RoamName.Text != "" && ZoneList.SelectedItem != null)
@@ -296,6 +323,13 @@ namespace Continental_Encounters
 
 
 
+        private void AddEnvKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                AddEnv_Click(sender, e);
+            }
+        }
         private void AddEnv_Click(object sender, RoutedEventArgs e)
         {
             if (EnvName.Text != "" && ZoneList.SelectedItem != null)
@@ -313,12 +347,20 @@ namespace Continental_Encounters
             {
                 ((Zone)ZoneList.SelectedItem).RemEnvFeat(EnvList.Items.IndexOf(EnvList.SelectedItem));
                 EnvList.Items.RemoveAt(EnvList.Items.IndexOf(EnvList.SelectedItem));
+                EnvSlider.Maximum--;
             }
             EnvList.SelectedItem = null;
         }
 
 
 
+        private void AddNhbrKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                AddNhbr_Click(sender, e);
+            }
+        }
         private void AddNhbr_Click(object sender, RoutedEventArgs e)
         {
             if (NhbrName.Text != "" && ZoneList.SelectedItem != null)
@@ -359,10 +401,7 @@ namespace Continental_Encounters
             for(int i = 0; i < ZoneList.Items.Count(); i++)
             {
                 Zone curZone = (Zone)ZoneList.Items[i];
-                if (curZone == ((Zone)NhbrList.SelectedItem))
-                {
-                    nhbrIndex = i;
-                }
+                if (curZone._Name == (string)NhbrList.SelectedItem) { nhbrIndex = i; }
             }
 
             if (((Zone)ZoneList.Items[nhbrIndex]).GetAllNeighbors().Contains(((Zone)ZoneList.SelectedItem)._Name))
@@ -381,7 +420,7 @@ namespace Continental_Encounters
                 {
                     foreach (Zone zone in ZoneList.Items)
                     {
-                        if (zone == ((Zone)NhbrList.SelectedItem))
+                        if (zone._Name == (string)NhbrList.SelectedItem)
                         {
                             for (int i = 0; i < zone.CountNeighbors(); i++)
                             {
@@ -425,21 +464,36 @@ namespace Continental_Encounters
 
                 var rnd = new Random();
                 bool encGenerated = false;
-                do
+                switch (choice)
                 {
-                    switch (choice)
-                    {
-                        case 1:
-                            GeneratedEnc.Text = ((Zone)ZoneList.SelectedItem).GenerateLocal();
-                            encGenerated = true;
-                            break;
+                    case 1:
+                        if (!((Zone)ZoneList.SelectedItem).EmptyEnc()) { GeneratedEnc.Text = ((Zone)ZoneList.SelectedItem).GenerateLocal(); }
+                        else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; } 
+                        break;
 
-                        case 2:
-                            Zone curZone2 = (Zone)ZoneList.SelectedItem;
-                            if (!curZone2.EmptyNhbr())
+                    case 2:
+                        Zone curZone2 = (Zone)ZoneList.SelectedItem;
+                        if (!curZone2.EmptyNhbr())
+                        {
+                            bool genPossible2 = false;
+                            foreach (Zone curZone in ZoneList.Items)
                             {
-                                int nhbrIndex2 = rnd.Next(curZone2.CountNeighbors());
-                                Zone nhbr2 = new Zone(curZone2.GetNeighbor(nhbrIndex2));
+                                if (curZone2.GetAllNeighbors().Contains(curZone._Name) && !curZone.EmptyRoam())
+                                {
+                                    genPossible2 = true;
+                                    break;
+                                }
+                            }
+                            if (genPossible2)
+                            {
+                                int nhbrIndex2 = -1;
+                                Zone nhbr2 = new Zone();
+                                do
+                                {
+                                    nhbrIndex2 = rnd.Next(ZoneList.Items.Count());
+                                    nhbr2 = (Zone)(ZoneList.Items[nhbrIndex2]);
+                                } while (!curZone2.GetAllNeighbors().Contains(nhbr2._Name) || nhbr2.EmptyRoam());
+
                                 for (int i = 0; i < ZoneList.Items.Count; i++)
                                 {
                                     if (nhbr2 == ((Zone)ZoneList.Items[i]))
@@ -449,21 +503,35 @@ namespace Continental_Encounters
                                     }
                                 }
                                 GeneratedEnc.Text = nhbr2.GenerateRoamer();
-                                encGenerated = true;
                             }
-                            else
-                            {
-                                GeneratedEnc.Text = "Unable to generate encounter with current selections.";
-                                encGenerated = true;
-                            }
-                            break;
+                            else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; }
+                        }
+                        else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; }
+                        break;
 
-                        case 3:
-                            Zone curZone3 = (Zone)ZoneList.SelectedItem;
-                            if (!curZone3.EmptyNhbr() && !curZone3.EmptyEnc())
+                    case 3:
+                        Zone curZone3 = (Zone)ZoneList.SelectedItem;
+                        if (!curZone3.EmptyNhbr() && !curZone3.EmptyEnc())
+                        {
+                            bool genPossible3 = false;
+                            foreach (Zone curZone in ZoneList.Items)
                             {
-                                int nhbrIndex3 = rnd.Next(curZone3.CountNeighbors());
-                                Zone nhbr3 = new Zone(curZone3.GetNeighbor(nhbrIndex3));
+                                if (curZone3.GetAllNeighbors().Contains(curZone._Name) && !curZone.EmptyRoam())
+                                {
+                                    genPossible3 = true;
+                                    break;
+                                }
+                            }
+                            if (genPossible3)
+                            {
+                                int nhbrIndex3 = -1;
+                                Zone nhbr3 = new Zone();
+                                do
+                                {
+                                    nhbrIndex3 = rnd.Next(ZoneList.Items.Count());
+                                    nhbr3 = (Zone)(ZoneList.Items[nhbrIndex3]);
+                                } while (!curZone3.GetAllNeighbors().Contains(nhbr3._Name) || nhbr3.EmptyRoam());
+
                                 for (int i = 0; i < ZoneList.Items.Count; i++)
                                 {
                                     if (nhbr3 == ((Zone)ZoneList.Items[i]))
@@ -475,41 +543,128 @@ namespace Continental_Encounters
                                 string enc1 = curZone3.GenerateLocal();
                                 string enc2 = nhbr3.GenerateRoamer();
                                 GeneratedEnc.Text = $"{enc1} and {enc2}";
-                                encGenerated = true;
                             }
-                            else
-                            {
-                                GeneratedEnc.Text = "Unable to generate encounter with current selections.";
-                                encGenerated = true;
-                            }
-                            break;
+                            else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; }
+                        }
+                        else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; }
+                        break;
 
-                        case 4:
+                    case 4:
+                        while (!encGenerated)
+                        {
                             choice = rnd.Next(1, 4);
-                            break;
-
-                        default:
+                            switch (choice)
                             {
-                                GeneratedEnc.Text = "Unable to generate encounter with current selections.";
-                                encGenerated = true;
+                                case 1:
+                                    if (!((Zone)ZoneList.SelectedItem).EmptyEnc())
+                                    {
+                                        GeneratedEnc.Text = ((Zone)ZoneList.SelectedItem).GenerateLocal();
+                                        encGenerated = true;
+                                    }
+                                    else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; }
+                                    break;
+
+                                case 2:
+                                    Zone curZone42 = (Zone)ZoneList.SelectedItem;
+                                    if (!curZone42.EmptyNhbr())
+                                    {
+                                        bool genPossible42 = false;
+                                        foreach (Zone curZone in ZoneList.Items)
+                                        {
+                                            if (curZone42.GetAllNeighbors().Contains(curZone._Name) && !curZone.EmptyRoam())
+                                            {
+                                                genPossible42 = true;
+                                                break;
+                                            }
+                                        }
+                                        if (genPossible42)
+                                        {
+                                            int nhbrIndex42 = -1;
+                                            Zone nhbr42 = new Zone();
+                                            do
+                                            {
+                                                nhbrIndex42 = rnd.Next(ZoneList.Items.Count());
+                                                nhbr42 = (Zone)(ZoneList.Items[nhbrIndex42]);
+                                            } while (!curZone42.GetAllNeighbors().Contains(nhbr42._Name) || nhbr42.EmptyRoam());
+
+                                            for (int i = 0; i < ZoneList.Items.Count; i++)
+                                            {
+                                                if (nhbr42 == ((Zone)ZoneList.Items[i]))
+                                                {
+                                                    nhbr42 = ((Zone)ZoneList.Items[i]);
+                                                    break;
+                                                }
+                                            }
+                                            GeneratedEnc.Text = nhbr42.GenerateRoamer();
+                                            encGenerated = true;
+                                        }
+                                    }
+                                    break;
+
+                                case 3:
+                                    Zone curZone43 = (Zone)ZoneList.SelectedItem;
+                                    if (!curZone43.EmptyNhbr() && !curZone43.EmptyEnc())
+                                    {
+                                        bool genPossible43 = false;
+                                        foreach (Zone curZone in ZoneList.Items)
+                                        {
+                                            if (curZone43.GetAllNeighbors().Contains(curZone._Name) && !curZone.EmptyRoam())
+                                            {
+                                                genPossible43 = true;
+                                                break;
+                                            }
+                                        }
+                                        if (genPossible43)
+                                        {
+                                            int nhbrIndex43 = -1;
+                                            Zone nhbr43 = new Zone();
+                                            do
+                                            {
+                                                nhbrIndex43 = rnd.Next(ZoneList.Items.Count());
+                                                nhbr43 = (Zone)(ZoneList.Items[nhbrIndex43]);
+                                            } while (!curZone43.GetAllNeighbors().Contains(nhbr43._Name) || nhbr43.EmptyRoam());
+
+                                            for (int i = 0; i < ZoneList.Items.Count; i++)
+                                            {
+                                                if (nhbr43 == ((Zone)ZoneList.Items[i]))
+                                                {
+                                                    nhbr43 = ((Zone)ZoneList.Items[i]);
+                                                    break;
+                                                }
+                                            }
+                                            string enc1 = curZone43.GenerateLocal();
+                                            string enc2 = nhbr43.GenerateRoamer();
+                                            GeneratedEnc.Text = $"{enc1} and {enc2}";
+                                            encGenerated = true;
+                                        }
+                                    }
+                                    break;
+
+                                default:
+                                    {
+                                        GeneratedEnc.Text = "Unable to generate encounter with current selections.";
+                                        encGenerated = true;
+                                    }
+                                    break;
                             }
-                            break;
-                    }
-                } while (!encGenerated);
+                        }
+                        break;
+
+                    default:
+                        {
+                            GeneratedEnc.Text = "Unable to generate encounter with current selections.";
+                            encGenerated = true;
+                        }
+                        break;
+                }
 
                 if ((int)EnvSlider.Value > 0)
                 {
                     List<string> featList = ((Zone)ZoneList.SelectedItem).GenerateFeatures((int)EnvSlider.Value);
-                    foreach (string feat in featList)
-                    {
-                        EncFeats.Items.Add(feat);
-                    }
+                    foreach (string feat in featList) { EncFeats.Items.Add(feat); }
                 }
             }
-            else
-            {
-                GeneratedEnc.Text = "Please select a zone before generating.";
-            }
+            else { GeneratedEnc.Text = "Please select a zone before generating."; }
         }
     }
 }
