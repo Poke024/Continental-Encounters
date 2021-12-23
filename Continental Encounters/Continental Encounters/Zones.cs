@@ -60,7 +60,27 @@ namespace Continental_Encounters
         private List<string> _encounters = new List<string>();   //Encounters for this zone
         private List<string> _roamers = new List<string>();      //Roaming encounters for other zones
         private List<string> _envFeats = new List<string>();     //Environment features for this zone's encounters
-        private List<Zone> _neighbors = new List<Zone>();      //Nearby zones to pull roaming encounters from
+        private List<string> _neighbors = new List<string>();      //Nearby zones to pull roaming encounters from
+
+        public void SetEncounters(List<string> encs)
+        {
+            _encounters = encs;
+        }
+
+        public void SetRoamers(List<string> roams)
+        {
+            _roamers = roams;
+        }
+
+        public void SetEnvFeats(List<string> envs)
+        {
+            _envFeats = envs;
+        }
+
+        public void SetNeighbors(List<string> nhbrs)
+        {
+            _neighbors = nhbrs;
+        }
 
 
 
@@ -147,16 +167,16 @@ namespace Continental_Encounters
 
 
 
-        public void AddNeighbor(Zone nhbr) { _neighbors.Add(nhbr); }
+        public void AddNeighbor(string nhbr) { _neighbors.Add(nhbr); }
 
         public int CountNeighbors() { return _neighbors.Count; }
 
-        public List<Zone> GetAllNeighbors() { return _neighbors; }
+        public List<string> GetAllNeighbors() { return _neighbors; }
 
-        public Zone GetNeighbor(int index)
+        public string GetNeighbor(int index)
         {
             if (index < _neighbors.Count) { return _neighbors[index]; }
-            else { throw new IndexOutOfRangeException(); }
+            else { return String.Empty; }
         }
 
         public void RemNeighbor(int index)
@@ -166,78 +186,26 @@ namespace Continental_Encounters
 
 
 
-        public string GenerateEncounter(int choice)
+        public string GenerateLocal()
         {
             var rnd = new Random();
-            bool encounterGenerated = false;
-            do
+            if (!EmptyEnc())
             {
-                switch (choice)
-                {
-                    case 1:
-                        if (!EmptyEnc())
-                        {
-                            int encIndex = rnd.Next(CountEncounters());
-                            return GetEncounter(encIndex);
-                        }
-                        else { return "Unable to generate encounter with current selections."; }
+                int encIndex = rnd.Next(CountEncounters());
+                return GetEncounter(encIndex);
+            }
+            else { return "Unable to generate encounter with current selections."; }
+        }
 
-                    case 2:
-                        if (!EmptyNhbr())
-                        {
-                            bool encFound = false;
-                            foreach (Zone nhbr in _neighbors)
-                            {
-                                if (!nhbr.EmptyRoam())
-                                {
-                                    encFound = true;
-                                    break;
-                                }
-                            }
-                            if (encFound)
-                            {
-                                int nhbrIndex = rnd.Next(CountNeighbors());
-                                Zone nhbr = GetNeighbor(nhbrIndex);
-                                int roamIndex = rnd.Next(nhbr.CountRoamers());
-                                return nhbr.GetRoamer(roamIndex);
-                            }
-                            else { return "Unable to generate Encounter with current selections."; }
-                        }
-                        else { return "Unable to generate Encounter with current selections."; }
-
-                    case 3:
-                        if (!EmptyEnc() && !EmptyNhbr())
-                        {
-                            bool roamFound = false;
-                            foreach (Zone nhbr in _neighbors)
-                            {
-                                if (!nhbr.EmptyRoam())
-                                {
-                                    roamFound = true;
-                                    break;
-                                }
-                            }
-                            if (roamFound)
-                            {
-                                int nhbrIndex = rnd.Next(CountNeighbors());
-                                Zone nhbr = GetNeighbor(nhbrIndex);
-                                int roamIndex = rnd.Next(nhbr.CountRoamers());
-                                int encIndex = rnd.Next(CountEncounters());
-                                return $"{GetEncounter(encIndex)} and {nhbr.GetRoamer(roamIndex)}";
-                            }
-                            else { return "Unable to generate Encounter with current selections."; }
-                        }
-                        else { return "Unable to generate Encounter with current selections."; }
-
-                    case 4:
-                        choice = rnd.Next(1, 4);
-                        break;
-
-                    default:
-                        return "Encounter generation error: Choice out of range.";
-                }
-            } while (!encounterGenerated);
-            return "Encounter generation error: No generation occurred.";
+        public string GenerateRoamer()
+        {
+            var rnd = new Random();
+            if (!EmptyRoam())
+            {
+                int roamIndex = rnd.Next(CountRoamers());
+                return GetRoamer(roamIndex);
+            }
+            else { return "Unable to generate encounter with current selections."; }
         }
 
         public List<string> GenerateFeatures(int encFeats)
