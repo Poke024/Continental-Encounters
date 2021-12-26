@@ -29,13 +29,13 @@
     <AppXManifest Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-12-23T05:34:04.784</Modified>
+      <Modified>2021-12-26T21:17:42.369</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-12-23T05:34:04.581</Modified>
+      <Modified>2021-12-26T21:17:42.074</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Continental Encounters.runtimeconfig.json">
       <PackagePath>Continental Encounters.runtimeconfig.json</PackagePath>
@@ -43,15 +43,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Continental Encounters.dll">
       <PackagePath>Continental Encounters.dll</PackagePath>
-      <Modified>2021-12-23T05:34:04.486</Modified>
+      <Modified>2021-12-26T21:17:41.811</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\apphost.exe">
       <PackagePath>Continental Encounters.exe</PackagePath>
-      <Modified>2021-12-23T05:34:04.492</Modified>
+      <Modified>2021-12-26T21:17:41.831</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Continental Encounters.deps.json">
       <PackagePath>Continental Encounters.deps.json</PackagePath>
-      <Modified>2021-12-14T22:18:37.218</Modified>
+      <Modified>2021-12-26T20:06:28.415</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\microsoft.netcore.app.runtime.win-x86\6.0.1\runtimes\win-x86\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>

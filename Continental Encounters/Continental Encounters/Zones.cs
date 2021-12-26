@@ -30,8 +30,6 @@ namespace Continental_Encounters
 
 
 
-        public override bool Equals(object obj) => this.Equals(obj as Zone);
-
         public bool Equals(Zone z)
         {
             if (z is null) { return false; }
@@ -40,6 +38,9 @@ namespace Continental_Encounters
             return (this._name == z._name);
         }
 
+
+
+        public override bool Equals(object obj) => this.Equals(obj as Zone);
         public static bool operator ==(Zone lhs, Zone rhs)
         {
             if (lhs is null)
@@ -52,7 +53,6 @@ namespace Continental_Encounters
                 return lhs.Equals(rhs);
             }
         }
-
         public static bool operator !=(Zone lhs, Zone rhs) => !(lhs == rhs);
 
 
@@ -62,20 +62,11 @@ namespace Continental_Encounters
         private List<string> _envFeats = new List<string>();     //Environment features for this zone's encounters
         private List<string> _neighbors = new List<string>();      //Nearby zones to pull roaming encounters from
 
-        public void SetEncounters(List<string> encs)
-        {
-            _encounters = encs;
-        }
+        public void SetEncounters(List<string> encs) { _encounters = encs; }
 
-        public void SetRoamers(List<string> roams)
-        {
-            _roamers = roams;
-        }
+        public void SetRoamers(List<string> roams) { _roamers = roams; }
 
-        public void SetEnvFeats(List<string> envs)
-        {
-            _envFeats = envs;
-        }
+        public void SetEnvFeats(List<string> envs) { _envFeats = envs; }
 
         public void SetNeighbors(List<string> nhbrs)
         {
