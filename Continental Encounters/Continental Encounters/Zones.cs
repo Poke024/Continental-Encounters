@@ -199,24 +199,16 @@ namespace Continental_Encounters
             else { return "Unable to generate encounter with current selections."; }
         }
 
-        public List<string> GenerateFeatures(int encFeats)
+        public string GenerateFeature()
         {
-            List<string> generation = new List<string>();
-
             if (!EmptyEnv())
             {
-                for (int i = 0; i < encFeats; i++)
-                {
-                    int envIndex = rnd.Next(CountEnvFeats());
-                    string feat = GetEnvFeat(envIndex);
-                    generation.Add(feat);
-                }
-
-                return generation;
+                int envIndex = rnd.Next(CountEnvFeats());
+                return GetEnvFeat(envIndex);
             }
             else
             {
-                throw new Exception();
+                return String.Empty;
             }
         }
     }

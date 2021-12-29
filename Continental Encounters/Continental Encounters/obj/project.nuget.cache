@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jaPkojT8HeTsrvV4AcP/eDCST638uh0c84XyYUWiGU/Af7RJ8UALjMAFooPe4rRivC/DvFc9VkSndGO8lVqvaw==",
+  "dgSpecHash": "ePTukpe3FBDfxepEkhntrNan1R3iZPWFWqvlU2hJZhIPp9tyDGcWi8c+ebxJfLAxz1vwMFP8x0Qphs7hkGlOng==",
   "success": true,
   "projectFilePath": "C:\\Users\\adair\\Documents\\GitHub\\Continental-Encounters\\Continental Encounters\\Continental Encounters\\Continental Encounters.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\adair\\.nuget\\packages\\microsoft.toolkit.uwp.ui.controls\\7.1.2\\microsoft.toolkit.uwp.ui.controls.7.1.2.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22000.194\\microsoft.windows.sdk.buildtools.10.0.22000.194.nupkg.sha512",
     "C:\\Users\\adair\\.nuget\\packages\\microsoft.windowsappsdk\\1.0.0\\microsoft.windowsappsdk.1.0.0.nupkg.sha512",
     "C:\\Users\\adair\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.1\\microsoft.netcore.app.runtime.win-x64.6.0.1.nupkg.sha512",

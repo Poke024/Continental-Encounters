@@ -451,7 +451,8 @@ namespace Continental_Encounters
 
             if(ZoneList.SelectedItem != null)
             {
-                int choice = 1;
+                Zone selZone = (Zone)ZoneList.SelectedItem;
+                int choice = 0;
                 EncFeats.Items.Clear();
 
                 if (GenType.SelectedItem != null)
@@ -463,208 +464,137 @@ namespace Continental_Encounters
                 }
 
                 var rnd = new Random();
-                bool encGenerated = false;
-                switch (choice)
+                bool roamerPossible, breakLoop;
+                roamerPossible = breakLoop = false;
+                
+                if (choice > 0)
                 {
-                    case 1:
-                        if (!((Zone)ZoneList.SelectedItem).EmptyEnc()) { GeneratedEnc.Text = ((Zone)ZoneList.SelectedItem).GenerateLocal(); }
-                        else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; } 
-                        break;
-
-                    case 2:
-                        Zone curZone2 = (Zone)ZoneList.SelectedItem;
-                        if (!curZone2.EmptyNhbr())
+                    if (selZone.EmptyNhbr())
+                    {
+                        roamerPossible = false;
+                    }
+                    else
+                    {
+                        foreach (Zone curZone in ZoneList.Items)
                         {
-                            bool genPossible2 = false;
-                            foreach (Zone curZone in ZoneList.Items)
+                            if (selZone.GetAllNeighbors().Contains(curZone._Name) && !curZone.EmptyRoam())
                             {
-                                if (curZone2.GetAllNeighbors().Contains(curZone._Name) && !curZone.EmptyRoam())
-                                {
-                                    genPossible2 = true;
-                                    break;
-                                }
+                                roamerPossible = true;
+                                break;
                             }
-                            if (genPossible2)
+                        }
+                    }
+                }
+
+                do
+                {
+                    switch (choice)
+                    {
+                        case 1:
+                            if (selZone.EmptyEnc())
+                            {
+                                GeneratedEnc.Severity = InfoBarSeverity.Warning;
+                                GeneratedEnc.Message = "Unable to generate encounter with current selections.";
+                                breakLoop = true;
+                            }
+                            else
+                            {
+                                GeneratedEnc.Severity = InfoBarSeverity.Success;
+                                GeneratedEnc.Message = selZone.GenerateLocal();
+                                breakLoop = true;
+                            }
+                            break;
+
+                        case 2:
+                            if (!roamerPossible)
+                            {
+                                GeneratedEnc.Severity = InfoBarSeverity.Warning;
+                                GeneratedEnc.Message = "Unable to generate encounter with current selections.";
+                                breakLoop = true;
+                            }
+                            else
                             {
                                 int nhbrIndex2 = -1;
                                 Zone nhbr2 = new Zone();
                                 do
                                 {
                                     nhbrIndex2 = rnd.Next(ZoneList.Items.Count());
-                                    nhbr2 = (Zone)(ZoneList.Items[nhbrIndex2]);
-                                } while (!curZone2.GetAllNeighbors().Contains(nhbr2._Name) || nhbr2.EmptyRoam());
+                                    nhbr2 = (Zone)ZoneList.Items[nhbrIndex2];
+                                } while (!selZone.GetAllNeighbors().Contains(nhbr2._Name) || nhbr2.EmptyRoam());
 
-                                for (int i = 0; i < ZoneList.Items.Count; i++)
-                                {
-                                    if (nhbr2 == ((Zone)ZoneList.Items[i]))
-                                    {
-                                        nhbr2 = ((Zone)ZoneList.Items[i]);
-                                        break;
-                                    }
-                                }
-                                GeneratedEnc.Text = nhbr2.GenerateRoamer();
+                                GeneratedEnc.Severity = InfoBarSeverity.Success;
+                                GeneratedEnc.Message = nhbr2.GenerateRoamer();
+                                breakLoop = true;
                             }
-                            else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; }
-                        }
-                        else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; }
-                        break;
+                            break;
 
-                    case 3:
-                        Zone curZone3 = (Zone)ZoneList.SelectedItem;
-                        if (!curZone3.EmptyNhbr() && !curZone3.EmptyEnc())
-                        {
-                            bool genPossible3 = false;
-                            foreach (Zone curZone in ZoneList.Items)
+                        case 3:
+                            if (selZone.EmptyEnc() || !roamerPossible)
                             {
-                                if (curZone3.GetAllNeighbors().Contains(curZone._Name) && !curZone.EmptyRoam())
-                                {
-                                    genPossible3 = true;
-                                    break;
-                                }
+                                GeneratedEnc.Severity = InfoBarSeverity.Warning;
+                                GeneratedEnc.Message = "Unable to generate encounter with current selections.";
+                                breakLoop = true;
                             }
-                            if (genPossible3)
+                            else
                             {
                                 int nhbrIndex3 = -1;
                                 Zone nhbr3 = new Zone();
                                 do
                                 {
                                     nhbrIndex3 = rnd.Next(ZoneList.Items.Count());
-                                    nhbr3 = (Zone)(ZoneList.Items[nhbrIndex3]);
-                                } while (!curZone3.GetAllNeighbors().Contains(nhbr3._Name) || nhbr3.EmptyRoam());
+                                    nhbr3 = (Zone)ZoneList.Items[nhbrIndex3];
+                                } while (!selZone.GetAllNeighbors().Contains(nhbr3._Name) || nhbr3.EmptyRoam());
 
-                                for (int i = 0; i < ZoneList.Items.Count; i++)
-                                {
-                                    if (nhbr3 == ((Zone)ZoneList.Items[i]))
-                                    {
-                                        nhbr3 = ((Zone)ZoneList.Items[i]);
-                                        break;
-                                    }
-                                }
-                                string enc1 = curZone3.GenerateLocal();
+                                GeneratedEnc.Severity = InfoBarSeverity.Success;
+                                string enc1 = selZone.GenerateLocal();
                                 string enc2 = nhbr3.GenerateRoamer();
-                                GeneratedEnc.Text = $"{enc1} and {enc2}";
+                                GeneratedEnc.Message = $"{enc1} and {enc2}";
+                                breakLoop = true;
                             }
-                            else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; }
-                        }
-                        else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; }
-                        break;
+                            break;
 
-                    case 4:
-                        while (!encGenerated)
-                        {
-                            choice = rnd.Next(1, 4);
-                            switch (choice)
+                        case 4:
+                            if (selZone.EmptyEnc() && !roamerPossible)
                             {
-                                case 1:
-                                    if (!((Zone)ZoneList.SelectedItem).EmptyEnc())
-                                    {
-                                        GeneratedEnc.Text = ((Zone)ZoneList.SelectedItem).GenerateLocal();
-                                        encGenerated = true;
-                                    }
-                                    else { GeneratedEnc.Text = "Unable to generate encounter with current selections."; }
-                                    break;
-
-                                case 2:
-                                    Zone curZone42 = (Zone)ZoneList.SelectedItem;
-                                    if (!curZone42.EmptyNhbr())
-                                    {
-                                        bool genPossible42 = false;
-                                        foreach (Zone curZone in ZoneList.Items)
-                                        {
-                                            if (curZone42.GetAllNeighbors().Contains(curZone._Name) && !curZone.EmptyRoam())
-                                            {
-                                                genPossible42 = true;
-                                                break;
-                                            }
-                                        }
-                                        if (genPossible42)
-                                        {
-                                            int nhbrIndex42 = -1;
-                                            Zone nhbr42 = new Zone();
-                                            do
-                                            {
-                                                nhbrIndex42 = rnd.Next(ZoneList.Items.Count());
-                                                nhbr42 = (Zone)(ZoneList.Items[nhbrIndex42]);
-                                            } while (!curZone42.GetAllNeighbors().Contains(nhbr42._Name) || nhbr42.EmptyRoam());
-
-                                            for (int i = 0; i < ZoneList.Items.Count; i++)
-                                            {
-                                                if (nhbr42 == ((Zone)ZoneList.Items[i]))
-                                                {
-                                                    nhbr42 = ((Zone)ZoneList.Items[i]);
-                                                    break;
-                                                }
-                                            }
-                                            GeneratedEnc.Text = nhbr42.GenerateRoamer();
-                                            encGenerated = true;
-                                        }
-                                    }
-                                    break;
-
-                                case 3:
-                                    Zone curZone43 = (Zone)ZoneList.SelectedItem;
-                                    if (!curZone43.EmptyNhbr() && !curZone43.EmptyEnc())
-                                    {
-                                        bool genPossible43 = false;
-                                        foreach (Zone curZone in ZoneList.Items)
-                                        {
-                                            if (curZone43.GetAllNeighbors().Contains(curZone._Name) && !curZone.EmptyRoam())
-                                            {
-                                                genPossible43 = true;
-                                                break;
-                                            }
-                                        }
-                                        if (genPossible43)
-                                        {
-                                            int nhbrIndex43 = -1;
-                                            Zone nhbr43 = new Zone();
-                                            do
-                                            {
-                                                nhbrIndex43 = rnd.Next(ZoneList.Items.Count());
-                                                nhbr43 = (Zone)(ZoneList.Items[nhbrIndex43]);
-                                            } while (!curZone43.GetAllNeighbors().Contains(nhbr43._Name) || nhbr43.EmptyRoam());
-
-                                            for (int i = 0; i < ZoneList.Items.Count; i++)
-                                            {
-                                                if (nhbr43 == ((Zone)ZoneList.Items[i]))
-                                                {
-                                                    nhbr43 = ((Zone)ZoneList.Items[i]);
-                                                    break;
-                                                }
-                                            }
-                                            string enc1 = curZone43.GenerateLocal();
-                                            string enc2 = nhbr43.GenerateRoamer();
-                                            GeneratedEnc.Text = $"{enc1} and {enc2}";
-                                            encGenerated = true;
-                                        }
-                                    }
-                                    break;
-
-                                default:
-                                    {
-                                        GeneratedEnc.Text = "Unable to generate encounter with current selections.";
-                                        encGenerated = true;
-                                    }
-                                    break;
+                                GeneratedEnc.Severity = InfoBarSeverity.Warning;
+                                GeneratedEnc.Message = "Unable to generate encounter with current selections.";
+                                breakLoop = true;
                             }
-                        }
-                        break;
+                            else if (selZone.EmptyEnc())
+                            {
+                                choice = 2;
+                            }
+                            else if (!roamerPossible)
+                            {
+                                choice = 1;
+                            }
+                            else
+                            {
+                                choice = rnd.Next(1, 4);
+                            }
+                            break;
 
-                    default:
-                        {
-                            GeneratedEnc.Text = "Unable to generate encounter with current selections.";
-                            encGenerated = true;
-                        }
-                        break;
-                }
+                        default:
+                            GeneratedEnc.Severity = InfoBarSeverity.Error;
+                            GeneratedEnc.Message = "A generation error has occured.";
+                            breakLoop = true;
+                            break;
+                    }
+                } while (!breakLoop);
 
                 if ((int)EnvSlider.Value > 0)
                 {
-                    List<string> featList = ((Zone)ZoneList.SelectedItem).GenerateFeatures((int)EnvSlider.Value);
-                    foreach (string feat in featList) { EncFeats.Items.Add(feat); }
+                    for(int i = 0; i < (int)EnvSlider.Value; i++)
+                    {
+                        EncFeats.Items.Add(((Zone)ZoneList.SelectedItem).GenerateFeature());
+                    }
                 }
             }
-            else { GeneratedEnc.Text = "Please select a zone before generating."; }
+            else
+            {
+                GeneratedEnc.Message = "Please select a zone before generating.";
+                GeneratedEnc.Severity = InfoBarSeverity.Error;
+            }
         }
     }
 }

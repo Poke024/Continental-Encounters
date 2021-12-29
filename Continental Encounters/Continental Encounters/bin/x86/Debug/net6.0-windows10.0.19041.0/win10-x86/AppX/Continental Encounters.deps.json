@@ -9,6 +9,7 @@
     ".NETCoreApp,Version=v6.0/win10-x86": {
       "Continental Encounters/1.0.0": {
         "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI.Controls": "7.1.2",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22000.194",
           "Microsoft.WindowsAppSDK": "1.0.0",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x86": "6.0.1",
@@ -867,6 +868,7 @@
           }
         }
       },
+      "Microsoft.Toolkit.Uwp.UI.Controls/7.1.2": {},
       "Microsoft.Windows.SDK.BuildTools/10.0.22000.194": {},
       "Microsoft.WindowsAppSDK/1.0.0": {
         "dependencies": {
@@ -929,6 +931,13 @@
       "type": "runtimepack",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.Toolkit.Uwp.UI.Controls/7.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lZNwaqa8j0fCf7Pf4UX074YXPrcizxbyyfoTIlOp99dyInDsptyNNovwMK4U0/2TRo38g5df+cgfBzdpKKGTig==",
+      "path": "microsoft.toolkit.uwp.ui.controls/7.1.2",
+      "hashPath": "microsoft.toolkit.uwp.ui.controls.7.1.2.nupkg.sha512"
     },
     "Microsoft.Windows.SDK.BuildTools/10.0.22000.194": {
       "type": "package",

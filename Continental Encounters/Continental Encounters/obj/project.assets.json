@@ -2,6 +2,9 @@
   "version": 3,
   "targets": {
     "net6.0-windows10.0.19041": {
+      "Microsoft.Toolkit.Uwp.UI.Controls/7.1.2": {
+        "type": "package"
+      },
       "Microsoft.Windows.SDK.BuildTools/10.0.22000.194": {
         "type": "package",
         "build": {
@@ -55,6 +58,9 @@
       }
     },
     "net6.0-windows10.0.19041/win10-arm64": {
+      "Microsoft.Toolkit.Uwp.UI.Controls/7.1.2": {
+        "type": "package"
+      },
       "Microsoft.Windows.SDK.BuildTools/10.0.22000.194": {
         "type": "package",
         "build": {
@@ -97,6 +103,9 @@
       }
     },
     "net6.0-windows10.0.19041/win10-x64": {
+      "Microsoft.Toolkit.Uwp.UI.Controls/7.1.2": {
+        "type": "package"
+      },
       "Microsoft.Windows.SDK.BuildTools/10.0.22000.194": {
         "type": "package",
         "build": {
@@ -139,6 +148,9 @@
       }
     },
     "net6.0-windows10.0.19041/win10-x86": {
+      "Microsoft.Toolkit.Uwp.UI.Controls/7.1.2": {
+        "type": "package"
+      },
       "Microsoft.Windows.SDK.BuildTools/10.0.22000.194": {
         "type": "package",
         "build": {
@@ -182,6 +194,21 @@
     }
   },
   "libraries": {
+    "Microsoft.Toolkit.Uwp.UI.Controls/7.1.2": {
+      "sha512": "lZNwaqa8j0fCf7Pf4UX074YXPrcizxbyyfoTIlOp99dyInDsptyNNovwMK4U0/2TRo38g5df+cgfBzdpKKGTig==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp.ui.controls/7.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ReadMe.txt",
+        "ThirdPartyNotices.txt",
+        "microsoft.toolkit.uwp.ui.controls.7.1.2.nupkg.sha512",
+        "microsoft.toolkit.uwp.ui.controls.nuspec"
+      ]
+    },
     "Microsoft.Windows.SDK.BuildTools/10.0.22000.194": {
       "sha512": "4L0P3zqut466SIqT3VBeLTNUQTxCBDOrTRymRuROCRJKazcK7ibLz9yAO1nKWRt50ttCj39oAa2Iuz9ZTDmLlg==",
       "type": "package",
@@ -680,6 +707,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows10.0.19041": [
+      "Microsoft.Toolkit.Uwp.UI.Controls >= 7.1.2",
       "Microsoft.Windows.SDK.BuildTools >= 10.0.22000.194",
       "Microsoft.WindowsAppSDK >= 1.0.0"
     ]
@@ -728,6 +756,10 @@
       "net6.0-windows10.0.19041": {
         "targetAlias": "net6.0-windows10.0.19041.0",
         "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI.Controls": {
+            "target": "Package",
+            "version": "[7.1.2, )"
+          },
           "Microsoft.Windows.SDK.BuildTools": {
             "target": "Package",
             "version": "[10.0.22000.194, )"
