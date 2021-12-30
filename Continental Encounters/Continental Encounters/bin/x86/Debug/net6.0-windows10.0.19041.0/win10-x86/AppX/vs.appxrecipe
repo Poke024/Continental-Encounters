@@ -29,29 +29,29 @@
     <AppXManifest Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-12-29T20:06:49.581</Modified>
+      <Modified>2021-12-30T07:14:53.797</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-12-29T20:06:49.306</Modified>
+      <Modified>2021-12-30T07:14:53.475</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Continental Encounters.runtimeconfig.json">
       <PackagePath>Continental Encounters.runtimeconfig.json</PackagePath>
-      <Modified>2021-12-29T20:06:49.150</Modified>
+      <Modified>2021-12-30T07:14:53.296</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Continental Encounters.dll">
       <PackagePath>Continental Encounters.dll</PackagePath>
-      <Modified>2021-12-29T20:06:48.400</Modified>
+      <Modified>2021-12-30T07:14:52.906</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\apphost.exe">
       <PackagePath>Continental Encounters.exe</PackagePath>
-      <Modified>2021-12-29T20:06:48.420</Modified>
+      <Modified>2021-12-30T07:14:52.927</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\Continental Encounters.deps.json">
       <PackagePath>Continental Encounters.deps.json</PackagePath>
-      <Modified>2021-12-29T20:06:49.041</Modified>
+      <Modified>2021-12-30T07:14:53.201</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\microsoft.netcore.app.runtime.win-x86\6.0.1\runtimes\win-x86\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -949,6 +949,58 @@
       <PackagePath>WinRT.Runtime.dll</PackagePath>
       <Modified>2021-11-17T10:43:46.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\colorcode.core\2.0.13\lib\netstandard1.4\ColorCode.Core.dll">
+      <PackagePath>ColorCode.Core.dll</PackagePath>
+      <Modified>2021-11-17T21:36:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\colorcode.winui\2.0.13\lib\net5.0-windows10.0.18362\ColorCode.WinUI.dll">
+      <PackagePath>ColorCode.WinUI.dll</PackagePath>
+      <Modified>2021-11-17T21:36:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.common\7.1.2\lib\net5.0\CommunityToolkit.Common.dll">
+      <PackagePath>CommunityToolkit.Common.dll</PackagePath>
+      <Modified>2021-11-18T21:56:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.dll">
+      <PackagePath>CommunityToolkit.WinUI.dll</PackagePath>
+      <Modified>2021-11-18T21:56:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.dll</PackagePath>
+      <Modified>2021-11-18T21:56:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.core\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Core.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Core.dll</PackagePath>
+      <Modified>2021-11-18T21:56:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.DataGrid.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.dll</PackagePath>
+      <Modified>2021-11-18T21:56:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.input\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Input.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Input.dll</PackagePath>
+      <Modified>2021-11-18T21:56:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.layout\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Layout.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Layout.dll</PackagePath>
+      <Modified>2021-11-18T21:56:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.markdown\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Markdown.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Markdown.dll</PackagePath>
+      <Modified>2021-11-18T21:56:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.media\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Media.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Media.dll</PackagePath>
+      <Modified>2021-11-18T21:57:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.primitives\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Primitives.dll">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Primitives.dll</PackagePath>
+      <Modified>2021-11-18T21:57:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\microsoft.graphics.win2d\1.0.0.30\lib\net5.0-windows10.0.18362.0\Microsoft.Graphics.Canvas.Interop.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.Interop.dll</PackagePath>
+      <Modified>2021-11-16T23:41:48.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\microsoft.windowsappsdk\1.0.0\lib\net5.0-windows10.0.18362.0\Microsoft.InteractiveExperiences.Projection.dll">
       <PackagePath>Microsoft.InteractiveExperiences.Projection.dll</PackagePath>
       <Modified>2021-11-16T04:57:36.000</Modified>
@@ -981,9 +1033,85 @@
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
       <Modified>2021-11-16T05:08:40.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\pinvoke.kernel32\0.7.104\lib\netstandard2.0\PInvoke.Kernel32.dll">
+      <PackagePath>PInvoke.Kernel32.dll</PackagePath>
+      <Modified>2021-01-22T04:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\pinvoke.user32\0.7.104\lib\netstandard2.0\PInvoke.User32.dll">
+      <PackagePath>PInvoke.User32.dll</PackagePath>
+      <Modified>2021-01-22T04:25:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\pinvoke.windows.core\0.7.104\lib\netstandard2.0\PInvoke.Windows.Core.dll">
+      <PackagePath>PInvoke.Windows.Core.dll</PackagePath>
+      <Modified>2021-01-22T04:25:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\pinvoke.windows.shellscalingapi\0.7.104\lib\netstandard2.0\PInvoke.Windows.ShellScalingApi.dll">
+      <PackagePath>PInvoke.Windows.ShellScalingApi.dll</PackagePath>
+      <Modified>2021-01-22T04:25:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\validation\2.4.15\lib\netstandard1.3\Validation.dll">
+      <PackagePath>Validation.dll</PackagePath>
+      <Modified>2017-03-14T21:41:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\winuiex\1.0.0\lib\net5.0-windows10.0.18362\WinUIEx.dll">
+      <PackagePath>WinUIEx.dll</PackagePath>
+      <Modified>2021-12-07T16:55:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\microsoft.graphics.win2d\1.0.0.30\runtimes\win10-x86\native\Microsoft.Graphics.Canvas.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
+      <Modified>2021-11-16T23:44:02.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\microsoft.windowsappsdk\1.0.0\runtimes\win10-x86\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
       <Modified>2021-11-16T04:57:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\runtime.win7-x86.runtime.native.system.io.compression\4.3.0\runtimes\win7-x86\native\clrcompression.dll">
+      <PackagePath>clrcompression.dll</PackagePath>
+      <Modified>2016-11-05T04:34:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\colorcode.winui\2.0.13\lib\net5.0-windows10.0.18362\ColorCode.WinUI.pri">
+      <PackagePath>ColorCode.WinUI.pri</PackagePath>
+      <Modified>2021-11-17T21:36:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.pri">
+      <PackagePath>CommunityToolkit.WinUI.pri</PackagePath>
+      <Modified>2021-11-18T21:50:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.pri</PackagePath>
+      <Modified>2021-11-18T21:50:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.core\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Core.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Core.pri</PackagePath>
+      <Modified>2021-11-18T21:50:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.datagrid\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.DataGrid.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.DataGrid.pri</PackagePath>
+      <Modified>2021-11-18T21:49:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.input\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Input.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Input.pri</PackagePath>
+      <Modified>2021-11-18T21:51:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.layout\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Layout.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Layout.pri</PackagePath>
+      <Modified>2021-11-18T21:50:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.markdown\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Markdown.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Markdown.pri</PackagePath>
+      <Modified>2021-11-18T21:51:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.media\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Media.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Media.pri</PackagePath>
+      <Modified>2021-11-18T21:51:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\communitytoolkit.winui.ui.controls.primitives\7.1.2\lib\net5.0-windows10.0.18362\CommunityToolkit.WinUI.UI.Controls.Primitives.pri">
+      <PackagePath>CommunityToolkit.WinUI.UI.Controls.Primitives.pri</PackagePath>
+      <Modified>2021-11-18T21:50:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\adair\.nuget\packages\winuiex\1.0.0\lib\net5.0-windows10.0.18362\WinUIEx.pri">
+      <PackagePath>WinUIEx.pri</PackagePath>
+      <Modified>2021-12-08T00:48:26.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\adair\Documents\GitHub\Continental-Encounters\Continental Encounters\Continental Encounters\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>

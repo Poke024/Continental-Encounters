@@ -224,7 +224,7 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[35];
+            _typeNameTable = new string[41];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -236,32 +236,38 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
             _typeNameTable[8] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase>";
             _typeNameTable[9] = "Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase";
             _typeNameTable[10] = "String";
-            _typeNameTable[11] = "Microsoft.UI.Xaml.Controls.RadioButtons";
-            _typeNameTable[12] = "System.Collections.Generic.IList`1<Object>";
-            _typeNameTable[13] = "Microsoft.UI.Xaml.DataTemplate";
-            _typeNameTable[14] = "Int32";
-            _typeNameTable[15] = "Microsoft.UI.Xaml.Controls.InfoBar";
-            _typeNameTable[16] = "Microsoft.UI.Xaml.Controls.InfoBarSeverity";
-            _typeNameTable[17] = "System.Enum";
-            _typeNameTable[18] = "System.ValueType";
-            _typeNameTable[19] = "Microsoft.UI.Xaml.Controls.Primitives.ButtonBase";
-            _typeNameTable[20] = "System.Windows.Input.ICommand";
-            _typeNameTable[21] = "Microsoft.UI.Xaml.Style";
-            _typeNameTable[22] = "Microsoft.UI.Xaml.Controls.IconSource";
-            _typeNameTable[23] = "Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings";
-            _typeNameTable[24] = "Microsoft.UI.Xaml.DependencyObject";
-            _typeNameTable[25] = "Microsoft.UI.Xaml.Controls.TabView";
-            _typeNameTable[26] = "Microsoft.UI.Xaml.Controls.TabViewWidthMode";
-            _typeNameTable[27] = "Microsoft.UI.Xaml.Controls.TabViewCloseButtonOverlayMode";
-            _typeNameTable[28] = "Microsoft.UI.Xaml.Controls.DataTemplateSelector";
-            _typeNameTable[29] = "Microsoft.UI.Xaml.Controls.TabViewItem";
-            _typeNameTable[30] = "Microsoft.UI.Xaml.Controls.ListViewItem";
-            _typeNameTable[31] = "Microsoft.UI.Xaml.Controls.ContentControl";
-            _typeNameTable[32] = "Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings";
-            _typeNameTable[33] = "Continental_Encounters.MainWindow";
-            _typeNameTable[34] = "Microsoft.UI.Xaml.Window";
+            _typeNameTable[11] = "Microsoft.UI.Xaml.Controls.InfoBar";
+            _typeNameTable[12] = "Microsoft.UI.Xaml.Controls.InfoBarSeverity";
+            _typeNameTable[13] = "System.Enum";
+            _typeNameTable[14] = "System.ValueType";
+            _typeNameTable[15] = "Microsoft.UI.Xaml.Controls.Primitives.ButtonBase";
+            _typeNameTable[16] = "System.Windows.Input.ICommand";
+            _typeNameTable[17] = "Microsoft.UI.Xaml.Style";
+            _typeNameTable[18] = "Microsoft.UI.Xaml.DataTemplate";
+            _typeNameTable[19] = "Microsoft.UI.Xaml.Controls.IconSource";
+            _typeNameTable[20] = "Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings";
+            _typeNameTable[21] = "Microsoft.UI.Xaml.DependencyObject";
+            _typeNameTable[22] = "CommunityToolkit.WinUI.UI.Controls.GridSplitter";
+            _typeNameTable[23] = "CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType";
+            _typeNameTable[24] = "CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeDirection";
+            _typeNameTable[25] = "CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeBehavior";
+            _typeNameTable[26] = "CommunityToolkit.WinUI.UI.Controls.GridSplitter.SplitterCursorBehavior";
+            _typeNameTable[27] = "Microsoft.UI.Xaml.UIElement";
+            _typeNameTable[28] = "Microsoft.UI.Xaml.Media.Brush";
+            _typeNameTable[29] = "Int32";
+            _typeNameTable[30] = "Microsoft.UI.Xaml.Controls.TabView";
+            _typeNameTable[31] = "System.Collections.Generic.IList`1<Object>";
+            _typeNameTable[32] = "Microsoft.UI.Xaml.Controls.TabViewWidthMode";
+            _typeNameTable[33] = "Microsoft.UI.Xaml.Controls.TabViewCloseButtonOverlayMode";
+            _typeNameTable[34] = "Microsoft.UI.Xaml.Controls.DataTemplateSelector";
+            _typeNameTable[35] = "Microsoft.UI.Xaml.Controls.TabViewItem";
+            _typeNameTable[36] = "Microsoft.UI.Xaml.Controls.ListViewItem";
+            _typeNameTable[37] = "Microsoft.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[38] = "Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings";
+            _typeNameTable[39] = "Continental_Encounters.MainWindow";
+            _typeNameTable[40] = "Microsoft.UI.Xaml.Window";
 
-            _typeTable = new global::System.Type[35];
+            _typeTable = new global::System.Type[41];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -273,30 +279,36 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
             _typeTable[8] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase>);
             _typeTable[9] = typeof(global::Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase);
             _typeTable[10] = typeof(global::System.String);
-            _typeTable[11] = typeof(global::Microsoft.UI.Xaml.Controls.RadioButtons);
-            _typeTable[12] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
-            _typeTable[13] = typeof(global::Microsoft.UI.Xaml.DataTemplate);
-            _typeTable[14] = typeof(global::System.Int32);
-            _typeTable[15] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBar);
-            _typeTable[16] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarSeverity);
-            _typeTable[17] = typeof(global::System.Enum);
-            _typeTable[18] = typeof(global::System.ValueType);
-            _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.ButtonBase);
-            _typeTable[20] = typeof(global::System.Windows.Input.ICommand);
-            _typeTable[21] = typeof(global::Microsoft.UI.Xaml.Style);
-            _typeTable[22] = typeof(global::Microsoft.UI.Xaml.Controls.IconSource);
-            _typeTable[23] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings);
-            _typeTable[24] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
-            _typeTable[25] = typeof(global::Microsoft.UI.Xaml.Controls.TabView);
-            _typeTable[26] = typeof(global::Microsoft.UI.Xaml.Controls.TabViewWidthMode);
-            _typeTable[27] = typeof(global::Microsoft.UI.Xaml.Controls.TabViewCloseButtonOverlayMode);
-            _typeTable[28] = typeof(global::Microsoft.UI.Xaml.Controls.DataTemplateSelector);
-            _typeTable[29] = typeof(global::Microsoft.UI.Xaml.Controls.TabViewItem);
-            _typeTable[30] = typeof(global::Microsoft.UI.Xaml.Controls.ListViewItem);
-            _typeTable[31] = typeof(global::Microsoft.UI.Xaml.Controls.ContentControl);
-            _typeTable[32] = typeof(global::Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings);
-            _typeTable[33] = typeof(global::Continental_Encounters.MainWindow);
-            _typeTable[34] = typeof(global::Microsoft.UI.Xaml.Window);
+            _typeTable[11] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBar);
+            _typeTable[12] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarSeverity);
+            _typeTable[13] = typeof(global::System.Enum);
+            _typeTable[14] = typeof(global::System.ValueType);
+            _typeTable[15] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.ButtonBase);
+            _typeTable[16] = typeof(global::System.Windows.Input.ICommand);
+            _typeTable[17] = typeof(global::Microsoft.UI.Xaml.Style);
+            _typeTable[18] = typeof(global::Microsoft.UI.Xaml.DataTemplate);
+            _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Controls.IconSource);
+            _typeTable[20] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings);
+            _typeTable[21] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
+            _typeTable[22] = typeof(global::CommunityToolkit.WinUI.UI.Controls.GridSplitter);
+            _typeTable[23] = typeof(global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType);
+            _typeTable[24] = typeof(global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeDirection);
+            _typeTable[25] = typeof(global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeBehavior);
+            _typeTable[26] = typeof(global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.SplitterCursorBehavior);
+            _typeTable[27] = typeof(global::Microsoft.UI.Xaml.UIElement);
+            _typeTable[28] = typeof(global::Microsoft.UI.Xaml.Media.Brush);
+            _typeTable[29] = typeof(global::System.Int32);
+            _typeTable[30] = typeof(global::Microsoft.UI.Xaml.Controls.TabView);
+            _typeTable[31] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
+            _typeTable[32] = typeof(global::Microsoft.UI.Xaml.Controls.TabViewWidthMode);
+            _typeTable[33] = typeof(global::Microsoft.UI.Xaml.Controls.TabViewCloseButtonOverlayMode);
+            _typeTable[34] = typeof(global::Microsoft.UI.Xaml.Controls.DataTemplateSelector);
+            _typeTable[35] = typeof(global::Microsoft.UI.Xaml.Controls.TabViewItem);
+            _typeTable[36] = typeof(global::Microsoft.UI.Xaml.Controls.ListViewItem);
+            _typeTable[37] = typeof(global::Microsoft.UI.Xaml.Controls.ContentControl);
+            _typeTable[38] = typeof(global::Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings);
+            _typeTable[39] = typeof(global::Continental_Encounters.MainWindow);
+            _typeTable[40] = typeof(global::Microsoft.UI.Xaml.Window);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -334,13 +346,13 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
         private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
         private object Activate_4_MenuBar() { return new global::Microsoft.UI.Xaml.Controls.MenuBar(); }
         private object Activate_7_MenuBarItem() { return new global::Microsoft.UI.Xaml.Controls.MenuBarItem(); }
-        private object Activate_11_RadioButtons() { return new global::Microsoft.UI.Xaml.Controls.RadioButtons(); }
-        private object Activate_15_InfoBar() { return new global::Microsoft.UI.Xaml.Controls.InfoBar(); }
-        private object Activate_23_InfoBarTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings(); }
-        private object Activate_25_TabView() { return new global::Microsoft.UI.Xaml.Controls.TabView(); }
-        private object Activate_29_TabViewItem() { return new global::Microsoft.UI.Xaml.Controls.TabViewItem(); }
-        private object Activate_32_TabViewItemTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings(); }
-        private object Activate_33_MainWindow() { return new global::Continental_Encounters.MainWindow(); }
+        private object Activate_11_InfoBar() { return new global::Microsoft.UI.Xaml.Controls.InfoBar(); }
+        private object Activate_20_InfoBarTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings(); }
+        private object Activate_22_GridSplitter() { return new global::CommunityToolkit.WinUI.UI.Controls.GridSplitter(); }
+        private object Activate_30_TabView() { return new global::Microsoft.UI.Xaml.Controls.TabView(); }
+        private object Activate_35_TabViewItem() { return new global::Microsoft.UI.Xaml.Controls.TabViewItem(); }
+        private object Activate_38_TabViewItemTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings(); }
+        private object Activate_39_MainWindow() { return new global::Continental_Encounters.MainWindow(); }
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -360,7 +372,7 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
             var newItem = (global::Microsoft.UI.Xaml.Controls.MenuFlyoutItemBase)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_12_IList(object instance, object item)
+        private void VectorAdd_31_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
             var newItem = (global::System.Object)item;
@@ -440,39 +452,9 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
                 xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 11:   //  Microsoft.UI.Xaml.Controls.RadioButtons
+            case 11:   //  Microsoft.UI.Xaml.Controls.InfoBar
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_11_RadioButtons;
-                userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.RadioButtons.Items");
-                userType.AddMemberName("Items");
-                userType.AddMemberName("Header");
-                userType.AddMemberName("HeaderTemplate");
-                userType.AddMemberName("ItemTemplate");
-                userType.AddMemberName("ItemsSource");
-                userType.AddMemberName("MaxColumns");
-                userType.AddMemberName("SelectedIndex");
-                userType.AddMemberName("SelectedItem");
-                xamlType = userType;
-                break;
-
-            case 12:   //  System.Collections.Generic.IList`1<Object>
-                userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.CollectionAdd = VectorAdd_12_IList;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 13:   //  Microsoft.UI.Xaml.DataTemplate
-                xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 14:   //  Int32
-                xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 15:   //  Microsoft.UI.Xaml.Controls.InfoBar
-                userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_15_InfoBar;
+                userType.Activator = Activate_11_InfoBar;
                 userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.InfoBar.Content");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("IsOpen");
@@ -491,7 +473,7 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 16:   //  Microsoft.UI.Xaml.Controls.InfoBarSeverity
+            case 12:   //  Microsoft.UI.Xaml.Controls.InfoBarSeverity
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Informational", global::Microsoft.UI.Xaml.Controls.InfoBarSeverity.Informational);
                 userType.AddEnumValue("Success", global::Microsoft.UI.Xaml.Controls.InfoBarSeverity.Success);
@@ -500,47 +482,121 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 17:   //  System.Enum
+            case 13:   //  System.Enum
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 xamlType = userType;
                 break;
 
-            case 18:   //  System.ValueType
+            case 14:   //  System.ValueType
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
-            case 19:   //  Microsoft.UI.Xaml.Controls.Primitives.ButtonBase
+            case 15:   //  Microsoft.UI.Xaml.Controls.Primitives.ButtonBase
                 xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 20:   //  System.Windows.Input.ICommand
+            case 16:   //  System.Windows.Input.ICommand
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 21:   //  Microsoft.UI.Xaml.Style
+            case 17:   //  Microsoft.UI.Xaml.Style
                 xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 22:   //  Microsoft.UI.Xaml.Controls.IconSource
+            case 18:   //  Microsoft.UI.Xaml.DataTemplate
                 xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 23:   //  Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings
+            case 19:   //  Microsoft.UI.Xaml.Controls.IconSource
+                xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 20:   //  Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 24:   //  Microsoft.UI.Xaml.DependencyObject
+            case 21:   //  Microsoft.UI.Xaml.DependencyObject
                 xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 25:   //  Microsoft.UI.Xaml.Controls.TabView
+            case 22:   //  CommunityToolkit.WinUI.UI.Controls.GridSplitter
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_25_TabView;
+                userType.Activator = Activate_22_GridSplitter;
+                userType.AddMemberName("GripperCursor");
+                userType.AddMemberName("ResizeDirection");
+                userType.AddMemberName("ResizeBehavior");
+                userType.AddMemberName("CursorBehavior");
+                userType.AddMemberName("Element");
+                userType.AddMemberName("GripperForeground");
+                userType.AddMemberName("ParentLevel");
+                userType.AddMemberName("GripperCustomCursorResource");
+                xamlType = userType;
+                break;
+
+            case 23:   //  CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType
+                userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Default", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.Default);
+                userType.AddEnumValue("Arrow", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.Arrow);
+                userType.AddEnumValue("Cross", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.Cross);
+                userType.AddEnumValue("Custom", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.Custom);
+                userType.AddEnumValue("Hand", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.Hand);
+                userType.AddEnumValue("Help", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.Help);
+                userType.AddEnumValue("IBeam", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.IBeam);
+                userType.AddEnumValue("SizeAll", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.SizeAll);
+                userType.AddEnumValue("SizeNortheastSouthwest", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.SizeNortheastSouthwest);
+                userType.AddEnumValue("SizeNorthSouth", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.SizeNorthSouth);
+                userType.AddEnumValue("SizeNorthwestSoutheast", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.SizeNorthwestSoutheast);
+                userType.AddEnumValue("SizeWestEast", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.SizeWestEast);
+                userType.AddEnumValue("UniversalNo", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.UniversalNo);
+                userType.AddEnumValue("UpArrow", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.UpArrow);
+                userType.AddEnumValue("Wait", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType.Wait);
+                xamlType = userType;
+                break;
+
+            case 24:   //  CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeDirection
+                userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Auto", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeDirection.Auto);
+                userType.AddEnumValue("Columns", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeDirection.Columns);
+                userType.AddEnumValue("Rows", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeDirection.Rows);
+                xamlType = userType;
+                break;
+
+            case 25:   //  CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeBehavior
+                userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("BasedOnAlignment", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeBehavior.BasedOnAlignment);
+                userType.AddEnumValue("CurrentAndNext", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeBehavior.CurrentAndNext);
+                userType.AddEnumValue("PreviousAndCurrent", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeBehavior.PreviousAndCurrent);
+                userType.AddEnumValue("PreviousAndNext", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeBehavior.PreviousAndNext);
+                xamlType = userType;
+                break;
+
+            case 26:   //  CommunityToolkit.WinUI.UI.Controls.GridSplitter.SplitterCursorBehavior
+                userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("ChangeOnSplitterHover", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.SplitterCursorBehavior.ChangeOnSplitterHover);
+                userType.AddEnumValue("ChangeOnGripperHover", global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.SplitterCursorBehavior.ChangeOnGripperHover);
+                xamlType = userType;
+                break;
+
+            case 27:   //  Microsoft.UI.Xaml.UIElement
+                xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 28:   //  Microsoft.UI.Xaml.Media.Brush
+                xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 29:   //  Int32
+                xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 30:   //  Microsoft.UI.Xaml.Controls.TabView
+                userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
+                userType.Activator = Activate_30_TabView;
                 userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.TabView.TabItems");
                 userType.AddMemberName("TabItems");
                 userType.AddMemberName("TabWidthMode");
@@ -563,7 +619,14 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 26:   //  Microsoft.UI.Xaml.Controls.TabViewWidthMode
+            case 31:   //  System.Collections.Generic.IList`1<Object>
+                userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.CollectionAdd = VectorAdd_31_IList;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 32:   //  Microsoft.UI.Xaml.Controls.TabViewWidthMode
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Equal", global::Microsoft.UI.Xaml.Controls.TabViewWidthMode.Equal);
                 userType.AddEnumValue("SizeToContent", global::Microsoft.UI.Xaml.Controls.TabViewWidthMode.SizeToContent);
@@ -571,7 +634,7 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 27:   //  Microsoft.UI.Xaml.Controls.TabViewCloseButtonOverlayMode
+            case 33:   //  Microsoft.UI.Xaml.Controls.TabViewCloseButtonOverlayMode
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Auto", global::Microsoft.UI.Xaml.Controls.TabViewCloseButtonOverlayMode.Auto);
                 userType.AddEnumValue("OnPointerOver", global::Microsoft.UI.Xaml.Controls.TabViewCloseButtonOverlayMode.OnPointerOver);
@@ -579,13 +642,13 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 28:   //  Microsoft.UI.Xaml.Controls.DataTemplateSelector
+            case 34:   //  Microsoft.UI.Xaml.Controls.DataTemplateSelector
                 xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 29:   //  Microsoft.UI.Xaml.Controls.TabViewItem
+            case 35:   //  Microsoft.UI.Xaml.Controls.TabViewItem
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ListViewItem"));
-                userType.Activator = Activate_29_TabViewItem;
+                userType.Activator = Activate_35_TabViewItem;
                 userType.AddMemberName("Header");
                 userType.AddMemberName("IsClosable");
                 userType.AddMemberName("HeaderTemplate");
@@ -594,28 +657,28 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 30:   //  Microsoft.UI.Xaml.Controls.ListViewItem
+            case 36:   //  Microsoft.UI.Xaml.Controls.ListViewItem
                 xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 31:   //  Microsoft.UI.Xaml.Controls.ContentControl
+            case 37:   //  Microsoft.UI.Xaml.Controls.ContentControl
                 xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 32:   //  Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings
+            case 38:   //  Microsoft.UI.Xaml.Controls.TabViewItemTemplateSettings
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 33:   //  Continental_Encounters.MainWindow
+            case 39:   //  Continental_Encounters.MainWindow
                 userType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
-                userType.Activator = Activate_33_MainWindow;
+                userType.Activator = Activate_39_MainWindow;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 34:   //  Microsoft.UI.Xaml.Window
+            case 40:   //  Microsoft.UI.Xaml.Window
                 xamlType = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -631,6 +694,18 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
                 {
                     var otherProviders = new global::System.Collections.Generic.List<global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider>();
                     global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Core_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_DataGrid_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Input_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Layout_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Markdown_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::CommunityToolkit.WinUI.UI.Controls.CommunityToolkit_WinUI_UI_Controls_Media_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
                     provider = new global::Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
                     otherProviders.Add(provider); 
                     _otherProviders = otherProviders;
@@ -707,215 +782,220 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.MenuBarItem)instance;
             that.Title = (global::System.String)Value;
         }
-        private object get_4_RadioButtons_Items(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            return that.Items;
-        }
-        private object get_5_RadioButtons_Header(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            return that.Header;
-        }
-        private void set_5_RadioButtons_Header(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            that.Header = (global::System.Object)Value;
-        }
-        private object get_6_RadioButtons_HeaderTemplate(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            return that.HeaderTemplate;
-        }
-        private void set_6_RadioButtons_HeaderTemplate(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_7_RadioButtons_ItemTemplate(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            return that.ItemTemplate;
-        }
-        private void set_7_RadioButtons_ItemTemplate(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            that.ItemTemplate = (global::System.Object)Value;
-        }
-        private object get_8_RadioButtons_ItemsSource(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            return that.ItemsSource;
-        }
-        private void set_8_RadioButtons_ItemsSource(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            that.ItemsSource = (global::System.Object)Value;
-        }
-        private object get_9_RadioButtons_MaxColumns(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            return that.MaxColumns;
-        }
-        private void set_9_RadioButtons_MaxColumns(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            that.MaxColumns = (global::System.Int32)Value;
-        }
-        private object get_10_RadioButtons_SelectedIndex(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            return that.SelectedIndex;
-        }
-        private void set_10_RadioButtons_SelectedIndex(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            that.SelectedIndex = (global::System.Int32)Value;
-        }
-        private object get_11_RadioButtons_SelectedItem(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            return that.SelectedItem;
-        }
-        private void set_11_RadioButtons_SelectedItem(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.RadioButtons)instance;
-            that.SelectedItem = (global::System.Object)Value;
-        }
-        private object get_12_InfoBar_Content(object instance)
+        private object get_4_InfoBar_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.Content;
         }
-        private void set_12_InfoBar_Content(object instance, object Value)
+        private void set_4_InfoBar_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_13_InfoBar_IsOpen(object instance)
+        private object get_5_InfoBar_IsOpen(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.IsOpen;
         }
-        private void set_13_InfoBar_IsOpen(object instance, object Value)
+        private void set_5_InfoBar_IsOpen(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.IsOpen = (global::System.Boolean)Value;
         }
-        private object get_14_InfoBar_IsClosable(object instance)
+        private object get_6_InfoBar_IsClosable(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.IsClosable;
         }
-        private void set_14_InfoBar_IsClosable(object instance, object Value)
+        private void set_6_InfoBar_IsClosable(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.IsClosable = (global::System.Boolean)Value;
         }
-        private object get_15_InfoBar_Severity(object instance)
+        private object get_7_InfoBar_Severity(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.Severity;
         }
-        private void set_15_InfoBar_Severity(object instance, object Value)
+        private void set_7_InfoBar_Severity(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.Severity = (global::Microsoft.UI.Xaml.Controls.InfoBarSeverity)Value;
         }
-        private object get_16_InfoBar_Title(object instance)
+        private object get_8_InfoBar_Title(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.Title;
         }
-        private void set_16_InfoBar_Title(object instance, object Value)
+        private void set_8_InfoBar_Title(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.Title = (global::System.String)Value;
         }
-        private object get_17_InfoBar_Message(object instance)
+        private object get_9_InfoBar_Message(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.Message;
         }
-        private void set_17_InfoBar_Message(object instance, object Value)
+        private void set_9_InfoBar_Message(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.Message = (global::System.String)Value;
         }
-        private object get_18_InfoBar_ActionButton(object instance)
+        private object get_10_InfoBar_ActionButton(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.ActionButton;
         }
-        private void set_18_InfoBar_ActionButton(object instance, object Value)
+        private void set_10_InfoBar_ActionButton(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.ActionButton = (global::Microsoft.UI.Xaml.Controls.Primitives.ButtonBase)Value;
         }
-        private object get_19_InfoBar_CloseButtonCommand(object instance)
+        private object get_11_InfoBar_CloseButtonCommand(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.CloseButtonCommand;
         }
-        private void set_19_InfoBar_CloseButtonCommand(object instance, object Value)
+        private void set_11_InfoBar_CloseButtonCommand(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.CloseButtonCommand = (global::System.Windows.Input.ICommand)Value;
         }
-        private object get_20_InfoBar_CloseButtonCommandParameter(object instance)
+        private object get_12_InfoBar_CloseButtonCommandParameter(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.CloseButtonCommandParameter;
         }
-        private void set_20_InfoBar_CloseButtonCommandParameter(object instance, object Value)
+        private void set_12_InfoBar_CloseButtonCommandParameter(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.CloseButtonCommandParameter = (global::System.Object)Value;
         }
-        private object get_21_InfoBar_CloseButtonStyle(object instance)
+        private object get_13_InfoBar_CloseButtonStyle(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.CloseButtonStyle;
         }
-        private void set_21_InfoBar_CloseButtonStyle(object instance, object Value)
+        private void set_13_InfoBar_CloseButtonStyle(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.CloseButtonStyle = (global::Microsoft.UI.Xaml.Style)Value;
         }
-        private object get_22_InfoBar_ContentTemplate(object instance)
+        private object get_14_InfoBar_ContentTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.ContentTemplate;
         }
-        private void set_22_InfoBar_ContentTemplate(object instance, object Value)
+        private void set_14_InfoBar_ContentTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.ContentTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_23_InfoBar_IconSource(object instance)
+        private object get_15_InfoBar_IconSource(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.IconSource;
         }
-        private void set_23_InfoBar_IconSource(object instance, object Value)
+        private void set_15_InfoBar_IconSource(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.IconSource = (global::Microsoft.UI.Xaml.Controls.IconSource)Value;
         }
-        private object get_24_InfoBar_IsIconVisible(object instance)
+        private object get_16_InfoBar_IsIconVisible(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.IsIconVisible;
         }
-        private void set_24_InfoBar_IsIconVisible(object instance, object Value)
+        private void set_16_InfoBar_IsIconVisible(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.IsIconVisible = (global::System.Boolean)Value;
         }
-        private object get_25_InfoBar_TemplateSettings(object instance)
+        private object get_17_InfoBar_TemplateSettings(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.TemplateSettings;
+        }
+        private object get_18_GridSplitter_GripperCursor(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            return that.GripperCursor;
+        }
+        private void set_18_GridSplitter_GripperCursor(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            that.GripperCursor = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType)Value;
+        }
+        private object get_19_GridSplitter_ResizeDirection(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            return that.ResizeDirection;
+        }
+        private void set_19_GridSplitter_ResizeDirection(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            that.ResizeDirection = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeDirection)Value;
+        }
+        private object get_20_GridSplitter_ResizeBehavior(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            return that.ResizeBehavior;
+        }
+        private void set_20_GridSplitter_ResizeBehavior(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            that.ResizeBehavior = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeBehavior)Value;
+        }
+        private object get_21_GridSplitter_CursorBehavior(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            return that.CursorBehavior;
+        }
+        private void set_21_GridSplitter_CursorBehavior(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            that.CursorBehavior = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter.SplitterCursorBehavior)Value;
+        }
+        private object get_22_GridSplitter_Element(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            return that.Element;
+        }
+        private void set_22_GridSplitter_Element(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            that.Element = (global::Microsoft.UI.Xaml.UIElement)Value;
+        }
+        private object get_23_GridSplitter_GripperForeground(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            return that.GripperForeground;
+        }
+        private void set_23_GridSplitter_GripperForeground(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            that.GripperForeground = (global::Microsoft.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_24_GridSplitter_ParentLevel(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            return that.ParentLevel;
+        }
+        private void set_24_GridSplitter_ParentLevel(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            that.ParentLevel = (global::System.Int32)Value;
+        }
+        private object get_25_GridSplitter_GripperCustomCursorResource(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            return that.GripperCustomCursorResource;
+        }
+        private void set_25_GridSplitter_GripperCustomCursorResource(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.UI.Controls.GridSplitter)instance;
+            that.GripperCustomCursorResource = (global::System.Int32)Value;
         }
         private object get_26_TabView_TabItems(object instance)
         {
@@ -1173,159 +1253,159 @@ namespace Continental_Encounters.Continental_Encounters_XamlTypeInfo
                 xamlMember.Getter = get_3_MenuBarItem_Title;
                 xamlMember.Setter = set_3_MenuBarItem_Title;
                 break;
-            case "Microsoft.UI.Xaml.Controls.RadioButtons.Items":
-                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
-                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "Items", "System.Collections.Generic.IList`1<Object>");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_4_RadioButtons_Items;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Microsoft.UI.Xaml.Controls.RadioButtons.Header":
-                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
-                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "Header", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_5_RadioButtons_Header;
-                xamlMember.Setter = set_5_RadioButtons_Header;
-                break;
-            case "Microsoft.UI.Xaml.Controls.RadioButtons.HeaderTemplate":
-                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
-                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_6_RadioButtons_HeaderTemplate;
-                xamlMember.Setter = set_6_RadioButtons_HeaderTemplate;
-                break;
-            case "Microsoft.UI.Xaml.Controls.RadioButtons.ItemTemplate":
-                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
-                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "ItemTemplate", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_7_RadioButtons_ItemTemplate;
-                xamlMember.Setter = set_7_RadioButtons_ItemTemplate;
-                break;
-            case "Microsoft.UI.Xaml.Controls.RadioButtons.ItemsSource":
-                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
-                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "ItemsSource", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_8_RadioButtons_ItemsSource;
-                xamlMember.Setter = set_8_RadioButtons_ItemsSource;
-                break;
-            case "Microsoft.UI.Xaml.Controls.RadioButtons.MaxColumns":
-                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
-                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "MaxColumns", "Int32");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_9_RadioButtons_MaxColumns;
-                xamlMember.Setter = set_9_RadioButtons_MaxColumns;
-                break;
-            case "Microsoft.UI.Xaml.Controls.RadioButtons.SelectedIndex":
-                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
-                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "SelectedIndex", "Int32");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_10_RadioButtons_SelectedIndex;
-                xamlMember.Setter = set_10_RadioButtons_SelectedIndex;
-                break;
-            case "Microsoft.UI.Xaml.Controls.RadioButtons.SelectedItem":
-                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.RadioButtons");
-                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "SelectedItem", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_11_RadioButtons_SelectedItem;
-                xamlMember.Setter = set_11_RadioButtons_SelectedItem;
-                break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.Content":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_12_InfoBar_Content;
-                xamlMember.Setter = set_12_InfoBar_Content;
+                xamlMember.Getter = get_4_InfoBar_Content;
+                xamlMember.Setter = set_4_InfoBar_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.IsOpen":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "IsOpen", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_13_InfoBar_IsOpen;
-                xamlMember.Setter = set_13_InfoBar_IsOpen;
+                xamlMember.Getter = get_5_InfoBar_IsOpen;
+                xamlMember.Setter = set_5_InfoBar_IsOpen;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.IsClosable":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "IsClosable", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_14_InfoBar_IsClosable;
-                xamlMember.Setter = set_14_InfoBar_IsClosable;
+                xamlMember.Getter = get_6_InfoBar_IsClosable;
+                xamlMember.Setter = set_6_InfoBar_IsClosable;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.Severity":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "Severity", "Microsoft.UI.Xaml.Controls.InfoBarSeverity");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_15_InfoBar_Severity;
-                xamlMember.Setter = set_15_InfoBar_Severity;
+                xamlMember.Getter = get_7_InfoBar_Severity;
+                xamlMember.Setter = set_7_InfoBar_Severity;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.Title":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "Title", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_16_InfoBar_Title;
-                xamlMember.Setter = set_16_InfoBar_Title;
+                xamlMember.Getter = get_8_InfoBar_Title;
+                xamlMember.Setter = set_8_InfoBar_Title;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.Message":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "Message", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_17_InfoBar_Message;
-                xamlMember.Setter = set_17_InfoBar_Message;
+                xamlMember.Getter = get_9_InfoBar_Message;
+                xamlMember.Setter = set_9_InfoBar_Message;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.ActionButton":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "ActionButton", "Microsoft.UI.Xaml.Controls.Primitives.ButtonBase");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_18_InfoBar_ActionButton;
-                xamlMember.Setter = set_18_InfoBar_ActionButton;
+                xamlMember.Getter = get_10_InfoBar_ActionButton;
+                xamlMember.Setter = set_10_InfoBar_ActionButton;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.CloseButtonCommand":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "CloseButtonCommand", "System.Windows.Input.ICommand");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_19_InfoBar_CloseButtonCommand;
-                xamlMember.Setter = set_19_InfoBar_CloseButtonCommand;
+                xamlMember.Getter = get_11_InfoBar_CloseButtonCommand;
+                xamlMember.Setter = set_11_InfoBar_CloseButtonCommand;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.CloseButtonCommandParameter":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "CloseButtonCommandParameter", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_20_InfoBar_CloseButtonCommandParameter;
-                xamlMember.Setter = set_20_InfoBar_CloseButtonCommandParameter;
+                xamlMember.Getter = get_12_InfoBar_CloseButtonCommandParameter;
+                xamlMember.Setter = set_12_InfoBar_CloseButtonCommandParameter;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.CloseButtonStyle":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "CloseButtonStyle", "Microsoft.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_21_InfoBar_CloseButtonStyle;
-                xamlMember.Setter = set_21_InfoBar_CloseButtonStyle;
+                xamlMember.Getter = get_13_InfoBar_CloseButtonStyle;
+                xamlMember.Setter = set_13_InfoBar_CloseButtonStyle;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.ContentTemplate":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "ContentTemplate", "Microsoft.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_22_InfoBar_ContentTemplate;
-                xamlMember.Setter = set_22_InfoBar_ContentTemplate;
+                xamlMember.Getter = get_14_InfoBar_ContentTemplate;
+                xamlMember.Setter = set_14_InfoBar_ContentTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.IconSource":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "IconSource", "Microsoft.UI.Xaml.Controls.IconSource");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_23_InfoBar_IconSource;
-                xamlMember.Setter = set_23_InfoBar_IconSource;
+                xamlMember.Getter = get_15_InfoBar_IconSource;
+                xamlMember.Setter = set_15_InfoBar_IconSource;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.IsIconVisible":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "IsIconVisible", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_24_InfoBar_IsIconVisible;
-                xamlMember.Setter = set_24_InfoBar_IsIconVisible;
+                xamlMember.Getter = get_16_InfoBar_IsIconVisible;
+                xamlMember.Setter = set_16_InfoBar_IsIconVisible;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.TemplateSettings":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_25_InfoBar_TemplateSettings;
+                xamlMember.Getter = get_17_InfoBar_TemplateSettings;
                 xamlMember.SetIsReadOnly();
+                break;
+            case "CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursor":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.UI.Controls.GridSplitter");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "GripperCursor", "CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCursorType");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_18_GridSplitter_GripperCursor;
+                xamlMember.Setter = set_18_GridSplitter_GripperCursor;
+                break;
+            case "CommunityToolkit.WinUI.UI.Controls.GridSplitter.ResizeDirection":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.UI.Controls.GridSplitter");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "ResizeDirection", "CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeDirection");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_19_GridSplitter_ResizeDirection;
+                xamlMember.Setter = set_19_GridSplitter_ResizeDirection;
+                break;
+            case "CommunityToolkit.WinUI.UI.Controls.GridSplitter.ResizeBehavior":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.UI.Controls.GridSplitter");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "ResizeBehavior", "CommunityToolkit.WinUI.UI.Controls.GridSplitter.GridResizeBehavior");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_20_GridSplitter_ResizeBehavior;
+                xamlMember.Setter = set_20_GridSplitter_ResizeBehavior;
+                break;
+            case "CommunityToolkit.WinUI.UI.Controls.GridSplitter.CursorBehavior":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.UI.Controls.GridSplitter");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "CursorBehavior", "CommunityToolkit.WinUI.UI.Controls.GridSplitter.SplitterCursorBehavior");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_21_GridSplitter_CursorBehavior;
+                xamlMember.Setter = set_21_GridSplitter_CursorBehavior;
+                break;
+            case "CommunityToolkit.WinUI.UI.Controls.GridSplitter.Element":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.UI.Controls.GridSplitter");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "Element", "Microsoft.UI.Xaml.UIElement");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_22_GridSplitter_Element;
+                xamlMember.Setter = set_22_GridSplitter_Element;
+                break;
+            case "CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperForeground":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.UI.Controls.GridSplitter");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "GripperForeground", "Microsoft.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_23_GridSplitter_GripperForeground;
+                xamlMember.Setter = set_23_GridSplitter_GripperForeground;
+                break;
+            case "CommunityToolkit.WinUI.UI.Controls.GridSplitter.ParentLevel":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.UI.Controls.GridSplitter");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "ParentLevel", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_24_GridSplitter_ParentLevel;
+                xamlMember.Setter = set_24_GridSplitter_ParentLevel;
+                break;
+            case "CommunityToolkit.WinUI.UI.Controls.GridSplitter.GripperCustomCursorResource":
+                userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.UI.Controls.GridSplitter");
+                xamlMember = new global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlMember(this, "GripperCustomCursorResource", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_25_GridSplitter_GripperCustomCursorResource;
+                xamlMember.Setter = set_25_GridSplitter_GripperCustomCursorResource;
                 break;
             case "Microsoft.UI.Xaml.Controls.TabView.TabItems":
                 userType = (global::Continental_Encounters.Continental_Encounters_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TabView");

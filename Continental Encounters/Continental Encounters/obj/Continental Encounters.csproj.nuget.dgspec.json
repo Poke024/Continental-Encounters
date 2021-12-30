@@ -44,7 +44,11 @@
         "net6.0-windows10.0.19041": {
           "targetAlias": "net6.0-windows10.0.19041.0",
           "dependencies": {
-            "Microsoft.Toolkit.Uwp.UI.Controls": {
+            "CommunityToolkit.WinUI": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
+            "CommunityToolkit.WinUI.UI.Controls": {
               "target": "Package",
               "version": "[7.1.2, )"
             },
@@ -53,6 +57,14 @@
               "version": "[10.0.22000.194, )"
             },
             "Microsoft.WindowsAppSDK": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "PInvoke.User32": {
+              "target": "Package",
+              "version": "[0.7.104, )"
+            },
+            "WinUIEx": {
               "target": "Package",
               "version": "[1.0.0, )"
             }

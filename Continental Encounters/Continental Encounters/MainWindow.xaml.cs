@@ -15,6 +15,7 @@ using Windows.Foundation.Collections;
 using Windows.Storage.Pickers;
 using Windows.Storage;
 using WinRT.Interop;
+using CommunityToolkit.WinUI.UI.Controls;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -27,6 +28,7 @@ namespace Continental_Encounters
     public sealed partial class MainWindow : Window
     {
         public MainWindow() { this.InitializeComponent(); }
+        private int TypeSel = 0;
 
         private void ClearLists()
         {
@@ -40,9 +42,6 @@ namespace Continental_Encounters
 
         private async void OpenContinent_Click(object sender, RoutedEventArgs e)
         {
-            ClearLists();
-            if (ZoneList.Items.Count != 0) { ZoneList.Items.Clear(); }
-
             var hwnd = WindowNative.GetWindowHandle(this);
             var picker = new FileOpenPicker();
             picker.ViewMode = PickerViewMode.List;
@@ -53,6 +52,10 @@ namespace Continental_Encounters
             StorageFile openFile = await picker.PickSingleFileAsync();
             if (openFile != null)
             {
+                ClearLists();
+                if (ZoneList.Items.Count != 0) { ZoneList.Items.Clear(); }
+                if (EncFeats.Items.Count != 0) { EncList.Items.Clear(); }
+
                 string[] lines = System.IO.File.ReadAllLines(openFile.Path);
                 int zoneCount = Convert.ToInt32(lines[0].Trim());
 
@@ -266,10 +269,7 @@ namespace Continental_Encounters
 
         private void AddEncKeyDown(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key == Windows.System.VirtualKey.Enter)
-            {
-                AddEnc_Click(sender, e);
-            }
+            if (e.Key == Windows.System.VirtualKey.Enter) { AddEnc_Click(sender, e); }
         }
         private void AddEnc_Click(object sender, RoutedEventArgs e)
         {
@@ -296,10 +296,7 @@ namespace Continental_Encounters
 
         private void AddRoamKeyDown(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key == Windows.System.VirtualKey.Enter)
-            {
-                AddRoam_Click(sender, e);
-            }
+            if (e.Key == Windows.System.VirtualKey.Enter) { AddRoam_Click(sender, e); }
         }
         private void AddRoam_Click(object sender, RoutedEventArgs e)
         {
@@ -325,10 +322,7 @@ namespace Continental_Encounters
 
         private void AddEnvKeyDown(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key == Windows.System.VirtualKey.Enter)
-            {
-                AddEnv_Click(sender, e);
-            }
+            if (e.Key == Windows.System.VirtualKey.Enter) { AddEnv_Click(sender, e); }
         }
         private void AddEnv_Click(object sender, RoutedEventArgs e)
         {
@@ -356,10 +350,7 @@ namespace Continental_Encounters
 
         private void AddNhbrKeyDown(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key == Windows.System.VirtualKey.Enter)
-            {
-                AddNhbr_Click(sender, e);
-            }
+            if (e.Key == Windows.System.VirtualKey.Enter) { AddNhbr_Click(sender, e); }
         }
         private void AddNhbr_Click(object sender, RoutedEventArgs e)
         {
@@ -446,22 +437,43 @@ namespace Continental_Encounters
 
         
 
+        private void TypeButton_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton rb = sender as RadioButton;
+
+            if (rb != null)
+            {
+                string TypeName = rb.Tag.ToString();
+                switch (TypeName)
+                {
+                    case "Any":
+                        TypeSel = 4;
+                        break;
+
+                    case "Local":
+                        TypeSel = 1;
+                        break;
+
+                    case "Roam":
+                        TypeSel = 2;
+                        break;
+
+                    case "Combined":
+                        TypeSel = 3;
+                        break;
+                }
+            }
+        }
+
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
-
             if(ZoneList.SelectedItem != null)
             {
                 Zone selZone = (Zone)ZoneList.SelectedItem;
                 int choice = 0;
                 EncFeats.Items.Clear();
 
-                if (GenType.SelectedItem != null)
-                {
-                    if ((RadioButton)GenType.SelectedItem == LocalRad) { choice = 1; }
-                    else if ((RadioButton)GenType.SelectedItem == RoamRad) { choice = 2; }
-                    else if ((RadioButton)GenType.SelectedItem == CombineRad) { choice = 3; }
-                    else if ((RadioButton)GenType.SelectedItem == AnyRad) { choice = 4; }
-                }
+                if (TypeSel != 0) { choice = TypeSel; }
 
                 var rnd = new Random();
                 bool roamerPossible, breakLoop;
@@ -469,10 +481,7 @@ namespace Continental_Encounters
                 
                 if (choice > 0)
                 {
-                    if (selZone.EmptyNhbr())
-                    {
-                        roamerPossible = false;
-                    }
+                    if (selZone.EmptyNhbr()) { roamerPossible = false; }
                     else
                     {
                         foreach (Zone curZone in ZoneList.Items)
@@ -560,23 +569,14 @@ namespace Continental_Encounters
                                 GeneratedEnc.Message = "Unable to generate encounter with current selections.";
                                 breakLoop = true;
                             }
-                            else if (selZone.EmptyEnc())
-                            {
-                                choice = 2;
-                            }
-                            else if (!roamerPossible)
-                            {
-                                choice = 1;
-                            }
-                            else
-                            {
-                                choice = rnd.Next(1, 4);
-                            }
+                            else if (selZone.EmptyEnc()) { choice = 2; }
+                            else if (!roamerPossible) { choice = 1; }
+                            else { choice = rnd.Next(1, 4); }
                             break;
 
                         default:
                             GeneratedEnc.Severity = InfoBarSeverity.Error;
-                            GeneratedEnc.Message = "A generation error has occured.";
+                            GeneratedEnc.Message = "A generation error has occured. Please ensure a type has been selected.";
                             breakLoop = true;
                             break;
                     }
