@@ -11999,23 +11999,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\adair\\.nuget\\packages\\": {},
+    "C:\\Users\\Adair Torres\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adair\\Documents\\GitHub\\Continental-Encounters\\Continental Encounters\\Continental Encounters\\Continental Encounters.csproj",
+      "projectUniqueName": "C:\\Users\\Adair Torres\\Documents\\Programming\\Projects\\Repositories\\Continental-Encounters\\Continental Encounters\\Continental Encounters\\Continental Encounters.csproj",
       "projectName": "Continental Encounters",
-      "projectPath": "C:\\Users\\adair\\Documents\\GitHub\\Continental-Encounters\\Continental Encounters\\Continental Encounters\\Continental Encounters.csproj",
-      "packagesPath": "C:\\Users\\adair\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adair\\Documents\\GitHub\\Continental-Encounters\\Continental Encounters\\Continental Encounters\\obj\\",
+      "projectPath": "C:\\Users\\Adair Torres\\Documents\\Programming\\Projects\\Repositories\\Continental-Encounters\\Continental Encounters\\Continental Encounters\\Continental Encounters.csproj",
+      "packagesPath": "C:\\Users\\Adair Torres\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Adair Torres\\Documents\\Programming\\Projects\\Repositories\\Continental-Encounters\\Continental Encounters\\Continental Encounters\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\adair\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Adair Torres\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
