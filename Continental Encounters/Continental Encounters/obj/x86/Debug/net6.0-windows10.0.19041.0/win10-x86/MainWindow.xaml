@@ -1,4 +1,4 @@
-﻿<Window x:Name="m_Window"
+﻿<Window x:ConnectionId='1' x:Name="m_Window"
     x:Class="Continental_Encounters.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -11,19 +11,19 @@
     <ScrollViewer Height="Auto" ZoomMode="Enabled" IsTabStop="True" IsVerticalScrollChainingEnabled="True" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Auto">
         <RelativePanel>
             <RelativePanel.Resources>
-                <DataTemplate x:Key="ZoneListViewTemplate" x:DataType="local:Zone">
-                    <Border BorderThickness="0,0,0,1" BorderBrush="Gray">
-                        <TextBlock Text="{x:Bind _Name}" x:Phase="1" Margin="0,5,0,10"/>
+                <DataTemplate x:Key="ZoneListViewTemplate"                        >
+                    <Border x:ConnectionId='3' BorderThickness="0,0,0,1" BorderBrush="Gray">
+                        <TextBlock x:ConnectionId='4'                                   Margin="0,5,0,10"/>
                     </Border>
                 </DataTemplate>
             </RelativePanel.Resources>
-            <MenuBar x:Name="Menu" Height="26">
+            <MenuBar x:ConnectionId='5' x:Name="Menu" Height="26">
                 <MenuBar.Items>
                     <MenuBarItem Height="26" Margin="0" Title="File">
                         <MenuBarItem.Items>
-                            <MenuFlyoutItem x:Name="OpenContinent" Text="Open Continent" Click="OpenContinent_Click"/>
+                            <MenuFlyoutItem x:ConnectionId='44' x:Name="OpenContinent" Text="Open Continent"                            />
                             <MenuFlyoutSeparator/>
-                            <MenuFlyoutItem x:Name="SaveContinent" Text="Save Continent" Click="SaveContinent_Click"/>
+                            <MenuFlyoutItem x:ConnectionId='45' x:Name="SaveContinent" Text="Save Continent"                            />
                         </MenuBarItem.Items>
                     </MenuBarItem>
                     <MenuBarItem Height="26" Margin="0" Title="Edit"/>
@@ -41,73 +41,73 @@
                         <ColumnDefinition Width="16"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border x:Name="Zones" Grid.Column="0">
+                    <Border x:ConnectionId='17' x:Name="Zones" Grid.Column="0">
                         <StackPanel Orientation="Vertical" Margin="5" VerticalAlignment="Bottom">
-                            <TextBlock x:Name="ZoneText" Text="Zones" Height="30"/>
+                            <TextBlock x:ConnectionId='39' x:Name="ZoneText" Text="Zones" Height="30"/>
                             <StackPanel Orientation="Horizontal" RelativePanel.Below="ZoneText" Margin="0,5,0,0">
-                                <TextBox x:Name="ZoneName" KeyDown="AddZoneKeyDown" Width="200" Height="{Binding ElementName=RemZone, Path=ActualHeight}"/>
-                                <Button x:Name="AddZone" Click="AddZone_Click" Width="35" Margin="5,0,1,0" Content="+"/>
-                                <Button x:Name="RemZone" Click="RemZone_Click" Width="35" Content="-"/>
+                                <TextBox x:ConnectionId='41' x:Name="ZoneName"                          Width="200" Height="{Binding ElementName=RemZone, Path=ActualHeight}"/>
+                                <Button x:ConnectionId='42' x:Name="AddZone"                       Width="35" Margin="5,0,1,0" Content="+"/>
+                                <Button x:ConnectionId='43' x:Name="RemZone"                       Width="35" Content="-"/>
                             </StackPanel>
                             <Border Height="400" BorderThickness="1" BorderBrush="Gray" Margin="0,5,0,0">
-                                <ListView x:Name="ZoneList" SelectionChanged="Zone_Selected" ItemTemplate="{StaticResource ZoneListViewTemplate}" SelectionMode="Single"/>
+                                <ListView x:ConnectionId='40' x:Name="ZoneList"                                  ItemTemplate="{StaticResource ZoneListViewTemplate}" SelectionMode="Single"/>
                             </Border>
                         </StackPanel>
                     </Border>
 
-                    <Border x:Name="Encounters" BorderThickness='1,0,0,0' BorderBrush='Gray' Grid.Column="1" RelativePanel.RightOf="Zones" Margin="16,0,0,0">
+                    <Border x:ConnectionId='18' x:Name="Encounters" BorderThickness='1,0,0,0' BorderBrush='Gray' Grid.Column="1" RelativePanel.RightOf="Zones" Margin="16,0,0,0">
                         <StackPanel Orientation="Vertical" Margin="5" VerticalAlignment="Bottom">
-                            <TextBlock x:Name="EncText" Text="Encounters" Height="30"/>
+                            <TextBlock x:ConnectionId='34' x:Name="EncText" Text="Encounters" Height="30"/>
                             <StackPanel Orientation="Horizontal" RelativePanel.Below="EncText" Margin="0,5,0,0">
-                                <TextBox x:Name="EncName" KeyDown="AddEncKeyDown" Width="200" Height="{Binding ElementName=RemEnc, Path=ActualHeight}"/>
-                                <Button x:Name="AddEnc" Click="AddEnc_Click" Width="35" Margin="5,0,1,0" Content="+"/>
-                                <Button x:Name="RemEnc" Click="RemEnc_Click" Width="35" Content="-"/>
+                                <TextBox x:ConnectionId='36' x:Name="EncName"                         Width="200" Height="{Binding ElementName=RemEnc, Path=ActualHeight}"/>
+                                <Button x:ConnectionId='37' x:Name="AddEnc"                      Width="35" Margin="5,0,1,0" Content="+"/>
+                                <Button x:ConnectionId='38' x:Name="RemEnc"                      Width="35" Content="-"/>
                             </StackPanel>
                             <Border Height="400" BorderThickness="1" BorderBrush="Gray" Margin="0,5,0,0">
-                                <ListView x:Name="EncList" Width="500" SelectionMode="Single"/>
+                                <ListView x:ConnectionId='35' x:Name="EncList" Width="500" SelectionMode="Single"/>
                             </Border>
                         </StackPanel>
                     </Border>
 
-                    <Border x:Name="Optionals" BorderThickness="1,0,0,0" BorderBrush="Gray" Grid.Column="2" Margin="16,0,0,0">
-                        <TabView x:Name="OptionalTabs" TabWidthMode="SizeToContent" IsAddTabButtonVisible="False" Margin="5">
+                    <Border x:ConnectionId='19' x:Name="Optionals" BorderThickness="1,0,0,0" BorderBrush="Gray" Grid.Column="2" Margin="16,0,0,0">
+                        <TabView x:ConnectionId='20' x:Name="OptionalTabs" TabWidthMode="SizeToContent" IsAddTabButtonVisible="False" Margin="5">
                             <TabView.TabStripHeader>
-                                <TextBlock x:Name="TabsHeader" Text="Optionals:" VerticalAlignment="Center"/>
+                                <TextBlock x:ConnectionId='21' x:Name="TabsHeader" Text="Optionals:" VerticalAlignment="Center"/>
                             </TabView.TabStripHeader>
                             <TabView.TabItems>
                                 <TabViewItem Header="Roamers" IsClosable="False">
                                     <StackPanel Orientation="Vertical" Margin="0,5,0,0">
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBox x:Name="RoamName" KeyDown="AddRoamKeyDown" Width="200" Height="{Binding ElementName=AddRoam, Path=ActualHeight}"/>
-                                            <Button x:Name="AddRoam" Click="AddRoam_Click" Width="35" Margin="5,0,1,0" Content="+"/>
-                                            <Button x:Name="RemRoam" Click="RemRoam_Click" Width="35" Content="-"/>
+                                            <TextBox x:ConnectionId='31' x:Name="RoamName"                          Width="200" Height="{Binding ElementName=AddRoam, Path=ActualHeight}"/>
+                                            <Button x:ConnectionId='32' x:Name="AddRoam"                       Width="35" Margin="5,0,1,0" Content="+"/>
+                                            <Button x:ConnectionId='33' x:Name="RemRoam"                       Width="35" Content="-"/>
                                         </StackPanel>
                                         <Border Height="400" BorderThickness="1" BorderBrush="Gray" Margin="0,5,0,0">
-                                            <ListView x:Name="RoamList" SelectionMode="Single"/>
+                                            <ListView x:ConnectionId='30' x:Name="RoamList" SelectionMode="Single"/>
                                         </Border>
                                     </StackPanel>
                                 </TabViewItem>
                                 <TabViewItem Header="Environment" IsClosable="False">
                                     <StackPanel Orientation="Vertical" Margin="0,5,0,0">
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBox x:Name="EnvName" KeyDown="AddEnvKeyDown" Width="200" Height="{Binding ElementName=AddEnv, Path=ActualHeight}"/>
-                                            <Button x:Name="AddEnv" Click="AddEnv_Click" Width="35" Margin="5,0,1,0" Content="+"/>
-                                            <Button x:Name="RemEnv" Click="RemEnv_Click" Width="35" Content="-"/>
+                                            <TextBox x:ConnectionId='27' x:Name="EnvName"                         Width="200" Height="{Binding ElementName=AddEnv, Path=ActualHeight}"/>
+                                            <Button x:ConnectionId='28' x:Name="AddEnv"                      Width="35" Margin="5,0,1,0" Content="+"/>
+                                            <Button x:ConnectionId='29' x:Name="RemEnv"                      Width="35" Content="-"/>
                                         </StackPanel>
                                         <Border Height="400" BorderThickness="1" BorderBrush="Gray" Margin="0,5,0,0">
-                                            <ListView x:Name="EnvList" SelectionMode="Single"/>
+                                            <ListView x:ConnectionId='26' x:Name="EnvList" SelectionMode="Single"/>
                                         </Border>
                                     </StackPanel>
                                 </TabViewItem>
                                 <TabViewItem Header="Neighbors" IsClosable="False">
                                     <StackPanel Orientation="Vertical" Margin="0,5,0,0">
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBox x:Name="NhbrName" KeyDown="AddNhbrKeyDown" Width="200" Height="{Binding ElementName=AddNhbr, Path=ActualHeight}"/>
-                                            <Button x:Name="AddNhbr" Click="AddNhbr_Click" Width="35" Margin="5,0,1,0" Content="+"/>
-                                            <Button x:Name="RemNhbr" Click="RemNhbr_Click" Width="35" Content="-"/>
+                                            <TextBox x:ConnectionId='23' x:Name="NhbrName"                          Width="200" Height="{Binding ElementName=AddNhbr, Path=ActualHeight}"/>
+                                            <Button x:ConnectionId='24' x:Name="AddNhbr"                       Width="35" Margin="5,0,1,0" Content="+"/>
+                                            <Button x:ConnectionId='25' x:Name="RemNhbr"                       Width="35" Content="-"/>
                                         </StackPanel>
                                         <Border Height="400" BorderThickness="1" BorderBrush="Gray" Margin="0,5,0,0">
-                                            <ListView x:Name="NhbrList" SelectionMode="Single"/>
+                                            <ListView x:ConnectionId='22' x:Name="NhbrList" SelectionMode="Single"/>
                                         </Border>
                                     </StackPanel>
                                 </TabViewItem>
@@ -134,7 +134,7 @@
                     </controls:GridSplitter>
                 </Grid>
 
-                <Grid x:Name="GenDetails" Margin="5" RelativePanel.Below="ZoneDetails">
+                <Grid x:ConnectionId='6' x:Name="GenDetails" Margin="5" RelativePanel.Below="ZoneDetails">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="1"/>
@@ -143,31 +143,31 @@
                     <StackPanel Orientation="Vertical" Grid.Column="0">
                         <TextBlock Text="Encounter Type:"/>
                         <StackPanel Orientation="Horizontal">
-                            <RadioButton Tag="Any" Margin="5" MinWidth="53" Content="Any" Checked="TypeButton_Checked"/>
-                            <RadioButton Tag="Local" Margin="5" MinWidth="62" Content="Local" Checked="TypeButton_Checked"/>
-                            <RadioButton Tag="Roam" Margin="5" MinWidth="84" Content="Roaming" Checked="TypeButton_Checked"/>
-                            <RadioButton Tag="Combined" Margin="5" MinWidth="133" Content="Local + Roaming" Checked="TypeButton_Checked"/>
+                            <RadioButton x:ConnectionId='13' Tag="Any" Margin="5" MinWidth="53" Content="Any"                             />
+                            <RadioButton x:ConnectionId='14' Tag="Local" Margin="5" MinWidth="62" Content="Local"                             />
+                            <RadioButton x:ConnectionId='15' Tag="Roam" Margin="5" MinWidth="84" Content="Roaming"                             />
+                            <RadioButton x:ConnectionId='16' Tag="Combined" Margin="5" MinWidth="133" Content="Local + Roaming"                             />
                         </StackPanel>
                     </StackPanel>
                     <Border HorizontalAlignment="Center" BorderThickness="1" BorderBrush="Gray" Grid.Column="1"/>
                     <StackPanel Orientation="Vertical" Grid.Column="2" Margin="6,0,4,0">
                         <TextBlock Text="Environment Features"/>
-                        <Slider x:Name="EnvSlider" BorderThickness="1,0,1,0" BorderBrush="Gray" Orientation="Horizontal" TickFrequency="1" TickPlacement="BottomRight" SnapsTo="Ticks" Maximum="10" Minimum="0"/>
+                        <Slider x:ConnectionId='12' x:Name="EnvSlider" BorderThickness="1,0,1,0" BorderBrush="Gray" Orientation="Horizontal" TickFrequency="1" TickPlacement="BottomRight" SnapsTo="Ticks" Maximum="10" Minimum="0"/>
                     </StackPanel>
                 </Grid>
 
-                <Grid x:Name="Generator" BorderThickness="0" BorderBrush="Gray" RelativePanel.Below="GenDetails">
+                <Grid x:ConnectionId='7' x:Name="Generator" BorderThickness="0" BorderBrush="Gray" RelativePanel.Below="GenDetails">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="GenButton" Margin="5" VerticalAlignment="Stretch" Width="Auto" HorizontalAlignment="Left" Grid.Column="0" Click="Generate_Click" Content="Generate Encounter"/>
-                    <InfoBar x:Name="GeneratedEnc" Margin="5,5,10,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" IsOpen="True" IsClosable="False" Severity="Informational" Title="Generated Encounter:" Message="Your encounter will appear here!"/>
+                    <Button x:ConnectionId='8' x:Name="GenButton" Margin="5" VerticalAlignment="Stretch" Width="Auto" HorizontalAlignment="Left" Grid.Column="0"                        Content="Generate Encounter"/>
+                    <InfoBar x:ConnectionId='9' x:Name="GeneratedEnc" Margin="5,5,10,5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" IsOpen="True" IsClosable="False" Severity="Informational" Title="Generated Encounter:" Message="Your encounter will appear here!"/>
                     <StackPanel Orientation="Vertical" Margin="21,5,5,5" Grid.Column="2">
-                        <TextBlock x:Name="FeatHeader" RelativePanel.RightOf="EnvSlider" Text="Generated Features"/>
+                        <TextBlock x:ConnectionId='10' x:Name="FeatHeader" RelativePanel.RightOf="EnvSlider" Text="Generated Features"/>
                         <Border Height="150" Margin="0,5,0,0" BorderThickness="1" BorderBrush="Gray">
-                            <ListView x:Name="EncFeats" SelectionMode="None"/>
+                            <ListView x:ConnectionId='11' x:Name="EncFeats" SelectionMode="None"/>
                         </Border>
                     </StackPanel>
 
@@ -181,3 +181,4 @@
         </RelativePanel>
     </ScrollViewer>
 </Window>
+
