@@ -48,6 +48,7 @@
                                 <TextBox x:Name="ZoneName" KeyDown="AddZoneKeyDown" Width="200" Height="{Binding ElementName=RemZone, Path=ActualHeight}"/>
                                 <Button x:Name="AddZone" Click="AddZone_Click" Width="35" Margin="5,0,1,0" Content="+"/>
                                 <Button x:Name="RemZone" Click="RemZone_Click" Width="35" Content="-"/>
+                                <Button x:Name="EditZone" Click="EditZone_Click" Width="Auto" Content="Edit"/>
                             </StackPanel>
                             <Border Height="400" BorderThickness="1" BorderBrush="Gray" Margin="0,5,0,0">
                                 <ListView x:Name="ZoneList" SelectionChanged="Zone_Selected" ItemTemplate="{StaticResource ZoneListViewTemplate}" SelectionMode="Single"/>
@@ -62,6 +63,7 @@
                                 <TextBox x:Name="EncName" KeyDown="AddEncKeyDown" Width="200" Height="{Binding ElementName=RemEnc, Path=ActualHeight}"/>
                                 <Button x:Name="AddEnc" Click="AddEnc_Click" Width="35" Margin="5,0,1,0" Content="+"/>
                                 <Button x:Name="RemEnc" Click="RemEnc_Click" Width="35" Content="-"/>
+                                <Button x:Name="EditEnc" Click="EditEnc_Click" Width="Auto" Content="Edit"/>
                             </StackPanel>
                             <Border Height="400" BorderThickness="1" BorderBrush="Gray" Margin="0,5,0,0">
                                 <ListView x:Name="EncList" Width="500" SelectionMode="Single"/>
@@ -81,6 +83,7 @@
                                             <TextBox x:Name="RoamName" KeyDown="AddRoamKeyDown" Width="200" Height="{Binding ElementName=AddRoam, Path=ActualHeight}"/>
                                             <Button x:Name="AddRoam" Click="AddRoam_Click" Width="35" Margin="5,0,1,0" Content="+"/>
                                             <Button x:Name="RemRoam" Click="RemRoam_Click" Width="35" Content="-"/>
+                                            <Button x:Name="EditRoam" Click="EditRoam_Click" Width="Auto" Content="Edit"/>
                                         </StackPanel>
                                         <Border Height="400" BorderThickness="1" BorderBrush="Gray" Margin="0,5,0,0">
                                             <ListView x:Name="RoamList" SelectionMode="Single"/>
@@ -93,6 +96,7 @@
                                             <TextBox x:Name="EnvName" KeyDown="AddEnvKeyDown" Width="200" Height="{Binding ElementName=AddEnv, Path=ActualHeight}"/>
                                             <Button x:Name="AddEnv" Click="AddEnv_Click" Width="35" Margin="5,0,1,0" Content="+"/>
                                             <Button x:Name="RemEnv" Click="RemEnv_Click" Width="35" Content="-"/>
+                                            <Button x:Name="EditEnv" Click="EditEnv_Click" Width="Auto" Content="Edit"/>
                                         </StackPanel>
                                         <Border Height="400" BorderThickness="1" BorderBrush="Gray" Margin="0,5,0,0">
                                             <ListView x:Name="EnvList" SelectionMode="Single"/>
@@ -105,6 +109,7 @@
                                             <TextBox x:Name="NhbrName" KeyDown="AddNhbrKeyDown" Width="200" Height="{Binding ElementName=AddNhbr, Path=ActualHeight}"/>
                                             <Button x:Name="AddNhbr" Click="AddNhbr_Click" Width="35" Margin="5,0,1,0" Content="+"/>
                                             <Button x:Name="RemNhbr" Click="RemNhbr_Click" Width="35" Content="-"/>
+                                            <Button x:Name="EditNhbr" Click="EditNhbr_Click" Width="Auto" Content="Edit"/>
                                         </StackPanel>
                                         <Border Height="400" BorderThickness="1" BorderBrush="Gray" Margin="0,5,0,0">
                                             <ListView x:Name="NhbrList" SelectionMode="Single"/>

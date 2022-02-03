@@ -213,7 +213,6 @@ namespace Continental_Encounters
                 ZoneList.Items.Add(newZone);
             }
             ZoneName.Text = "";
-
         }
 
         private void RemZone_Click(object sender, RoutedEventArgs e)
@@ -233,6 +232,11 @@ namespace Continental_Encounters
                 ZoneList.Items.RemoveAt(ZoneList.Items.IndexOf(ZoneList.SelectedItem));
             }
             ZoneList.SelectedItem = null;
+        }
+
+        private void EditZone_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void Zone_Selected(object sender, RoutedEventArgs e)
@@ -291,6 +295,10 @@ namespace Continental_Encounters
             }
             EncList.SelectedItem = null;
         }
+        private void EditEnc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
 
 
@@ -345,6 +353,10 @@ namespace Continental_Encounters
             }
             EnvList.SelectedItem = null;
         }
+        private void EditEnv_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
 
 
@@ -384,6 +396,10 @@ namespace Continental_Encounters
                 }
                 NhbrName.Text = "";
             }
+        }
+        private void EditNhbr_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private async void RemNhbr_Click(object sender, RoutedEventArgs e)
