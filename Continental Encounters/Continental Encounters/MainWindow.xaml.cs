@@ -28,7 +28,7 @@ namespace Continental_Encounters
     public sealed partial class MainWindow : Window
     {
         public MainWindow() { this.InitializeComponent(); }
-        private int TypeSel = 0;
+        private int _typeSel = 0;
 
         private void ClearLists()
         {
@@ -463,19 +463,19 @@ namespace Continental_Encounters
                 switch (TypeName)
                 {
                     case "Any":
-                        TypeSel = 4;
+                        _typeSel = 4;
                         break;
 
                     case "Local":
-                        TypeSel = 1;
+                        _typeSel = 1;
                         break;
 
                     case "Roam":
-                        TypeSel = 2;
+                        _typeSel = 2;
                         break;
 
                     case "Combined":
-                        TypeSel = 3;
+                        _typeSel = 3;
                         break;
                 }
             }
@@ -489,7 +489,7 @@ namespace Continental_Encounters
                 int choice = 0;
                 EncFeats.Items.Clear();
 
-                if (TypeSel != 0) { choice = TypeSel; }
+                if (_typeSel != 0) { choice = _typeSel; }
 
                 var rnd = new Random();
                 bool roamerPossible, breakLoop;
