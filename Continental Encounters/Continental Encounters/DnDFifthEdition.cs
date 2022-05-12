@@ -79,6 +79,11 @@ namespace Continental_Encounters
             for (int i = 1; i<= _numDice; i++) { total += rnd.Next(1, (int)_numSides + 1); }
             return total + _flatBonus;
         }
+
+        public int getMax()
+        {
+            return (int)_numDice * (int)_numSides + _flatBonus;
+        }
     }
 
     internal class AbilityScores
@@ -326,16 +331,19 @@ namespace Continental_Encounters
         }
     }
 
-    internal class Creatures
+    internal abstract class Creatures
     {
         // Required by the combat tracker.
         public string Name { get; set; }
         public int ArmorClass { get; set; }
-        public Dice HP;
+        public Dice HitDice;
+        public int curHP;
+        public int maxHP;
         public int InitiativeBonus { get; set; }
+        public abstract int[] getHP();
 
         // Additional mechanics that all creatures use.
-        public AbilityScores Scores = new AbilityScores();
+        public AbilityScores Scores;
         public string Alignment { get; set; }
         public List<TraitFeature> TraitsFeatsList = new List<TraitFeature>();
         public List<string> Languages = new List<string>();
@@ -353,11 +361,26 @@ namespace Continental_Encounters
         public int Speed { get; set; }
 
         public int[] DeathSaves = { 0, 0 };
+
+        public PlayerCharacter(string name, int ac, Dice hitDice, int initiative)
+        {
+
+        }
+    
+        public override int[] getHP()
+        {
+            int[] hp = { 0, 0 };
+            return hp;
+        }
     }
 
     internal class Monster : Creatures
     {
         // Required by the combat tracker
+        public override int[] getHP()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

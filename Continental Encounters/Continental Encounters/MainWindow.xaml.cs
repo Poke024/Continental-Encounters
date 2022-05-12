@@ -325,6 +325,10 @@ namespace Continental_Encounters
             }
             RoamList.SelectedItem = null;
         }
+        private void EditRoam_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
 
 
