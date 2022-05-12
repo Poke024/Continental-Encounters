@@ -8,8 +8,8 @@
 
   <Identity
     Name="f0bdf0a7-8e5f-4c43-8252-1343137f1bc2"
-    Publisher="CN=adair"
-    Version="1.0.0.0" />
+    Publisher="CN=Adair Torres"
+    Version="0.0.1.0" />
 
   <Properties>
     <DisplayName>Continental Encounters</DisplayName>

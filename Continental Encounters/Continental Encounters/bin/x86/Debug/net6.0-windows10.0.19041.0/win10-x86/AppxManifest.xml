@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="f0bdf0a7-8e5f-4c43-8252-1343137f1bc2" Publisher="CN=adair" Version="1.0.0.0" ProcessorArchitecture="x86" />
+  <Identity Name="f0bdf0a7-8e5f-4c43-8252-1343137f1bc2" Publisher="CN=Adair Torres" Version="0.0.1.0" ProcessorArchitecture="x86" />
   <Properties>
     <DisplayName>Continental Encounters</DisplayName>
     <PublisherDisplayName>adair</PublisherDisplayName>

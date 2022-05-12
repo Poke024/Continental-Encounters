@@ -28,7 +28,7 @@ namespace Continental_Encounters
     public sealed partial class MainWindow : Window
     {
         public MainWindow() { this.InitializeComponent(); }
-        private int TypeSel = 0;
+        private int _typeSel = 0;
 
         private void ClearLists()
         {
@@ -213,7 +213,6 @@ namespace Continental_Encounters
                 ZoneList.Items.Add(newZone);
             }
             ZoneName.Text = "";
-
         }
 
         private void RemZone_Click(object sender, RoutedEventArgs e)
@@ -233,6 +232,11 @@ namespace Continental_Encounters
                 ZoneList.Items.RemoveAt(ZoneList.Items.IndexOf(ZoneList.SelectedItem));
             }
             ZoneList.SelectedItem = null;
+        }
+
+        private void EditZone_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void Zone_Selected(object sender, RoutedEventArgs e)
@@ -291,6 +295,10 @@ namespace Continental_Encounters
             }
             EncList.SelectedItem = null;
         }
+        private void EditEnc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
 
 
@@ -316,6 +324,10 @@ namespace Continental_Encounters
                 RoamList.Items.RemoveAt(RoamList.Items.IndexOf(RoamList.SelectedItem));
             }
             RoamList.SelectedItem = null;
+        }
+        private void EditRoam_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
 
@@ -344,6 +356,10 @@ namespace Continental_Encounters
                 EnvSlider.Maximum--;
             }
             EnvList.SelectedItem = null;
+        }
+        private void EditEnv_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
 
@@ -384,6 +400,10 @@ namespace Continental_Encounters
                 }
                 NhbrName.Text = "";
             }
+        }
+        private void EditNhbr_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private async void RemNhbr_Click(object sender, RoutedEventArgs e)
@@ -447,19 +467,19 @@ namespace Continental_Encounters
                 switch (TypeName)
                 {
                     case "Any":
-                        TypeSel = 4;
+                        _typeSel = 4;
                         break;
 
                     case "Local":
-                        TypeSel = 1;
+                        _typeSel = 1;
                         break;
 
                     case "Roam":
-                        TypeSel = 2;
+                        _typeSel = 2;
                         break;
 
                     case "Combined":
-                        TypeSel = 3;
+                        _typeSel = 3;
                         break;
                 }
             }
@@ -473,7 +493,7 @@ namespace Continental_Encounters
                 int choice = 0;
                 EncFeats.Items.Clear();
 
-                if (TypeSel != 0) { choice = TypeSel; }
+                if (_typeSel != 0) { choice = _typeSel; }
 
                 var rnd = new Random();
                 bool roamerPossible, breakLoop;

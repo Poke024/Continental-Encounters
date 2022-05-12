@@ -68,10 +68,7 @@ namespace Continental_Encounters
 
         public void SetEnvFeats(List<string> envs) { _envFeats = envs; }
 
-        public void SetNeighbors(List<string> nhbrs)
-        {
-            _neighbors = nhbrs;
-        }
+        public void SetNeighbors(List<string> nhbrs) { _neighbors = nhbrs; }
 
 
 

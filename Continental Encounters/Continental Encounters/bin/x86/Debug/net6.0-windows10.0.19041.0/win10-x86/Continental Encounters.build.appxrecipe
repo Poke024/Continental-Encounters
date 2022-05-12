@@ -9,7 +9,7 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>f0bdf0a7-8e5f-4c43-8252-1343137f1bc2</PackageIdentityName>
-    <PackageIdentityPublisher>CN=adair</PackageIdentityPublisher>
+    <PackageIdentityPublisher>CN=Adair Torres</PackageIdentityPublisher>
     <IntermediateOutputPath>C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Continental-Encounters\Continental Encounters\Continental Encounters\obj\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
