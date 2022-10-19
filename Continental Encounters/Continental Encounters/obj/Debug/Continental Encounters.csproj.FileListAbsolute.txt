@@ -1,0 +1,11 @@
+C:\Users\Adair Torres\Documents\Programming\Projects\Envs\Continental Encounters\Continental-EncountersV2\Continental Encounters\Continental Encounters\bin\Debug\Continental Encounters.exe.config
+C:\Users\Adair Torres\Documents\Programming\Projects\Envs\Continental Encounters\Continental-EncountersV2\Continental Encounters\Continental Encounters\bin\Debug\Continental Encounters.exe
+C:\Users\Adair Torres\Documents\Programming\Projects\Envs\Continental Encounters\Continental-EncountersV2\Continental Encounters\Continental Encounters\bin\Debug\Continental Encounters.pdb
+C:\Users\Adair Torres\Documents\Programming\Projects\Envs\Continental Encounters\Continental-EncountersV2\Continental Encounters\Continental Encounters\obj\Debug\Continental Encounters.csproj.AssemblyReference.cache
+C:\Users\Adair Torres\Documents\Programming\Projects\Envs\Continental Encounters\Continental-EncountersV2\Continental Encounters\Continental Encounters\obj\Debug\Continental Encounters.csproj.SuggestedBindingRedirects.cache
+C:\Users\Adair Torres\Documents\Programming\Projects\Envs\Continental Encounters\Continental-EncountersV2\Continental Encounters\Continental Encounters\obj\Debug\Continental_Encounters.Form1.resources
+C:\Users\Adair Torres\Documents\Programming\Projects\Envs\Continental Encounters\Continental-EncountersV2\Continental Encounters\Continental Encounters\obj\Debug\Continental_Encounters.Properties.Resources.resources
+C:\Users\Adair Torres\Documents\Programming\Projects\Envs\Continental Encounters\Continental-EncountersV2\Continental Encounters\Continental Encounters\obj\Debug\Continental Encounters.csproj.GenerateResource.cache
+C:\Users\Adair Torres\Documents\Programming\Projects\Envs\Continental Encounters\Continental-EncountersV2\Continental Encounters\Continental Encounters\obj\Debug\Continental Encounters.csproj.CoreCompileInputs.cache
+C:\Users\Adair Torres\Documents\Programming\Projects\Envs\Continental Encounters\Continental-EncountersV2\Continental Encounters\Continental Encounters\obj\Debug\Continental Encounters.exe
+C:\Users\Adair Torres\Documents\Programming\Projects\Envs\Continental Encounters\Continental-EncountersV2\Continental Encounters\Continental Encounters\obj\Debug\Continental Encounters.pdb

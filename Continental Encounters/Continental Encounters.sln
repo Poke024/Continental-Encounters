@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Continental Encounters", "Continental Encounters\Continental Encounters.csproj", "{939A0405-F998-49EE-BE6E-3855A1454EF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{939A0405-F998-49EE-BE6E-3855A1454EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939A0405-F998-49EE-BE6E-3855A1454EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939A0405-F998-49EE-BE6E-3855A1454EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939A0405-F998-49EE-BE6E-3855A1454EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A803B870-47C0-4FBD-B344-02A2BAB491A9}
+	EndGlobalSection
+EndGlobal
