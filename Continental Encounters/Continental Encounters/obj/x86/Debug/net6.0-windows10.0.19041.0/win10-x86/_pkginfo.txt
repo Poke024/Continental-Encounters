@@ -1,1 +1,0 @@
-C:\Users\Adair Torres\Documents\Programming\Projects\Repositories\Continental-Encounters\Continental Encounters\Continental Encounters\bin\x86\Debug\net6.0-windows10.0.19041.0\win10-x86\AppPackages\Continental Encounters_0.0.1.0_x86_Debug_Test\Continental Encounters_0.0.1.0_x86_Debug.msix
