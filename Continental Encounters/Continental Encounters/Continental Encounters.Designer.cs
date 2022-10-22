@@ -67,6 +67,20 @@
             this.NeighborListBox = new System.Windows.Forms.ListBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.GeneratorGroupBox = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.GenerateBtn = new System.Windows.Forms.Button();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.EncounterCheck = new System.Windows.Forms.CheckBox();
+            this.RoamerCheck = new System.Windows.Forms.CheckBox();
+            this.EnvironmentCheck = new System.Windows.Forms.CheckBox();
+            this.AllRadio = new System.Windows.Forms.RadioButton();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.EnvironmentGenBox = new System.Windows.Forms.GroupBox();
+            this.EnvironmentGenLabel = new System.Windows.Forms.Label();
+            this.RoamerGenBox = new System.Windows.Forms.GroupBox();
+            this.RoamerGenLabel = new System.Windows.Forms.Label();
+            this.EncounterGenBox = new System.Windows.Forms.GroupBox();
+            this.EncounterGenLabel = new System.Windows.Forms.Label();
             this.AddZoneTip = new System.Windows.Forms.ToolTip(this.components);
             this.RemoveZoneTip = new System.Windows.Forms.ToolTip(this.components);
             this.AddEncounterTip = new System.Windows.Forms.ToolTip(this.components);
@@ -77,20 +91,7 @@
             this.RemoveEnvironmentTip = new System.Windows.Forms.ToolTip(this.components);
             this.AddNeighborTip = new System.Windows.Forms.ToolTip(this.components);
             this.RemoveNeighborTip = new System.Windows.Forms.ToolTip(this.components);
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.GenerateBtn = new System.Windows.Forms.Button();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.EncounterCheck = new System.Windows.Forms.CheckBox();
-            this.RoamerCheck = new System.Windows.Forms.CheckBox();
-            this.EnvironmentCheck = new System.Windows.Forms.CheckBox();
-            this.AllRadio = new System.Windows.Forms.RadioButton();
-            this.EncounterGenBox = new System.Windows.Forms.GroupBox();
-            this.RoamerGenBox = new System.Windows.Forms.GroupBox();
-            this.EnvironmentGenBox = new System.Windows.Forms.GroupBox();
-            this.EncounterGenLabel = new System.Windows.Forms.Label();
-            this.RoamerGenLabel = new System.Windows.Forms.Label();
-            this.EnvironmentGenLabel = new System.Windows.Forms.Label();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.RandomRadio = new System.Windows.Forms.RadioButton();
             this.BaseMenuStrip.SuspendLayout();
             this.ContinentFlowLayout.SuspendLayout();
             this.ZoneGroupBox.SuspendLayout();
@@ -107,10 +108,10 @@
             this.GeneratorGroupBox.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            this.EncounterGenBox.SuspendLayout();
-            this.RoamerGenBox.SuspendLayout();
-            this.EnvironmentGenBox.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.EnvironmentGenBox.SuspendLayout();
+            this.RoamerGenBox.SuspendLayout();
+            this.EncounterGenBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // BaseMenuStrip
@@ -487,6 +488,7 @@
             this.flowLayoutPanel3.Controls.Add(this.RoamerCheck);
             this.flowLayoutPanel3.Controls.Add(this.EnvironmentCheck);
             this.flowLayoutPanel3.Controls.Add(this.AllRadio);
+            this.flowLayoutPanel3.Controls.Add(this.RandomRadio);
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(189, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -534,25 +536,16 @@
             this.AllRadio.Text = "Include All";
             this.AllRadio.UseVisualStyleBackColor = true;
             // 
-            // EncounterGenBox
+            // flowLayoutPanel4
             // 
-            this.EncounterGenBox.Controls.Add(this.EncounterGenLabel);
-            this.EncounterGenBox.Location = new System.Drawing.Point(97, 3);
-            this.EncounterGenBox.Name = "EncounterGenBox";
-            this.EncounterGenBox.Size = new System.Drawing.Size(200, 163);
-            this.EncounterGenBox.TabIndex = 2;
-            this.EncounterGenBox.TabStop = false;
-            this.EncounterGenBox.Text = "Encounter";
-            // 
-            // RoamerGenBox
-            // 
-            this.RoamerGenBox.Controls.Add(this.RoamerGenLabel);
-            this.RoamerGenBox.Location = new System.Drawing.Point(303, 3);
-            this.RoamerGenBox.Name = "RoamerGenBox";
-            this.RoamerGenBox.Size = new System.Drawing.Size(200, 163);
-            this.RoamerGenBox.TabIndex = 3;
-            this.RoamerGenBox.TabStop = false;
-            this.RoamerGenBox.Text = "Roamer";
+            this.flowLayoutPanel4.Controls.Add(this.EnvironmentGenBox);
+            this.flowLayoutPanel4.Controls.Add(this.RoamerGenBox);
+            this.flowLayoutPanel4.Controls.Add(this.EncounterGenBox);
+            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(323, 3);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(712, 166);
+            this.flowLayoutPanel4.TabIndex = 2;
             // 
             // EnvironmentGenBox
             // 
@@ -564,14 +557,24 @@
             this.EnvironmentGenBox.TabStop = false;
             this.EnvironmentGenBox.Text = "Environment";
             // 
-            // EncounterGenLabel
+            // EnvironmentGenLabel
             // 
-            this.EncounterGenLabel.Location = new System.Drawing.Point(7, 20);
-            this.EncounterGenLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.EncounterGenLabel.Name = "EncounterGenLabel";
-            this.EncounterGenLabel.Size = new System.Drawing.Size(187, 137);
-            this.EncounterGenLabel.TabIndex = 0;
-            this.EncounterGenLabel.Text = "The generated encounter will appear here!";
+            this.EnvironmentGenLabel.Location = new System.Drawing.Point(6, 20);
+            this.EnvironmentGenLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.EnvironmentGenLabel.Name = "EnvironmentGenLabel";
+            this.EnvironmentGenLabel.Size = new System.Drawing.Size(187, 137);
+            this.EnvironmentGenLabel.TabIndex = 1;
+            this.EnvironmentGenLabel.Text = "The generated environment will appear here!";
+            // 
+            // RoamerGenBox
+            // 
+            this.RoamerGenBox.Controls.Add(this.RoamerGenLabel);
+            this.RoamerGenBox.Location = new System.Drawing.Point(303, 3);
+            this.RoamerGenBox.Name = "RoamerGenBox";
+            this.RoamerGenBox.Size = new System.Drawing.Size(200, 163);
+            this.RoamerGenBox.TabIndex = 3;
+            this.RoamerGenBox.TabStop = false;
+            this.RoamerGenBox.Text = "Roamer";
             // 
             // RoamerGenLabel
             // 
@@ -582,25 +585,35 @@
             this.RoamerGenLabel.TabIndex = 1;
             this.RoamerGenLabel.Text = "The generated roamer will appear here!";
             // 
-            // EnvironmentGenLabel
+            // EncounterGenBox
             // 
-            this.EnvironmentGenLabel.Location = new System.Drawing.Point(6, 20);
-            this.EnvironmentGenLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.EnvironmentGenLabel.Name = "EnvironmentGenLabel";
-            this.EnvironmentGenLabel.Size = new System.Drawing.Size(187, 137);
-            this.EnvironmentGenLabel.TabIndex = 1;
-            this.EnvironmentGenLabel.Text = "The generated environment will appear here!";
+            this.EncounterGenBox.Controls.Add(this.EncounterGenLabel);
+            this.EncounterGenBox.Location = new System.Drawing.Point(97, 3);
+            this.EncounterGenBox.Name = "EncounterGenBox";
+            this.EncounterGenBox.Size = new System.Drawing.Size(200, 163);
+            this.EncounterGenBox.TabIndex = 2;
+            this.EncounterGenBox.TabStop = false;
+            this.EncounterGenBox.Text = "Encounter";
             // 
-            // flowLayoutPanel4
+            // EncounterGenLabel
             // 
-            this.flowLayoutPanel4.Controls.Add(this.EnvironmentGenBox);
-            this.flowLayoutPanel4.Controls.Add(this.RoamerGenBox);
-            this.flowLayoutPanel4.Controls.Add(this.EncounterGenBox);
-            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(323, 3);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(712, 166);
-            this.flowLayoutPanel4.TabIndex = 2;
+            this.EncounterGenLabel.Location = new System.Drawing.Point(7, 20);
+            this.EncounterGenLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.EncounterGenLabel.Name = "EncounterGenLabel";
+            this.EncounterGenLabel.Size = new System.Drawing.Size(187, 137);
+            this.EncounterGenLabel.TabIndex = 0;
+            this.EncounterGenLabel.Text = "The generated encounter will appear here!";
+            // 
+            // RandomRadio
+            // 
+            this.RandomRadio.AutoSize = true;
+            this.RandomRadio.Location = new System.Drawing.Point(3, 95);
+            this.RandomRadio.Name = "RandomRadio";
+            this.RandomRadio.Size = new System.Drawing.Size(65, 17);
+            this.RandomRadio.TabIndex = 5;
+            this.RandomRadio.TabStop = true;
+            this.RandomRadio.Text = "Random";
+            this.RandomRadio.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -635,10 +648,10 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            this.EncounterGenBox.ResumeLayout(false);
-            this.RoamerGenBox.ResumeLayout(false);
-            this.EnvironmentGenBox.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
+            this.EnvironmentGenBox.ResumeLayout(false);
+            this.RoamerGenBox.ResumeLayout(false);
+            this.EncounterGenBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -708,6 +721,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Label EnvironmentGenLabel;
         private System.Windows.Forms.Label RoamerGenLabel;
+        private System.Windows.Forms.RadioButton RandomRadio;
     }
 }
 
