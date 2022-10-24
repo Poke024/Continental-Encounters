@@ -51,43 +51,43 @@ namespace Continental_Encounters
         }
         public static bool operator !=(Zone lhs, Zone rhs) => !(lhs == rhs);
 
-        // List Member Variables
+        // List Member Variables - Stores a zone's lists
         private List<string> _encounters = new List<string>();   //Encounters for this zone
         private List<string> _roamers = new List<string>();      //Roaming encounters for other zones
         private List<string> _environments = new List<string>();     //Environment features for this zone's encounters
         private List<string> _neighbors = new List<string>();      //Nearby zones to pull roaming encounters from
 
-        // List Setter Methods for Reassigning to Completed Lists
+        // List Setter Methods - Reassigns to Completed Lists
         public void SetEncounters(List<string> encs) { _encounters = encs; }
         public void SetRoamers(List<string> roams) { _roamers = roams; }
         public void SetEnvironments(List<string> envs) { _environments = envs; }
         public void SetNeighbors(List<string> nhbrs) { _neighbors = nhbrs; }
 
-        // Check if <list> Empty Methods
+        // Check if <list> Empty Methods - Returns a boolean of whether a list is empty
         public bool EmptyEncounters() { return _encounters.Count == 0; }
         public bool EmptyRoamers() { return _roamers.Count == 0; }
         public bool EmptyEnvironments() { return _environments.Count == 0; }
         public bool EmptyNeighbors() { return _neighbors.Count == 0; }
 
-        // Add to <list> Methods
+        // Add to <list> Methods - Adds a single string element to a list
         public void AddEncounter(string encounter) { _encounters.Add(encounter); }
         public void AddRoamer(string roamer) { _roamers.Add(roamer); }
         public void AddEnvironment(string feat) { _environments.Add(feat); }
         public void AddNeighbor(string nhbr) { _neighbors.Add(nhbr); }
 
-        // Count <list> Methods
+        // Count <list> Methods - Returns an integer of the list's length
         public int CountEncounters() { return _encounters.Count; }
         public int CountRoamers() { return _roamers.Count; }
         public int CountEnvironments() { return _environments.Count; }
         public int CountNeighbors() { return _neighbors.Count; }
 
-        // Get All Entries from <list> Methods
+        // Get All Entries from <list> Methods - Returns a list of strings
         public List<string> GetAllEncounters() { return _encounters; }
         public List<string> GetAllRoamers() { return _roamers; }
         public List<string> GetAllEnvironments() { return _environments; }
         public List<string> GetAllNeighbors() { return _neighbors; }
 
-        // Get One from <list> Methods
+        // Get One from <list> Methods - Returns the elements from a list at the specified integer index
         public string GetEncounter(int index)
         {
             if (index < _encounters.Count) { return _encounters[index]; }
@@ -109,7 +109,7 @@ namespace Continental_Encounters
             else { throw new ArgumentOutOfRangeException("Neighbor index is outside valid range."); }
         }
 
-        // Remove One from <list> by Index Methods
+        // Remove One from <list> by Index Methods - Removes an element from a list at the given integer index
         public void RemoveEncounter(int index)
         {
             if (index < _encounters.Count) { _encounters.RemoveAt(index); }
@@ -127,7 +127,7 @@ namespace Continental_Encounters
             if (index < _neighbors.Count) { _neighbors.RemoveAt(index); }
         }
 
-        // Generate from <list> Methods
+        // Generate from <list> Methods - Generate a random integer index and use it to retrieve an encounter
         public string GenerateEncounter()
         {
             if (!EmptyEncounters())
