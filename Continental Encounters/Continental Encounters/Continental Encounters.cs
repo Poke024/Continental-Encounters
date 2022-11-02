@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Continental_Encounters
 {
-    public partial class Form1 : Form
+    public partial class ContinentForm : Form
     {
-        public Form1()
+        public ContinentForm()
         {
             InitializeComponent();
 
@@ -27,6 +27,41 @@ namespace Continental_Encounters
             RemoveEnvironmentTip.SetToolTip(RemoveEnvironmentBtn, "Remove Selected Environment");
             AddNeighborTip.SetToolTip(AddNeighborBtn, "Add Typed Neighbor");
             RemoveNeighborTip.SetToolTip(RemoveNeighborBtn, "Remove Selected Neighbor");
+        }
+
+        List<Zone> zones = new List<Zone>();
+        private void AddZoneBtn_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(ZoneInput.Text) && !ZoneListBox.Items.Contains(ZoneInput.Text))
+            { 
+                ZoneListBox.Items.Add(ZoneInput.Text);
+                zones.Add(new Zone(ZoneInput.Text));
+            }
+        }
+
+        private void ZoneListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EncounterListBox.Items.Clear();
+            RoamerListBox.Items.Clear();
+            EnvironmentListBox.Items.Clear();
+            NeighborListBox.Items.Clear();
+            
+            if (zones[ZoneListBox.SelectedIndex]._Name == (string)ZoneListBox.SelectedItem)
+            {
+
+            }
+            else
+            {
+                Zone targZone = new Zone((string)ZoneListBox.SelectedItem);
+                if (zones.Contains(targZone))
+                {
+
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }

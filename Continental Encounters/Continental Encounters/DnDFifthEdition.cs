@@ -1,4 +1,10 @@
-﻿using System;
+﻿/**
+ * @file DnDFifthEdition.cs
+ * @author: Adair Torres
+ * @brief: This file contains classes related to using the application with Dungeons & Dragons Fifth Edition.
+ * @last modified: 10/28/2022
+**/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,112 +12,203 @@ using System.Threading.Tasks;
 
 namespace Continental_Encounters
 {
-    internal class Dice
+    internal class Roller
     {
-        // Dice Format: <# of dice>D<# of sides> + <Bonus amount>, Ex: 2d12 + 5
+        // Roller Format: <# of dice>D<# of sides> + <Bonus amount>, Ex: 2d12 + 5
         // The bonus amount depends on what the dice is being used for. Ex: Hit Dice use Constitution modifier, Attack Dice use Strength or Dexterity modifier.
-        private uint _numDice;
-        private uint _numSides;
-        private int _flatBonus;
-        public Dice()       // Parameterless Constructor
+        private uint _diceCount;
+        private uint _diceSides;
+        private int _bonus;
+
+        /**
+         * @pre Constructor is called with three parameters given.
+         * @post Instantiates a new Roller object.
+         * @param uint diceCount: the number of dice to be rolled; uint diceSides: the numbers of sides on the dice; int bonus: a flat bonus to be applied to the roll result.
+         * @throw ArgumentException if diceCount or diceSides are not positive numbers.
+         * @return none
+        **/
+        public Roller(uint diceCount, uint diceSides, int bonus)      // Constructor with Parameters
         {
-            _numDice = _numSides = 0;
-            _flatBonus = 0;
-        }
-        public Dice(uint newDice, uint newSides, int newBonus)      // Constructor with Parameters
-        {
-            if (newDice > 0 && newSides > 0)
+            if (diceCount > 0 && diceSides > 0)
             {
-                _numDice = newDice;
-                _numSides = newSides;
-                _flatBonus = newBonus;
+                _diceCount = diceCount;
+                _diceSides = diceSides;
+                _bonus = bonus;
             }
             else { throw new ArgumentException("A dice object cannot be created with the given parameters."); }
         }
-        public Dice(Dice orig)      // Copy Constructor
+        /**
+         * @pre Copy Constructor for making a deep copy of a Roller instance.
+         * @post Instantiates a deep copy of a Roller object.
+         * @param Roller orig: the Roller to be copied.
+         * @throw none
+         * @return none
+        **/
+        public Roller(Roller orig)      // Copy Constructor
         {
-            _numDice = orig._numDice;
-            _numSides = orig._numSides;
-            _flatBonus = orig._flatBonus;
+            _diceCount = orig._diceCount;
+            _diceSides = orig._diceSides;
+            _bonus = orig._bonus;
         }
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public void ChangeAll(uint newDice, uint newSides, int newBonus)
         {
             if (newDice > 0 && newSides > 0)
             {
-                _numDice = newDice;
-                _numSides = newSides;
-                _flatBonus = newBonus;
+                _diceCount = newDice;
+                _diceSides = newSides;
+                _bonus = newBonus;
             }
             else { throw new ArgumentException("A dice object cannot be created with the given parameters."); }
         }
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public void ChangeAmount(uint newDice)
         {
-            if (newDice > 0) { _numDice = newDice; }
+            if (newDice > 0) { _diceCount = newDice; }
             else { throw new ArgumentOutOfRangeException("The number of dice must be a positive integer."); }
         }
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public void ChangeSides(uint newSides)
         {
-            if (newSides > 0) { _numSides = newSides; }
+            if (newSides > 0) { _diceSides = newSides; }
             else { throw new ArgumentOutOfRangeException("The number of sides must be a positive integer."); }
         }
-        public void ChangeBonus(int newBonus) { _flatBonus = newBonus; }
-        public uint GetAmount() { return _numDice; }
-        public uint GetSides() { return _numSides; }
-        public int GetBonus() { return _flatBonus; }
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
+        public void ChangeBonus(int newBonus) { _bonus = newBonus; }
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
+        public uint GetAmount() { return _diceCount; }
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
+        public uint GetSides() { return _diceSides; }
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
+        public int GetBonus() { return _bonus; }
 
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public int[] ShowRolls()        // Returns an array of format { Total, Flat Bonus, 1st Roll, ..., Last Roll }
         {
             var rnd = new Random();
-            int[] rolls = { 0, _flatBonus };
-            for (int i = 1; i <= _numDice; i++)
+            int[] rolls = { 0, _bonus };
+            for (int i = 1; i <= _diceCount; i++)
             {
-                int roll = rnd.Next(1, (int)_numSides + 1);
+                int roll = rnd.Next(1, (int)_diceSides + 1);
                 rolls.Append(roll);
             }
             rolls[0] = rolls.Sum();
             return rolls;
         }
-
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public int RollTotal()
         {
             var rnd = new Random();
             int total = 0;
-            for (int i = 1; i<= _numDice; i++) { total += rnd.Next(1, (int)_numSides + 1); }
-            return total + _flatBonus;
+            for (int i = 1; i<= _diceCount; i++) { total += rnd.Next(1, (int)_diceSides + 1); }
+            return total + _bonus;
         }
-
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public int getMax()
         {
-            return (int)_numDice * (int)_numSides + _flatBonus;
+            return (int)_diceCount * (int)_diceSides + _bonus;
         }
     }
 
     internal class AbilityScores
     {
         // Indices: Strength = 0, Dexterity = 1, Constitution = 2, Intelligence = 3, Wisdom = 4, Charisma = 5
-        private uint[] _rawScores;
-        private int[] _modifiers;
-        private bool zeroRaw;
-
+        private uint[] _rawScores = {10, 10, 10, 10, 10, 10};
+        private int[] _modifiers = {0, 0, 0, 0, 0, 0, 0};
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         private void _calculateMods()
         {
             for (int i = 0; i < _rawScores.Length; i++)
             {
-                if(_rawScores[i] > 0) { _modifiers[i] = (int)Math.Floor(((float)_rawScores[i] - 10) / 2); }
-                else
-                {
-                    _modifiers[i] = 0;
-                    zeroRaw = true;
-                }
+                if (_rawScores[i] > 0) { _modifiers[i] = (int)Math.Floor(((float)_rawScores[i] - 10) / 2); }
+                else { _modifiers[i] = 0; }
             }
         }
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public AbilityScores()
         {
             _rawScores = new uint[] { 0, 0, 0, 0, 0, 0 };
             _modifiers = new int[] { 0, 0, 0, 0, 0, 0 };
-            zeroRaw = true;
         }
-
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public AbilityScores(uint[] stats)
         {
             if (stats.Length == 6)
@@ -121,16 +218,35 @@ namespace Continental_Encounters
             }
             else { throw new ArgumentException("Stats array parameter must be of size 6."); }
         }
-
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public uint[] getScores()
         {
             return _rawScores;
         }
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public int[] getModifiers()
         {
             return _modifiers;
         }
-
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public void changeScore(string target, uint value)
         {
             if (value >= 0)
@@ -172,7 +288,21 @@ namespace Continental_Encounters
 
     internal class TraitFeature
     {
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public TraitFeature() { }
+        /**
+         * @pre 
+         * @post 
+         * @param 
+         * @throw 
+         * @return 
+        **/
         public TraitFeature(string name, string desc)
         {
             TraitFeatName = name;
@@ -248,11 +378,11 @@ namespace Continental_Encounters
         public string AttackRange { get; set; }
         public string Target { get; set; }
         public int toHit { get; set; }
-        public Dice Damage;
-        public Dice SecondDmg;
+        public Roller Damage;
+        public Roller SecondDmg;
 
         public Attack() { }
-        public Attack(string name, string type, string rng, string targ, int hit, Dice dmg)
+        public Attack(string name, string type, string rng, string targ, int hit, Roller dmg)
         {
             AttackName = name;
             AttackType = type;
@@ -261,7 +391,7 @@ namespace Continental_Encounters
             toHit = hit;
             Damage = dmg;
         }
-        public Attack(string name, string type, string rng, string targ, int hit, Dice dmg, Dice dmg2)
+        public Attack(string name, string type, string rng, string targ, int hit, Roller dmg, Roller dmg2)
         {
             AttackName = name;
             AttackType = type;
@@ -274,7 +404,7 @@ namespace Continental_Encounters
 
         public int[] RollToHit()     // Returns an array of format { Total, Flat bonus, 1d20 Roll }
         {
-            Dice d20 = new Dice(1, 20, toHit);
+            Roller d20 = new Roller(1, 20, toHit);
             return d20.ShowRolls();
         }
         public int[] RollDamage(uint choice)
@@ -336,7 +466,7 @@ namespace Continental_Encounters
         // Required by the combat tracker.
         public string Name { get; set; }
         public int ArmorClass { get; set; }
-        public Dice HitDice;
+        public Roller HitDice;
         public int curHP;
         public int maxHP;
         public int InitiativeBonus { get; set; }
@@ -362,7 +492,7 @@ namespace Continental_Encounters
 
         public int[] DeathSaves = { 0, 0 };
 
-        public PlayerCharacter(string name, int ac, Dice hitDice, int initiative)
+        public PlayerCharacter(string name, int ac, Roller hitDice, int initiative)
         {
 
         }
