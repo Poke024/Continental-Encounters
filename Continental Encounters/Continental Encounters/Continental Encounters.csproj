@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FifthEditionV2.cs" />
     <Compile Include="Continental Encounters.cs">
       <SubType>Form</SubType>
     </Compile>
