@@ -36,7 +36,7 @@ namespace Continental_Encounters
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.BaseMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +72,6 @@ namespace Continental_Encounters
             this.NeighborInput = new System.Windows.Forms.TextBox();
             this.AddNeighborBtn = new System.Windows.Forms.Button();
             this.NeighborListBox = new System.Windows.Forms.ListBox();
-            this.ContinentMain = new System.Windows.Forms.FlowLayoutPanel();
             this.GeneratorGroupBox = new System.Windows.Forms.GroupBox();
             this.GeneratorFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.GenerateBtn = new System.Windows.Forms.Button();
@@ -99,14 +98,22 @@ namespace Continental_Encounters
             this.RemoveEnvironmentTip = new System.Windows.Forms.ToolTip(this.components);
             this.AddNeighborTip = new System.Windows.Forms.ToolTip(this.components);
             this.RemoveNeighborTip = new System.Windows.Forms.ToolTip(this.components);
-            this.ToolSidebar = new System.Windows.Forms.FlowLayoutPanel();
-            this.ContinentIcon = new System.Windows.Forms.PictureBox();
-            this.CombatIcon = new System.Windows.Forms.PictureBox();
-            this.CharacterIcon = new System.Windows.Forms.PictureBox();
-            this.CompediumIcon = new System.Windows.Forms.PictureBox();
-            this.CampaignIcon = new System.Windows.Forms.PictureBox();
-            this.CreatorIcon = new System.Windows.Forms.PictureBox();
-            this.BaseMenuStrip.SuspendLayout();
+            this.ToolTabs = new System.Windows.Forms.TabControl();
+            this.ContinentTab = new System.Windows.Forms.TabPage();
+            this.SendPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.SendLabel = new System.Windows.Forms.Label();
+            this.ContToEncButton = new System.Windows.Forms.Button();
+            this.ContToTrackButton = new System.Windows.Forms.Button();
+            this.ContToNotesButton = new System.Windows.Forms.Button();
+            this.ContFilePanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.OpenContButton = new System.Windows.Forms.Button();
+            this.SaveContButton = new System.Windows.Forms.Button();
+            this.CampaignTab = new System.Windows.Forms.TabPage();
+            this.CombatTab = new System.Windows.Forms.TabPage();
+            this.EncounterTab = new System.Windows.Forms.TabPage();
+            this.CompendiumTab = new System.Windows.Forms.TabPage();
+            this.CreationTab = new System.Windows.Forms.TabPage();
+            this.MainMenuStrip.SuspendLayout();
             this.ListFlow.SuspendLayout();
             this.ZoneGroupBox.SuspendLayout();
             this.NewZoneBox.SuspendLayout();
@@ -118,7 +125,6 @@ namespace Continental_Encounters
             this.NewEnvironmentBox.SuspendLayout();
             this.NeighborsGroupBox.SuspendLayout();
             this.NewNeighborBox.SuspendLayout();
-            this.ContinentMain.SuspendLayout();
             this.GeneratorGroupBox.SuspendLayout();
             this.GeneratorFlow.SuspendLayout();
             this.OptionsFlow.SuspendLayout();
@@ -126,29 +132,26 @@ namespace Continental_Encounters
             this.EnvironmentGenBox.SuspendLayout();
             this.RoamerGenBox.SuspendLayout();
             this.EncounterGenBox.SuspendLayout();
-            this.ToolSidebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ContinentIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CombatIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CharacterIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CompediumIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CampaignIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CreatorIcon)).BeginInit();
+            this.ToolTabs.SuspendLayout();
+            this.ContinentTab.SuspendLayout();
+            this.SendPanel.SuspendLayout();
+            this.ContFilePanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // BaseMenuStrip
+            // MainMenuStrip
             // 
-            this.BaseMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.BaseMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.BaseMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.BaseMenuStrip.Name = "BaseMenuStrip";
-            this.BaseMenuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.BaseMenuStrip.Size = new System.Drawing.Size(1289, 24);
-            this.BaseMenuStrip.TabIndex = 0;
-            this.BaseMenuStrip.Text = "BaseMenuStrip";
+            this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MainMenuStrip.Name = "MainMenuStrip";
+            this.MainMenuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.MainMenuStrip.Size = new System.Drawing.Size(1329, 24);
+            this.MainMenuStrip.TabIndex = 0;
+            this.MainMenuStrip.Text = "BaseMenuStrip";
             // 
             // fileToolStripMenuItem
             // 
@@ -181,10 +184,10 @@ namespace Continental_Encounters
             this.ListFlow.Controls.Add(this.RoamersGroupBox);
             this.ListFlow.Controls.Add(this.EnvironmentsGroupBox);
             this.ListFlow.Controls.Add(this.NeighborsGroupBox);
-            this.ListFlow.Location = new System.Drawing.Point(2, 2);
-            this.ListFlow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ListFlow.Location = new System.Drawing.Point(3, 39);
+            this.ListFlow.Margin = new System.Windows.Forms.Padding(0);
             this.ListFlow.Name = "ListFlow";
-            this.ListFlow.Size = new System.Drawing.Size(1188, 340);
+            this.ListFlow.Size = new System.Drawing.Size(1055, 313);
             this.ListFlow.TabIndex = 1;
             // 
             // ZoneGroupBox
@@ -200,6 +203,7 @@ namespace Continental_Encounters
             // 
             // NewZoneBox
             // 
+            this.NewZoneBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.NewZoneBox.Controls.Add(this.RemoveZoneBtn);
             this.NewZoneBox.Controls.Add(this.ZoneInput);
             this.NewZoneBox.Controls.Add(this.AddZoneBtn);
@@ -212,11 +216,12 @@ namespace Continental_Encounters
             // 
             // RemoveZoneBtn
             // 
+            this.RemoveZoneBtn.ForeColor = System.Drawing.Color.Red;
             this.RemoveZoneBtn.Location = new System.Drawing.Point(153, 17);
             this.RemoveZoneBtn.Name = "RemoveZoneBtn";
             this.RemoveZoneBtn.Size = new System.Drawing.Size(23, 23);
             this.RemoveZoneBtn.TabIndex = 2;
-            this.RemoveZoneBtn.Text = "-";
+            this.RemoveZoneBtn.Text = "X";
             this.RemoveZoneBtn.UseVisualStyleBackColor = true;
             // 
             // ZoneInput
@@ -228,6 +233,7 @@ namespace Continental_Encounters
             // 
             // AddZoneBtn
             // 
+            this.AddZoneBtn.ForeColor = System.Drawing.Color.Green;
             this.AddZoneBtn.Location = new System.Drawing.Point(131, 17);
             this.AddZoneBtn.Name = "AddZoneBtn";
             this.AddZoneBtn.Size = new System.Drawing.Size(23, 23);
@@ -238,6 +244,9 @@ namespace Continental_Encounters
             // 
             // ZoneListBox
             // 
+            this.ZoneListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ZoneListBox.FormattingEnabled = true;
             this.ZoneListBox.Location = new System.Drawing.Point(10, 70);
             this.ZoneListBox.Name = "ZoneListBox";
@@ -258,6 +267,7 @@ namespace Continental_Encounters
             // 
             // NewEncounterBox
             // 
+            this.NewEncounterBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.NewEncounterBox.Controls.Add(this.RemoveEncounterBtn);
             this.NewEncounterBox.Controls.Add(this.EncounterInput);
             this.NewEncounterBox.Controls.Add(this.AddEncounterBtn);
@@ -270,11 +280,12 @@ namespace Continental_Encounters
             // 
             // RemoveEncounterBtn
             // 
+            this.RemoveEncounterBtn.ForeColor = System.Drawing.Color.Red;
             this.RemoveEncounterBtn.Location = new System.Drawing.Point(153, 17);
             this.RemoveEncounterBtn.Name = "RemoveEncounterBtn";
             this.RemoveEncounterBtn.Size = new System.Drawing.Size(23, 23);
             this.RemoveEncounterBtn.TabIndex = 2;
-            this.RemoveEncounterBtn.Text = "-";
+            this.RemoveEncounterBtn.Text = "X";
             this.RemoveEncounterBtn.UseVisualStyleBackColor = true;
             // 
             // EncounterInput
@@ -286,6 +297,7 @@ namespace Continental_Encounters
             // 
             // AddEncounterBtn
             // 
+            this.AddEncounterBtn.ForeColor = System.Drawing.Color.Green;
             this.AddEncounterBtn.Location = new System.Drawing.Point(131, 17);
             this.AddEncounterBtn.Name = "AddEncounterBtn";
             this.AddEncounterBtn.Size = new System.Drawing.Size(23, 23);
@@ -295,6 +307,9 @@ namespace Continental_Encounters
             // 
             // EncounterListBox
             // 
+            this.EncounterListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.EncounterListBox.FormattingEnabled = true;
             this.EncounterListBox.Location = new System.Drawing.Point(10, 70);
             this.EncounterListBox.Name = "EncounterListBox";
@@ -314,6 +329,7 @@ namespace Continental_Encounters
             // 
             // NewRoamerBox
             // 
+            this.NewRoamerBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.NewRoamerBox.Controls.Add(this.RemoveRoamerBtn);
             this.NewRoamerBox.Controls.Add(this.RoamerInput);
             this.NewRoamerBox.Controls.Add(this.AddRoamerBtn);
@@ -326,11 +342,12 @@ namespace Continental_Encounters
             // 
             // RemoveRoamerBtn
             // 
+            this.RemoveRoamerBtn.ForeColor = System.Drawing.Color.Red;
             this.RemoveRoamerBtn.Location = new System.Drawing.Point(153, 17);
             this.RemoveRoamerBtn.Name = "RemoveRoamerBtn";
             this.RemoveRoamerBtn.Size = new System.Drawing.Size(23, 23);
             this.RemoveRoamerBtn.TabIndex = 2;
-            this.RemoveRoamerBtn.Text = "-";
+            this.RemoveRoamerBtn.Text = "X";
             this.RemoveRoamerBtn.UseVisualStyleBackColor = true;
             // 
             // RoamerInput
@@ -342,6 +359,7 @@ namespace Continental_Encounters
             // 
             // AddRoamerBtn
             // 
+            this.AddRoamerBtn.ForeColor = System.Drawing.Color.Green;
             this.AddRoamerBtn.Location = new System.Drawing.Point(131, 17);
             this.AddRoamerBtn.Name = "AddRoamerBtn";
             this.AddRoamerBtn.Size = new System.Drawing.Size(23, 23);
@@ -351,6 +369,9 @@ namespace Continental_Encounters
             // 
             // RoamerListBox
             // 
+            this.RoamerListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RoamerListBox.FormattingEnabled = true;
             this.RoamerListBox.Location = new System.Drawing.Point(10, 70);
             this.RoamerListBox.Name = "RoamerListBox";
@@ -359,6 +380,9 @@ namespace Continental_Encounters
             // 
             // EnvironmentsGroupBox
             // 
+            this.EnvironmentsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.EnvironmentsGroupBox.Controls.Add(this.NewEnvironmentBox);
             this.EnvironmentsGroupBox.Controls.Add(this.EnvironmentListBox);
             this.EnvironmentsGroupBox.Location = new System.Drawing.Point(633, 3);
@@ -370,6 +394,7 @@ namespace Continental_Encounters
             // 
             // NewEnvironmentBox
             // 
+            this.NewEnvironmentBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.NewEnvironmentBox.Controls.Add(this.RemoveEnvironmentBtn);
             this.NewEnvironmentBox.Controls.Add(this.EnvironmentInput);
             this.NewEnvironmentBox.Controls.Add(this.AddEnvironmentBtn);
@@ -382,11 +407,12 @@ namespace Continental_Encounters
             // 
             // RemoveEnvironmentBtn
             // 
+            this.RemoveEnvironmentBtn.ForeColor = System.Drawing.Color.Red;
             this.RemoveEnvironmentBtn.Location = new System.Drawing.Point(153, 17);
             this.RemoveEnvironmentBtn.Name = "RemoveEnvironmentBtn";
             this.RemoveEnvironmentBtn.Size = new System.Drawing.Size(23, 23);
             this.RemoveEnvironmentBtn.TabIndex = 2;
-            this.RemoveEnvironmentBtn.Text = "-";
+            this.RemoveEnvironmentBtn.Text = "X";
             this.RemoveEnvironmentBtn.UseVisualStyleBackColor = true;
             // 
             // EnvironmentInput
@@ -398,6 +424,7 @@ namespace Continental_Encounters
             // 
             // AddEnvironmentBtn
             // 
+            this.AddEnvironmentBtn.ForeColor = System.Drawing.Color.Green;
             this.AddEnvironmentBtn.Location = new System.Drawing.Point(131, 17);
             this.AddEnvironmentBtn.Name = "AddEnvironmentBtn";
             this.AddEnvironmentBtn.Size = new System.Drawing.Size(23, 23);
@@ -407,6 +434,8 @@ namespace Continental_Encounters
             // 
             // EnvironmentListBox
             // 
+            this.EnvironmentListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.EnvironmentListBox.FormattingEnabled = true;
             this.EnvironmentListBox.Location = new System.Drawing.Point(10, 70);
             this.EnvironmentListBox.Name = "EnvironmentListBox";
@@ -422,10 +451,11 @@ namespace Continental_Encounters
             this.NeighborsGroupBox.Size = new System.Drawing.Size(204, 306);
             this.NeighborsGroupBox.TabIndex = 4;
             this.NeighborsGroupBox.TabStop = false;
-            this.NeighborsGroupBox.Text = "Neighbors";
+            this.NeighborsGroupBox.Text = "Neighbor Zones";
             // 
             // NewNeighborBox
             // 
+            this.NewNeighborBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.NewNeighborBox.Controls.Add(this.RemoveNeighborBtn);
             this.NewNeighborBox.Controls.Add(this.NeighborInput);
             this.NewNeighborBox.Controls.Add(this.AddNeighborBtn);
@@ -438,11 +468,12 @@ namespace Continental_Encounters
             // 
             // RemoveNeighborBtn
             // 
+            this.RemoveNeighborBtn.ForeColor = System.Drawing.Color.Red;
             this.RemoveNeighborBtn.Location = new System.Drawing.Point(153, 17);
             this.RemoveNeighborBtn.Name = "RemoveNeighborBtn";
             this.RemoveNeighborBtn.Size = new System.Drawing.Size(23, 23);
             this.RemoveNeighborBtn.TabIndex = 2;
-            this.RemoveNeighborBtn.Text = "-";
+            this.RemoveNeighborBtn.Text = "X";
             this.RemoveNeighborBtn.UseVisualStyleBackColor = true;
             // 
             // NeighborInput
@@ -454,6 +485,7 @@ namespace Continental_Encounters
             // 
             // AddNeighborBtn
             // 
+            this.AddNeighborBtn.ForeColor = System.Drawing.Color.Green;
             this.AddNeighborBtn.Location = new System.Drawing.Point(131, 17);
             this.AddNeighborBtn.Name = "AddNeighborBtn";
             this.AddNeighborBtn.Size = new System.Drawing.Size(23, 23);
@@ -463,30 +495,23 @@ namespace Continental_Encounters
             // 
             // NeighborListBox
             // 
+            this.NeighborListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NeighborListBox.FormattingEnabled = true;
             this.NeighborListBox.Location = new System.Drawing.Point(10, 70);
             this.NeighborListBox.Name = "NeighborListBox";
             this.NeighborListBox.Size = new System.Drawing.Size(182, 225);
             this.NeighborListBox.TabIndex = 1;
             // 
-            // ContinentMain
-            // 
-            this.ContinentMain.Controls.Add(this.ListFlow);
-            this.ContinentMain.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ContinentMain.Location = new System.Drawing.Point(88, 24);
-            this.ContinentMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ContinentMain.Name = "ContinentMain";
-            this.ContinentMain.Size = new System.Drawing.Size(1190, 549);
-            this.ContinentMain.TabIndex = 2;
-            // 
             // GeneratorGroupBox
             // 
             this.GeneratorGroupBox.Controls.Add(this.GeneratorFlow);
-            this.GeneratorGroupBox.Location = new System.Drawing.Point(88, 370);
-            this.GeneratorGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GeneratorGroupBox.Location = new System.Drawing.Point(6, 352);
+            this.GeneratorGroupBox.Margin = new System.Windows.Forms.Padding(0);
             this.GeneratorGroupBox.Name = "GeneratorGroupBox";
-            this.GeneratorGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.GeneratorGroupBox.Size = new System.Drawing.Size(1190, 203);
+            this.GeneratorGroupBox.Padding = new System.Windows.Forms.Padding(0);
+            this.GeneratorGroupBox.Size = new System.Drawing.Size(1044, 203);
             this.GeneratorGroupBox.TabIndex = 2;
             this.GeneratorGroupBox.TabStop = false;
             this.GeneratorGroupBox.Text = "Generator";
@@ -497,9 +522,9 @@ namespace Continental_Encounters
             this.GeneratorFlow.Controls.Add(this.OptionsFlow);
             this.GeneratorFlow.Controls.Add(this.ResultFlow);
             this.GeneratorFlow.Location = new System.Drawing.Point(5, 13);
-            this.GeneratorFlow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GeneratorFlow.Margin = new System.Windows.Forms.Padding(2);
             this.GeneratorFlow.Name = "GeneratorFlow";
-            this.GeneratorFlow.Size = new System.Drawing.Size(1181, 178);
+            this.GeneratorFlow.Size = new System.Drawing.Size(1035, 178);
             this.GeneratorFlow.TabIndex = 0;
             // 
             // GenerateBtn
@@ -520,7 +545,7 @@ namespace Continental_Encounters
             this.OptionsFlow.Controls.Add(this.RandomRadio);
             this.OptionsFlow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.OptionsFlow.Location = new System.Drawing.Point(188, 2);
-            this.OptionsFlow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.OptionsFlow.Margin = new System.Windows.Forms.Padding(2);
             this.OptionsFlow.Name = "OptionsFlow";
             this.OptionsFlow.Size = new System.Drawing.Size(132, 135);
             this.OptionsFlow.TabIndex = 1;
@@ -583,9 +608,9 @@ namespace Continental_Encounters
             this.ResultFlow.Controls.Add(this.RoamerGenBox);
             this.ResultFlow.Controls.Add(this.EncounterGenBox);
             this.ResultFlow.Location = new System.Drawing.Point(324, 2);
-            this.ResultFlow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ResultFlow.Margin = new System.Windows.Forms.Padding(2);
             this.ResultFlow.Name = "ResultFlow";
-            this.ResultFlow.Size = new System.Drawing.Size(842, 167);
+            this.ResultFlow.Size = new System.Drawing.Size(703, 167);
             this.ResultFlow.TabIndex = 2;
             // 
             // EnvironmentGenBox
@@ -593,145 +618,234 @@ namespace Continental_Encounters
             this.EnvironmentGenBox.Controls.Add(this.EnvironmentGenLabel);
             this.EnvironmentGenBox.Location = new System.Drawing.Point(3, 3);
             this.EnvironmentGenBox.Name = "EnvironmentGenBox";
-            this.EnvironmentGenBox.Size = new System.Drawing.Size(200, 163);
+            this.EnvironmentGenBox.Size = new System.Drawing.Size(225, 163);
             this.EnvironmentGenBox.TabIndex = 4;
             this.EnvironmentGenBox.TabStop = false;
             this.EnvironmentGenBox.Text = "Environment";
             // 
             // EnvironmentGenLabel
             // 
+            this.EnvironmentGenLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.EnvironmentGenLabel.Location = new System.Drawing.Point(6, 20);
-            this.EnvironmentGenLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.EnvironmentGenLabel.Margin = new System.Windows.Forms.Padding(3);
             this.EnvironmentGenLabel.Name = "EnvironmentGenLabel";
-            this.EnvironmentGenLabel.Size = new System.Drawing.Size(187, 137);
+            this.EnvironmentGenLabel.Size = new System.Drawing.Size(212, 137);
             this.EnvironmentGenLabel.TabIndex = 1;
             this.EnvironmentGenLabel.Text = "The generated environment will appear here!";
             // 
             // RoamerGenBox
             // 
             this.RoamerGenBox.Controls.Add(this.RoamerGenLabel);
-            this.RoamerGenBox.Location = new System.Drawing.Point(209, 3);
+            this.RoamerGenBox.Location = new System.Drawing.Point(234, 3);
             this.RoamerGenBox.Name = "RoamerGenBox";
-            this.RoamerGenBox.Size = new System.Drawing.Size(200, 163);
+            this.RoamerGenBox.Size = new System.Drawing.Size(225, 163);
             this.RoamerGenBox.TabIndex = 3;
             this.RoamerGenBox.TabStop = false;
             this.RoamerGenBox.Text = "Roamer";
             // 
             // RoamerGenLabel
             // 
+            this.RoamerGenLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RoamerGenLabel.Location = new System.Drawing.Point(6, 19);
-            this.RoamerGenLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.RoamerGenLabel.Margin = new System.Windows.Forms.Padding(3);
             this.RoamerGenLabel.Name = "RoamerGenLabel";
-            this.RoamerGenLabel.Size = new System.Drawing.Size(187, 137);
+            this.RoamerGenLabel.Size = new System.Drawing.Size(212, 137);
             this.RoamerGenLabel.TabIndex = 1;
             this.RoamerGenLabel.Text = "The generated roamer will appear here!";
             // 
             // EncounterGenBox
             // 
             this.EncounterGenBox.Controls.Add(this.EncounterGenLabel);
-            this.EncounterGenBox.Location = new System.Drawing.Point(415, 3);
+            this.EncounterGenBox.Location = new System.Drawing.Point(465, 3);
             this.EncounterGenBox.Name = "EncounterGenBox";
-            this.EncounterGenBox.Size = new System.Drawing.Size(200, 163);
+            this.EncounterGenBox.Size = new System.Drawing.Size(225, 163);
             this.EncounterGenBox.TabIndex = 2;
             this.EncounterGenBox.TabStop = false;
             this.EncounterGenBox.Text = "Encounter";
             // 
             // EncounterGenLabel
             // 
+            this.EncounterGenLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.EncounterGenLabel.Location = new System.Drawing.Point(7, 20);
-            this.EncounterGenLabel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.EncounterGenLabel.Margin = new System.Windows.Forms.Padding(3);
             this.EncounterGenLabel.Name = "EncounterGenLabel";
-            this.EncounterGenLabel.Size = new System.Drawing.Size(187, 137);
+            this.EncounterGenLabel.Size = new System.Drawing.Size(212, 137);
             this.EncounterGenLabel.TabIndex = 0;
             this.EncounterGenLabel.Text = "The generated encounter will appear here!";
             // 
-            // ToolSidebar
+            // ToolTabs
             // 
-            this.ToolSidebar.Controls.Add(this.ContinentIcon);
-            this.ToolSidebar.Controls.Add(this.CombatIcon);
-            this.ToolSidebar.Controls.Add(this.CharacterIcon);
-            this.ToolSidebar.Controls.Add(this.CompediumIcon);
-            this.ToolSidebar.Controls.Add(this.CampaignIcon);
-            this.ToolSidebar.Controls.Add(this.CreatorIcon);
-            this.ToolSidebar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ToolSidebar.Location = new System.Drawing.Point(0, 98);
-            this.ToolSidebar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ToolSidebar.Name = "ToolSidebar";
-            this.ToolSidebar.Size = new System.Drawing.Size(42, 274);
-            this.ToolSidebar.TabIndex = 3;
+            this.ToolTabs.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.ToolTabs.Controls.Add(this.ContinentTab);
+            this.ToolTabs.Controls.Add(this.CampaignTab);
+            this.ToolTabs.Controls.Add(this.CombatTab);
+            this.ToolTabs.Controls.Add(this.EncounterTab);
+            this.ToolTabs.Controls.Add(this.CompendiumTab);
+            this.ToolTabs.Controls.Add(this.CreationTab);
+            this.ToolTabs.Location = new System.Drawing.Point(12, 27);
+            this.ToolTabs.Name = "ToolTabs";
+            this.ToolTabs.SelectedIndex = 0;
+            this.ToolTabs.Size = new System.Drawing.Size(1305, 608);
+            this.ToolTabs.TabIndex = 1;
             // 
-            // ContinentIcon
+            // ContinentTab
             // 
-            this.ContinentIcon.Location = new System.Drawing.Point(2, 2);
-            this.ContinentIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ContinentIcon.Name = "ContinentIcon";
-            this.ContinentIcon.Size = new System.Drawing.Size(38, 41);
-            this.ContinentIcon.TabIndex = 0;
-            this.ContinentIcon.TabStop = false;
+            this.ContinentTab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ContinentTab.Controls.Add(this.SendPanel);
+            this.ContinentTab.Controls.Add(this.ContFilePanel);
+            this.ContinentTab.Controls.Add(this.GeneratorGroupBox);
+            this.ContinentTab.Controls.Add(this.ListFlow);
+            this.ContinentTab.Location = new System.Drawing.Point(4, 25);
+            this.ContinentTab.Name = "ContinentTab";
+            this.ContinentTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ContinentTab.Size = new System.Drawing.Size(1297, 579);
+            this.ContinentTab.TabIndex = 0;
+            this.ContinentTab.Text = "Continental Encounters";
+            this.ContinentTab.UseVisualStyleBackColor = true;
             // 
-            // CombatIcon
+            // SendPanel
             // 
-            this.CombatIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CombatIcon.Location = new System.Drawing.Point(2, 47);
-            this.CombatIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.CombatIcon.Name = "CombatIcon";
-            this.CombatIcon.Size = new System.Drawing.Size(38, 41);
-            this.CombatIcon.TabIndex = 1;
-            this.CombatIcon.TabStop = false;
+            this.SendPanel.Controls.Add(this.SendLabel);
+            this.SendPanel.Controls.Add(this.ContToEncButton);
+            this.SendPanel.Controls.Add(this.ContToTrackButton);
+            this.SendPanel.Controls.Add(this.ContToNotesButton);
+            this.SendPanel.Location = new System.Drawing.Point(553, 6);
+            this.SendPanel.Name = "SendPanel";
+            this.SendPanel.Size = new System.Drawing.Size(497, 30);
+            this.SendPanel.TabIndex = 4;
             // 
-            // CharacterIcon
+            // SendLabel
             // 
-            this.CharacterIcon.Location = new System.Drawing.Point(2, 92);
-            this.CharacterIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.CharacterIcon.Name = "CharacterIcon";
-            this.CharacterIcon.Size = new System.Drawing.Size(38, 41);
-            this.CharacterIcon.TabIndex = 2;
-            this.CharacterIcon.TabStop = false;
+            this.SendLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.SendLabel.AutoSize = true;
+            this.SendLabel.Location = new System.Drawing.Point(3, 9);
+            this.SendLabel.Name = "SendLabel";
+            this.SendLabel.Size = new System.Drawing.Size(156, 13);
+            this.SendLabel.TabIndex = 0;
+            this.SendLabel.Text = "Send Generated Encounter To:";
             // 
-            // CompediumIcon
+            // ContToEncButton
             // 
-            this.CompediumIcon.Location = new System.Drawing.Point(2, 137);
-            this.CompediumIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.CompediumIcon.Name = "CompediumIcon";
-            this.CompediumIcon.Size = new System.Drawing.Size(38, 41);
-            this.CompediumIcon.TabIndex = 3;
-            this.CompediumIcon.TabStop = false;
+            this.ContToEncButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ContToEncButton.Location = new System.Drawing.Point(165, 3);
+            this.ContToEncButton.Name = "ContToEncButton";
+            this.ContToEncButton.Size = new System.Drawing.Size(105, 25);
+            this.ContToEncButton.TabIndex = 1;
+            this.ContToEncButton.Text = "Encounter Planner";
+            this.ContToEncButton.UseVisualStyleBackColor = true;
             // 
-            // CampaignIcon
+            // ContToTrackButton
             // 
-            this.CampaignIcon.Location = new System.Drawing.Point(2, 182);
-            this.CampaignIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.CampaignIcon.Name = "CampaignIcon";
-            this.CampaignIcon.Size = new System.Drawing.Size(38, 41);
-            this.CampaignIcon.TabIndex = 4;
-            this.CampaignIcon.TabStop = false;
+            this.ContToTrackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ContToTrackButton.Location = new System.Drawing.Point(276, 3);
+            this.ContToTrackButton.Name = "ContToTrackButton";
+            this.ContToTrackButton.Size = new System.Drawing.Size(105, 25);
+            this.ContToTrackButton.TabIndex = 2;
+            this.ContToTrackButton.Text = "Combat Tracker";
+            this.ContToTrackButton.UseVisualStyleBackColor = true;
             // 
-            // CreatorIcon
+            // ContToNotesButton
             // 
-            this.CreatorIcon.Location = new System.Drawing.Point(2, 227);
-            this.CreatorIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.CreatorIcon.Name = "CreatorIcon";
-            this.CreatorIcon.Size = new System.Drawing.Size(38, 41);
-            this.CreatorIcon.TabIndex = 5;
-            this.CreatorIcon.TabStop = false;
+            this.ContToNotesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ContToNotesButton.Location = new System.Drawing.Point(387, 3);
+            this.ContToNotesButton.Name = "ContToNotesButton";
+            this.ContToNotesButton.Size = new System.Drawing.Size(105, 25);
+            this.ContToNotesButton.TabIndex = 3;
+            this.ContToNotesButton.Text = "Campaign Notes";
+            this.ContToNotesButton.UseVisualStyleBackColor = true;
+            // 
+            // ContFilePanel
+            // 
+            this.ContFilePanel.Controls.Add(this.OpenContButton);
+            this.ContFilePanel.Controls.Add(this.SaveContButton);
+            this.ContFilePanel.Location = new System.Drawing.Point(6, 6);
+            this.ContFilePanel.Name = "ContFilePanel";
+            this.ContFilePanel.Size = new System.Drawing.Size(194, 30);
+            this.ContFilePanel.TabIndex = 3;
+            // 
+            // OpenContButton
+            // 
+            this.OpenContButton.Location = new System.Drawing.Point(3, 3);
+            this.OpenContButton.Name = "OpenContButton";
+            this.OpenContButton.Size = new System.Drawing.Size(89, 23);
+            this.OpenContButton.TabIndex = 0;
+            this.OpenContButton.Text = "Open Continent";
+            this.OpenContButton.UseVisualStyleBackColor = true;
+            // 
+            // SaveContButton
+            // 
+            this.SaveContButton.Location = new System.Drawing.Point(98, 3);
+            this.SaveContButton.Name = "SaveContButton";
+            this.SaveContButton.Size = new System.Drawing.Size(89, 23);
+            this.SaveContButton.TabIndex = 1;
+            this.SaveContButton.Text = "Save Continent";
+            this.SaveContButton.UseVisualStyleBackColor = true;
+            // 
+            // CampaignTab
+            // 
+            this.CampaignTab.Location = new System.Drawing.Point(4, 25);
+            this.CampaignTab.Name = "CampaignTab";
+            this.CampaignTab.Padding = new System.Windows.Forms.Padding(3);
+            this.CampaignTab.Size = new System.Drawing.Size(1297, 579);
+            this.CampaignTab.TabIndex = 1;
+            this.CampaignTab.Text = "Campaign Notes";
+            this.CampaignTab.UseVisualStyleBackColor = true;
+            // 
+            // CombatTab
+            // 
+            this.CombatTab.Location = new System.Drawing.Point(4, 25);
+            this.CombatTab.Name = "CombatTab";
+            this.CombatTab.Padding = new System.Windows.Forms.Padding(3);
+            this.CombatTab.Size = new System.Drawing.Size(1297, 579);
+            this.CombatTab.TabIndex = 3;
+            this.CombatTab.Text = "Combat Tracker";
+            this.CombatTab.UseVisualStyleBackColor = true;
+            // 
+            // EncounterTab
+            // 
+            this.EncounterTab.Location = new System.Drawing.Point(4, 25);
+            this.EncounterTab.Name = "EncounterTab";
+            this.EncounterTab.Padding = new System.Windows.Forms.Padding(3);
+            this.EncounterTab.Size = new System.Drawing.Size(1297, 579);
+            this.EncounterTab.TabIndex = 5;
+            this.EncounterTab.Text = "Encounter Planner";
+            this.EncounterTab.UseVisualStyleBackColor = true;
+            // 
+            // CompendiumTab
+            // 
+            this.CompendiumTab.Location = new System.Drawing.Point(4, 25);
+            this.CompendiumTab.Name = "CompendiumTab";
+            this.CompendiumTab.Padding = new System.Windows.Forms.Padding(3);
+            this.CompendiumTab.Size = new System.Drawing.Size(1297, 579);
+            this.CompendiumTab.TabIndex = 4;
+            this.CompendiumTab.Text = "Compendium";
+            this.CompendiumTab.UseVisualStyleBackColor = true;
+            // 
+            // CreationTab
+            // 
+            this.CreationTab.Location = new System.Drawing.Point(4, 25);
+            this.CreationTab.Name = "CreationTab";
+            this.CreationTab.Padding = new System.Windows.Forms.Padding(3);
+            this.CreationTab.Size = new System.Drawing.Size(1297, 579);
+            this.CreationTab.TabIndex = 2;
+            this.CreationTab.Text = "Creation Lab";
+            this.CreationTab.UseVisualStyleBackColor = true;
             // 
             // ContinentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1289, 576);
-            this.Controls.Add(this.ToolSidebar);
-            this.Controls.Add(this.GeneratorGroupBox);
-            this.Controls.Add(this.ContinentMain);
-            this.Controls.Add(this.BaseMenuStrip);
-            this.MainMenuStrip = this.BaseMenuStrip;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientSize = new System.Drawing.Size(1329, 647);
+            this.Controls.Add(this.ToolTabs);
+            this.Controls.Add(this.MainMenuStrip);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ContinentForm";
             this.Text = "Continental Encounters";
-            this.BaseMenuStrip.ResumeLayout(false);
-            this.BaseMenuStrip.PerformLayout();
+            this.MainMenuStrip.ResumeLayout(false);
+            this.MainMenuStrip.PerformLayout();
             this.ListFlow.ResumeLayout(false);
             this.ZoneGroupBox.ResumeLayout(false);
             this.NewZoneBox.ResumeLayout(false);
@@ -748,7 +862,6 @@ namespace Continental_Encounters
             this.NeighborsGroupBox.ResumeLayout(false);
             this.NewNeighborBox.ResumeLayout(false);
             this.NewNeighborBox.PerformLayout();
-            this.ContinentMain.ResumeLayout(false);
             this.GeneratorGroupBox.ResumeLayout(false);
             this.GeneratorFlow.ResumeLayout(false);
             this.OptionsFlow.ResumeLayout(false);
@@ -757,13 +870,11 @@ namespace Continental_Encounters
             this.EnvironmentGenBox.ResumeLayout(false);
             this.RoamerGenBox.ResumeLayout(false);
             this.EncounterGenBox.ResumeLayout(false);
-            this.ToolSidebar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ContinentIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CombatIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CharacterIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CompediumIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CampaignIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CreatorIcon)).EndInit();
+            this.ToolTabs.ResumeLayout(false);
+            this.ContinentTab.ResumeLayout(false);
+            this.SendPanel.ResumeLayout(false);
+            this.SendPanel.PerformLayout();
+            this.ContFilePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -772,23 +883,11 @@ namespace Continental_Encounters
         #endregion
 
         // Menubar
-        private System.Windows.Forms.MenuStrip BaseMenuStrip;
+        private System.Windows.Forms.MenuStrip MainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-
-        // Tool Sidebar
-        private System.Windows.Forms.FlowLayoutPanel ToolSidebar;
-        private System.Windows.Forms.PictureBox ContinentIcon;
-        private System.Windows.Forms.PictureBox CombatIcon;
-        private System.Windows.Forms.PictureBox CharacterIcon;
-        private System.Windows.Forms.PictureBox CompediumIcon;
-        private System.Windows.Forms.PictureBox CampaignIcon;
-        private System.Windows.Forms.PictureBox CreatorIcon;
-
-        // Continent Container
-        private System.Windows.Forms.FlowLayoutPanel ContinentMain;
 
             // Lists Container
         private System.Windows.Forms.FlowLayoutPanel ListFlow;
@@ -873,6 +972,21 @@ namespace Continental_Encounters
         private System.Windows.Forms.Label RoamerGenLabel;
         private System.Windows.Forms.GroupBox EnvironmentGenBox;
         private System.Windows.Forms.Label EnvironmentGenLabel;
+        private System.Windows.Forms.TabControl ToolTabs;
+        private System.Windows.Forms.TabPage ContinentTab;
+        private System.Windows.Forms.TabPage CampaignTab;
+        private System.Windows.Forms.TabPage CreationTab;
+        private System.Windows.Forms.TabPage CombatTab;
+        private System.Windows.Forms.TabPage CompendiumTab;
+        private System.Windows.Forms.TabPage EncounterTab;
+        private System.Windows.Forms.FlowLayoutPanel ContFilePanel;
+        private System.Windows.Forms.Button OpenContButton;
+        private System.Windows.Forms.Button SaveContButton;
+        private System.Windows.Forms.FlowLayoutPanel SendPanel;
+        private System.Windows.Forms.Label SendLabel;
+        private System.Windows.Forms.Button ContToEncButton;
+        private System.Windows.Forms.Button ContToTrackButton;
+        private System.Windows.Forms.Button ContToNotesButton;
     }
 }
 
