@@ -108,6 +108,7 @@ namespace Continental_Encounters
             this.ContFilePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.OpenContButton = new System.Windows.Forms.Button();
             this.SaveContButton = new System.Windows.Forms.Button();
+            this.SaveContAsButton = new System.Windows.Forms.Button();
             this.CampaignTab = new System.Windows.Forms.TabPage();
             this.CombatTab = new System.Windows.Forms.TabPage();
             this.EncounterTab = new System.Windows.Forms.TabPage();
@@ -187,7 +188,7 @@ namespace Continental_Encounters
             this.ListFlow.Location = new System.Drawing.Point(3, 39);
             this.ListFlow.Margin = new System.Windows.Forms.Padding(0);
             this.ListFlow.Name = "ListFlow";
-            this.ListFlow.Size = new System.Drawing.Size(1055, 313);
+            this.ListFlow.Size = new System.Drawing.Size(1061, 313);
             this.ListFlow.TabIndex = 1;
             // 
             // ZoneGroupBox
@@ -203,7 +204,8 @@ namespace Continental_Encounters
             // 
             // NewZoneBox
             // 
-            this.NewZoneBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.NewZoneBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewZoneBox.Controls.Add(this.RemoveZoneBtn);
             this.NewZoneBox.Controls.Add(this.ZoneInput);
             this.NewZoneBox.Controls.Add(this.AddZoneBtn);
@@ -244,8 +246,7 @@ namespace Continental_Encounters
             // 
             // ZoneListBox
             // 
-            this.ZoneListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.ZoneListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ZoneListBox.FormattingEnabled = true;
             this.ZoneListBox.Location = new System.Drawing.Point(10, 70);
@@ -267,7 +268,8 @@ namespace Continental_Encounters
             // 
             // NewEncounterBox
             // 
-            this.NewEncounterBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.NewEncounterBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewEncounterBox.Controls.Add(this.RemoveEncounterBtn);
             this.NewEncounterBox.Controls.Add(this.EncounterInput);
             this.NewEncounterBox.Controls.Add(this.AddEncounterBtn);
@@ -307,8 +309,7 @@ namespace Continental_Encounters
             // 
             // EncounterListBox
             // 
-            this.EncounterListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.EncounterListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EncounterListBox.FormattingEnabled = true;
             this.EncounterListBox.Location = new System.Drawing.Point(10, 70);
@@ -329,11 +330,12 @@ namespace Continental_Encounters
             // 
             // NewRoamerBox
             // 
-            this.NewRoamerBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.NewRoamerBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewRoamerBox.Controls.Add(this.RemoveRoamerBtn);
             this.NewRoamerBox.Controls.Add(this.RoamerInput);
             this.NewRoamerBox.Controls.Add(this.AddRoamerBtn);
-            this.NewRoamerBox.Location = new System.Drawing.Point(10, 19);
+            this.NewRoamerBox.Location = new System.Drawing.Point(6, 19);
             this.NewRoamerBox.Name = "NewRoamerBox";
             this.NewRoamerBox.Size = new System.Drawing.Size(182, 45);
             this.NewRoamerBox.TabIndex = 2;
@@ -369,8 +371,7 @@ namespace Continental_Encounters
             // 
             // RoamerListBox
             // 
-            this.RoamerListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.RoamerListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RoamerListBox.FormattingEnabled = true;
             this.RoamerListBox.Location = new System.Drawing.Point(10, 70);
@@ -394,7 +395,8 @@ namespace Continental_Encounters
             // 
             // NewEnvironmentBox
             // 
-            this.NewEnvironmentBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.NewEnvironmentBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewEnvironmentBox.Controls.Add(this.RemoveEnvironmentBtn);
             this.NewEnvironmentBox.Controls.Add(this.EnvironmentInput);
             this.NewEnvironmentBox.Controls.Add(this.AddEnvironmentBtn);
@@ -434,8 +436,8 @@ namespace Continental_Encounters
             // 
             // EnvironmentListBox
             // 
-            this.EnvironmentListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.EnvironmentListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.EnvironmentListBox.FormattingEnabled = true;
             this.EnvironmentListBox.Location = new System.Drawing.Point(10, 70);
             this.EnvironmentListBox.Name = "EnvironmentListBox";
@@ -455,7 +457,8 @@ namespace Continental_Encounters
             // 
             // NewNeighborBox
             // 
-            this.NewNeighborBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.NewNeighborBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewNeighborBox.Controls.Add(this.RemoveNeighborBtn);
             this.NewNeighborBox.Controls.Add(this.NeighborInput);
             this.NewNeighborBox.Controls.Add(this.AddNeighborBtn);
@@ -495,8 +498,7 @@ namespace Continental_Encounters
             // 
             // NeighborListBox
             // 
-            this.NeighborListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.NeighborListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NeighborListBox.FormattingEnabled = true;
             this.NeighborListBox.Location = new System.Drawing.Point(10, 70);
@@ -678,6 +680,9 @@ namespace Continental_Encounters
             // 
             // ToolTabs
             // 
+            this.ToolTabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ToolTabs.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.ToolTabs.Controls.Add(this.ContinentTab);
             this.ToolTabs.Controls.Add(this.CampaignTab);
@@ -708,13 +713,14 @@ namespace Continental_Encounters
             // 
             // SendPanel
             // 
+            this.SendPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SendPanel.Controls.Add(this.SendLabel);
             this.SendPanel.Controls.Add(this.ContToEncButton);
             this.SendPanel.Controls.Add(this.ContToTrackButton);
             this.SendPanel.Controls.Add(this.ContToNotesButton);
-            this.SendPanel.Location = new System.Drawing.Point(553, 6);
+            this.SendPanel.Location = new System.Drawing.Point(794, 6);
             this.SendPanel.Name = "SendPanel";
-            this.SendPanel.Size = new System.Drawing.Size(497, 30);
+            this.SendPanel.Size = new System.Drawing.Size(495, 30);
             this.SendPanel.TabIndex = 4;
             // 
             // SendLabel
@@ -761,28 +767,38 @@ namespace Continental_Encounters
             // 
             this.ContFilePanel.Controls.Add(this.OpenContButton);
             this.ContFilePanel.Controls.Add(this.SaveContButton);
-            this.ContFilePanel.Location = new System.Drawing.Point(6, 6);
+            this.ContFilePanel.Controls.Add(this.SaveContAsButton);
+            this.ContFilePanel.Location = new System.Drawing.Point(3, 6);
             this.ContFilePanel.Name = "ContFilePanel";
-            this.ContFilePanel.Size = new System.Drawing.Size(194, 30);
+            this.ContFilePanel.Size = new System.Drawing.Size(367, 30);
             this.ContFilePanel.TabIndex = 3;
             // 
             // OpenContButton
             // 
             this.OpenContButton.Location = new System.Drawing.Point(3, 3);
             this.OpenContButton.Name = "OpenContButton";
-            this.OpenContButton.Size = new System.Drawing.Size(89, 23);
+            this.OpenContButton.Size = new System.Drawing.Size(116, 23);
             this.OpenContButton.TabIndex = 0;
             this.OpenContButton.Text = "Open Continent";
             this.OpenContButton.UseVisualStyleBackColor = true;
             // 
             // SaveContButton
             // 
-            this.SaveContButton.Location = new System.Drawing.Point(98, 3);
+            this.SaveContButton.Location = new System.Drawing.Point(125, 3);
             this.SaveContButton.Name = "SaveContButton";
-            this.SaveContButton.Size = new System.Drawing.Size(89, 23);
+            this.SaveContButton.Size = new System.Drawing.Size(116, 23);
             this.SaveContButton.TabIndex = 1;
             this.SaveContButton.Text = "Save Continent";
             this.SaveContButton.UseVisualStyleBackColor = true;
+            // 
+            // SaveContAsButton
+            // 
+            this.SaveContAsButton.Location = new System.Drawing.Point(247, 3);
+            this.SaveContAsButton.Name = "SaveContAsButton";
+            this.SaveContAsButton.Size = new System.Drawing.Size(116, 23);
+            this.SaveContAsButton.TabIndex = 2;
+            this.SaveContAsButton.Text = "Save Continent As...";
+            this.SaveContAsButton.UseVisualStyleBackColor = true;
             // 
             // CampaignTab
             // 
@@ -987,6 +1003,7 @@ namespace Continental_Encounters
         private System.Windows.Forms.Button ContToEncButton;
         private System.Windows.Forms.Button ContToTrackButton;
         private System.Windows.Forms.Button ContToNotesButton;
+        private System.Windows.Forms.Button SaveContAsButton;
     }
 }
 
